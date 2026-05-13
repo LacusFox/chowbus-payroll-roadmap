@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chowbus Payroll — 产品规划</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  background: #04080f;
+  color: #f1f5f9;
+}
+
+/* ── COVER ── */
+#cover {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 40%, #0d1f3c 0%, #04080f 70%);
+  text-align: center;
+  padding: 60px 40px;
+  position: relative;
+}
+.cover-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-size: 12px;
+  animation: bounce 2s infinite;
+}
+.cover-scroll-hint svg { opacity: 0.4; }
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+.cover-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #334155; margin-bottom: 24px;
+}
+.cover-title {
+  font-size: 48px; font-weight: 900; letter-spacing: -1px; line-height: 1.15;
+  background: linear-gradient(135deg, #34d399 0%, #818cf8 50%, #fbbf24 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 16px;
+}
+.cover-sub {
+  font-size: 18px; color: #94a3b8; margin-bottom: 48px; line-height: 1.6;
+}
+.cover-meta {
+  font-size: 13px; color: #475569; margin-bottom: 0;
+  display: flex; gap: 28px; justify-content: center;
+}
+.cover-meta span { color: #94a3b8; }
+
+/* ── STICKY NAV ── */
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(4,8,15,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 52px;
+  gap: 4px;
+}
+.nav-brand {
+  font-size: 13px; font-weight: 800; color: #334155;
+  margin-right: 8px; white-space: nowrap; flex-shrink: 0;
+}
+.nav-divider { width: 1px; height: 20px; background: #1e293b; margin: 0 8px; flex-shrink:0; }
+#navbar a {
+  font-size: 12px; font-weight: 600; color: #475569;
+  padding: 6px 11px; border-radius: 6px; text-decoration: none;
+  white-space: nowrap; transition: color 0.15s, background 0.15s;
+}
+#navbar a:hover  { color: #e2e8f0; background: rgba(255,255,255,0.05); }
+#navbar a.active { color: #f1f5f9; background: rgba(99,102,241,0.18); }
+
+/* ── PROGRESS BAR ── */
+#progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200;
+  background: linear-gradient(90deg, #34d399, #818cf8, #fbbf24);
+  transform-origin: left; transform: scaleX(0);
+  transition: transform 0.08s linear;
+  pointer-events: none;
+}
+
+/* ── SECTIONS ── */
+section {
+  border-top: 1px solid #1e293b;
+  scroll-margin-top: 52px;
+}
+.section-inner {
+  padding: 48px 44px 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── SCOPED STYLES ── */
+/* §1 */
+#s1 { box-sizing: border-box; margin: 0; padding: 0; }#s1 {
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    background: #060d1f;
+    color: #e2e8f0;
+    padding: 36px 40px;
+    font-size: 15px;
+    line-height: 1.6;
+  }#s1 h1 { font-size: 26px; font-weight: 700; color: #f8fafc; letter-spacing: -0.3px; }#s1 .subtitle { color: #64748b; font-size: 14px; margin-top: 6px; margin-bottom: 28px; }#s1 .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #6366f1;
+    margin-bottom: 14px; padding-bottom: 6px;
+    border-bottom: 1px solid #1e293b;
+  }#s1 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }#s1 .card {
+    background: #0f172a; border: 1px solid #1e293b;
+    border-radius: 10px; padding: 20px;
+    position: relative; overflow: hidden;
+  }#s1 .card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+  }#s1 .card.c1::before { background: linear-gradient(90deg, #6366f1, #818cf8); }#s1 .card.c2::before { background: linear-gradient(90deg, #10b981, #34d399); }#s1 .card.c3::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }#s1 .card.c4::before { background: linear-gradient(90deg, #ef4444, #f87171); }#s1 .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }#s1 .icon {
+    width: 42px; height: 42px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }#s1 .c1 .icon { background: rgba(99,102,241,0.15); }#s1 .c2 .icon { background: rgba(16,185,129,0.15); }#s1 .c3 .icon { background: rgba(245,158,11,0.15); }#s1 .c4 .icon { background: rgba(239,68,68,0.15); }#s1 .card-title { font-size: 16px; font-weight: 700; color: #f1f5f9; }#s1 .card-sub { font-size: 12px; color: #64748b; margin-top: 2px; }#s1 .badge {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 20px; margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }#s1 .c1 .badge { background: rgba(99,102,241,0.2); color: #a5b4fc; }#s1 .c2 .badge { background: rgba(16,185,129,0.2); color: #6ee7b7; }#s1 .c3 .badge { background: rgba(245,158,11,0.2); color: #fcd34d; }#s1 .c4 .badge { background: rgba(239,68,68,0.2); color: #fca5a5; }#s1 .facts { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }#s1 .fact { font-size: 13px; color: #94a3b8; display: flex; gap: 8px; }#s1 .fact-icon { flex-shrink: 0; width: 16px; text-align: center; }#s1 .pain-list { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }#s1 .pain-list li { font-size: 13px; color: #cbd5e1; padding-left: 14px; position: relative; }#s1 .pain-list li::before {
+    content: '·'; position: absolute; left: 4px;
+    color: #ef4444; font-weight: 700; font-size: 16px; line-height: 1.2;
+  }#s1 .story {
+    background: #070f20; border: 1px solid #1e293b;
+    border-radius: 6px; padding: 12px 14px;
+    font-size: 13px; color: #94a3b8; line-height: 1.7;
+  }#s1 .story .highlight { color: #f1f5f9; font-weight: 600; }#s1 .divider { border: none; border-top: 1px solid #1e293b; margin: 4px 0 24px; }#s1 .principles {
+    background: #0f172a; border: 1px solid #1e293b;
+    border-radius: 10px; padding: 20px 24px;
+  }#s1 .principles-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }#s1 .principle {
+    background: #070f20; border: 1px solid #1e293b;
+    border-radius: 6px; padding: 12px 14px;
+  }#s1 .principle-name { color: #f1f5f9; font-weight: 600; margin-bottom: 4px; font-size: 14px; }#s1 .principle-desc { color: #64748b; font-size: 12px; line-height: 1.5; }#s1 .principle.highlight-card { border-color: #6366f1; }#s1 .principle.highlight-card .principle-name { color: #a5b4fc; }
+/* §2 */
+#s2 { box-sizing: border-box; margin: 0; padding: 0; }#s2 {
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    background: #060d1f;
+    color: #e2e8f0;
+    padding: 36px 40px;
+    font-size: 15px;
+    line-height: 1.6;
+  }#s2 h1 { font-size: 26px; font-weight: 700; color: #f8fafc; letter-spacing: -0.3px; }#s2 .subtitle { color: #64748b; font-size: 14px; margin-top: 6px; margin-bottom: 32px; }#s2 .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px;
+    border-bottom: 1px solid #1e293b;
+  }#s2 .label-pain { color: #ef4444; }#s2 .label-opp { color: #10b981; }#s2 /* PAIN POINTS */
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 36px; }#s2 .pain-card {
+    background: #0f172a;
+    border: 1px solid #2a1a1a;
+    border-left: 3px solid #ef4444;
+    border-radius: 8px;
+    padding: 18px;
+  }#s2 .pain-num {
+    font-size: 11px; font-weight: 700; color: #ef4444;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
+  }#s2 .pain-title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }#s2 .pain-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; }#s2 .pain-quote {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(239,68,68,0.06);
+    border-left: 2px solid rgba(239,68,68,0.4);
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fca5a5;
+    font-style: italic;
+    line-height: 1.6;
+  }#s2 /* OPPORTUNITY */
+  .opp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }#s2 .opp-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }#s2 .opp-icon {
+    width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+    background: rgba(16,185,129,0.12);
+  }#s2 .opp-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 5px; }#s2 .opp-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; }#s2 .opp-badge {
+    display: inline-block; margin-top: 8px;
+    font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px;
+    background: rgba(16,185,129,0.15); color: #34d399;
+  }#s2 /* MOAT */
+  .moat {
+    background: linear-gradient(135deg, #0f172a 0%, #0d1f3c 100%);
+    border: 1px solid #1e3a5f;
+    border-radius: 10px;
+    padding: 24px 28px;
+  }#s2 .moat-title {
+    font-size: 13px; font-weight: 700; color: #6366f1;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
+  }#s2 .moat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }#s2 .moat-item {
+    text-align: center;
+    padding: 14px 10px;
+    background: rgba(99,102,241,0.06);
+    border: 1px solid rgba(99,102,241,0.15);
+    border-radius: 8px;
+  }#s2 .moat-num {
+    font-size: 28px; font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }#s2 .moat-label { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+/* §3 */
+#s3 { box-sizing: border-box; margin: 0; padding: 0; }#s3 {
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  background: #04080f;
+  color: #f1f5f9;
+  padding: 40px 44px;
+}#s3 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s3 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 28px; }#s3 .legend { display: flex; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; align-items: center; }#s3 .leg { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; }#s3 .pip { width: 12px; height: 12px; border-radius: 3px; }#s3 .legend-divider { width: 1px; height: 16px; background: #1e293b; }#s3 /* ── HERO BANNER ── */
+.hero-banner {
+  background: linear-gradient(135deg, #0a1f12 0%, #061a28 50%, #0d0a20 100%);
+  border: 1px solid rgba(16,185,129,0.3);
+  border-radius: 14px;
+  padding: 20px 28px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}#s3 .hero-title {
+  font-size: 22px; font-weight: 900; letter-spacing: -0.3px;
+  background: linear-gradient(135deg, #34d399, #7dd3fc, #c4b5fd);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}#s3 .hero-sub { font-size: 13px; color: #065f46; margin-top: 4px; }#s3 /* ── ZONE ── */
+.zone { border-radius: 14px; overflow: hidden; margin-bottom: 10px; }#s3 .zone-header { display: flex; align-items: center; gap: 14px; padding: 18px 24px; }#s3 .zone-emoji { font-size: 26px; flex-shrink: 0; }#s3 .zone-num {
+  font-size: 11px; font-weight: 900; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 4px; opacity: 0.7;
+}#s3 .zone-title { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }#s3 .zone-tagline { font-size: 13px; margin-top: 4px; opacity: 0.65; }#s3 .zone-body { padding: 14px 18px 18px; background: rgba(255,255,255,0.025); }#s3 .cards-row { display: flex; gap: 10px; }#s3 .mcard {
+  flex: 1; background: rgba(0,0,0,0.4);
+  border-radius: 10px; padding: 14px 15px;
+  border: 1px solid rgba(255,255,255,0.06);
+}#s3 .mcard-title { font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 9px; display: flex; align-items: center; gap: 7px; }#s3 .feat { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: #94a3b8; margin-bottom: 5px; line-height: 1.4; }#s3 .feat:last-child { margin-bottom: 0; }#s3 .b { flex-shrink: 0; font-size: 9px; font-weight: 800; padding: 2px 5px; border-radius: 3px; margin-top: 1px; }#s3 .bm { background: rgba(16,185,129,0.25); color: #6ee7b7; }#s3 .b2 { background: rgba(99,102,241,0.25); color: #a5b4fc; }#s3 .b3 { background: rgba(245,158,11,0.25); color: #fcd34d; }#s3 /* Zone themes */
+.z-ai { border: 2px solid rgba(139,92,246,0.5); }#s3 .z-ai  .zone-header { background: linear-gradient(135deg, #1e0a38, #0a051c); }#s3 .z-ai  .zone-title { color: #c4b5fd; }#s3 .z-ai  .zone-num { color: #7c3aed; }#s3 .z-flow { border: 1px solid rgba(99,102,241,0.4); }#s3 .z-flow .zone-header { background: linear-gradient(135deg, #1e1b4b, #0d0b2a); }#s3 .z-flow .zone-title { color: #818cf8; }#s3 .z-flow .zone-num { color: #4338ca; }#s3 .z-tax { border: 1px solid rgba(244,63,94,0.4); }#s3 .z-tax  .zone-header { background: linear-gradient(135deg, #881337, #3b0815); }#s3 .z-tax  .zone-title { color: #fb7185; }#s3 .z-tax  .zone-num { color: #9f1239; }#s3 .z-pay { border: 1px solid rgba(139,92,246,0.4); }#s3 .z-pay  .zone-header { background: linear-gradient(135deg, #4c1d95, #1e0a38); }#s3 .z-pay  .zone-title { color: #c4b5fd; }#s3 .z-pay  .zone-num { color: #5b21b6; }#s3 .z-rpt { border: 1px solid rgba(14,165,233,0.4); }#s3 .z-rpt  .zone-header { background: linear-gradient(135deg, #0c4a6e, #041e2f); }#s3 .z-rpt  .zone-title { color: #7dd3fc; }#s3 .z-rpt  .zone-num { color: #0369a1; }#s3 /* Row of 3 zones */
+.trio { display: flex; gap: 10px; margin-bottom: 10px; }#s3 .trio .zone { flex: 1; margin-bottom: 0; }#s3 .trio .zone-header { padding: 16px 18px; }#s3 .trio .zone-title { font-size: 17px; }#s3 .trio .zone-body { padding: 12px 14px 14px; }#s3 /* AI chips */
+.ai-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 18px 18px; background: rgba(88,28,220,0.06); }#s3 .chip {
+  background: rgba(109,40,217,0.12); border: 1px solid rgba(109,40,217,0.28);
+  border-radius: 8px; padding: 9px 14px;
+  display: flex; align-items: center; gap: 9px; font-size: 13px; color: #ddd6fe;
+}#s3 /* CONNECTOR */
+.connector { text-align: center; color: #1e293b; font-size: 20px; margin: 8px 0; user-select: none; }#s3 /* ── FOUNDATION ── */
+.foundation-label {
+  display: flex; align-items: center; gap: 10px; margin: 16px 0 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #334155;
+}#s3 .foundation-label::before, #s3 .foundation-label::after { content:''; flex:1; height:1px; background:#1e293b; }#s3 .z-eng { border: 1px dashed #334155; }#s3 .z-eng  .zone-header { background: linear-gradient(135deg, #0f1a2e, #070e1a); }#s3 .z-eng  .zone-title { color: #475569; }#s3 .z-eng  .zone-num { color: #334155; }#s3 .z-src { border: 1px dashed #1e293b; }#s3 .z-src  .zone-header { background: linear-gradient(135deg, #080d18, #04080f); }#s3 .z-src  .zone-title { color: #334155; }#s3 .z-src  .zone-num { color: #1e293b; }#s3 .source-row { display: flex; gap: 10px; }#s3 .src {
+  flex: 1; background: rgba(255,255,255,0.015); border: 1px dashed #1e293b;
+  border-radius: 10px; padding: 14px; text-align: center;
+}#s3 .src-icon { font-size: 22px; opacity: 0.4; margin-bottom: 6px; }#s3 .src-name { font-size: 13px; font-weight: 700; color: #475569; }#s3 .src-sub { font-size: 11px; color: #334155; margin-top: 4px; line-height: 1.5; }#s3 .src-tag { display: inline-block; margin-top: 8px; font-size: 10px; padding: 2px 8px; border-radius: 12px; background: rgba(30,41,59,0.6); color: #475569; }#s3 .src-tag.indev { background: rgba(120,53,15,0.15); color: #78350f; }
+/* §4 */
+#s4 { box-sizing: border-box; margin: 0; padding: 0; }#s4 {
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  background: #04080f;
+  color: #f1f5f9;
+  padding: 40px 44px;
+}#s4 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s4 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 36px; }#s4 .phases {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr 36px 1fr;
+  align-items: stretch;
+  gap: 0;
+}#s4 .arrow-divider {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; color: #1e293b; padding-top: 80px;
+}#s4 .phase { border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }#s4 .phase-header { padding: 22px 24px 20px; }#s4 .phase-eyebrow { font-size: 10px; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.7; }#s4 .phase-name { font-size: 30px; font-weight: 900; letter-spacing: -0.5px; }#s4 .phase-timeline { font-size: 12px; margin-top: 6px; opacity: 0.55; display: flex; align-items: center; gap: 6px; }#s4 .phase-headline { font-size: 16px; font-weight: 700; margin-top: 16px; line-height: 1.4; }#s4 .phase-body { padding: 16px 20px 20px; background: rgba(255,255,255,0.025); flex: 1; display: flex; flex-direction: column; gap: 16px; }#s4 /* FEAT GROUP - bigger titles */
+.feat-group-title {
+  font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
+  margin-bottom: 8px; padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; gap: 6px;
+}#s4 .feat-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; color: #cbd5e1; margin-bottom: 6px; line-height: 1.4;
+}#s4 .feat-item:last-child { margin-bottom: 0; }#s4 .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }#s4 /* AI TAG */
+.ai-tag {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 9px; font-weight: 800; padding: 1px 5px;
+  border-radius: 4px; letter-spacing: 0.04em;
+  background: rgba(139,92,246,0.25); color: #c4b5fd;
+  border: 1px solid rgba(139,92,246,0.3);
+  flex-shrink: 0; margin-top: 2px; white-space: nowrap;
+}#s4 .phase-outcome {
+  margin-top: auto; padding: 12px 14px; border-radius: 8px;
+  font-size: 13px; line-height: 1.5; font-weight: 500;
+}#s4 .outcome-label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }#s4 /* MVP — emerald */
+.phase-mvp { border: 1px solid rgba(16,185,129,0.4); }#s4 .phase-mvp .phase-header { background: linear-gradient(160deg, #064e3b, #042f23); }#s4 .phase-mvp .phase-eyebrow { color: #34d399; }#s4 .phase-mvp .phase-name { color: #34d399; }#s4 .phase-mvp .phase-headline { color: #a7f3d0; }#s4 .phase-mvp .feat-group-title { color: #34d399; }#s4 .phase-mvp .dot { background: #10b981; }#s4 .phase-mvp .phase-outcome { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); }#s4 .phase-mvp .outcome-label { color: #059669; }#s4 /* 2.0 — indigo */
+.phase-v2 { border: 1px solid rgba(99,102,241,0.4); }#s4 .phase-v2 .phase-header { background: linear-gradient(160deg, #1e1b4b, #100f2e); }#s4 .phase-v2 .phase-eyebrow { color: #818cf8; }#s4 .phase-v2 .phase-name { color: #818cf8; }#s4 .phase-v2 .phase-headline { color: #c7d2fe; }#s4 .phase-v2 .feat-group-title { color: #818cf8; }#s4 .phase-v2 .dot { background: #6366f1; }#s4 .phase-v2 .phase-outcome { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); }#s4 .phase-v2 .outcome-label { color: #6366f1; }#s4 /* 3.0 — amber */
+.phase-v3 { border: 1px solid rgba(245,158,11,0.4); }#s4 .phase-v3 .phase-header { background: linear-gradient(160deg, #451a03, #2a0f02); }#s4 .phase-v3 .phase-eyebrow { color: #fbbf24; }#s4 .phase-v3 .phase-name { color: #fbbf24; }#s4 .phase-v3 .phase-headline { color: #fde68a; }#s4 .phase-v3 .feat-group-title { color: #fbbf24; }#s4 .phase-v3 .dot { background: #f59e0b; }#s4 .phase-v3 .phase-outcome { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); }#s4 .phase-v3 .outcome-label { color: #d97706; }#s4 /* METRICS */
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }#s4 .metric-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 18px 20px; text-align: center; }#s4 .metric-num {
+  font-size: 30px; font-weight: 900;
+  background: linear-gradient(135deg, #34d399, #818cf8, #fbbf24);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 6px;
+}#s4 .metric-label { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+/* §5 */
+#s5 { box-sizing: border-box; margin: 0; padding: 0; }#s5 {
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  background: #04080f;
+  color: #f1f5f9;
+  padding: 40px 44px;
+}#s5 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s5 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 32px; }#s5 .section-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 14px;
+  padding-bottom: 8px; border-bottom: 1px solid #1e293b;
+  display: flex; align-items: center; gap: 8px;
+}#s5 /* RISK GRID */
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 32px; }#s5 .risk-card {
+  background: #0f172a; border-radius: 12px;
+  padding: 18px 20px;
+  border-left: 3px solid;
+  border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid;
+}#s5 .risk-card.high { border-color: rgba(239,68,68,0.5);  border-left-color: #ef4444; }#s5 .risk-card.mid { border-color: rgba(245,158,11,0.4); border-left-color: #f59e0b; }#s5 .risk-card.low { border-color: rgba(99,102,241,0.35);border-left-color: #6366f1; }#s5 .risk-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }#s5 .risk-icon { font-size: 20px; }#s5 .risk-level {
+  font-size: 10px; font-weight: 800; padding: 2px 8px;
+  border-radius: 20px; letter-spacing: 0.06em;
+}#s5 .high .risk-level { background: rgba(239,68,68,0.15);  color: #f87171; }#s5 .mid  .risk-level { background: rgba(245,158,11,0.15); color: #fbbf24; }#s5 .low  .risk-level { background: rgba(99,102,241,0.15); color: #a5b4fc; }#s5 .risk-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }#s5 .risk-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 12px; }#s5 .mitigation-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 5px;
+}#s5 .high .mitigation-label { color: #ef4444; }#s5 .mid  .mitigation-label { color: #f59e0b; }#s5 .low  .mitigation-label { color: #6366f1; }#s5 .mitigation { font-size: 12px; color: #cbd5e1; line-height: 1.6; }#s5 /* SOURCES */
+.sources-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }#s5 .source-group {
+  background: #0f172a; border: 1px solid #1e293b;
+  border-radius: 12px; padding: 18px 20px;
+}#s5 .source-group-title {
+  font-size: 14px; font-weight: 700; color: #f1f5f9;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}#s5 .source-item {
+  display: flex; flex-direction: column;
+  margin-bottom: 10px; padding-bottom: 10px;
+  border-bottom: 1px solid #1e293b;
+}#s5 .source-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }#s5 .source-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }#s5 .source-desc { font-size: 12px; color: #64748b; line-height: 1.4; }#s5 .source-tag {
+  display: inline-block; margin-top: 5px;
+  font-size: 10px; padding: 2px 7px; border-radius: 10px;
+  font-weight: 700;
+}#s5 .tag-gov { background: rgba(16,185,129,0.12); color: #34d399; }#s5 .tag-comp { background: rgba(99,102,241,0.12); color: #818cf8; }#s5 .tag-user { background: rgba(245,158,11,0.12); color: #fbbf24; }#s5 .tag-intern { background: rgba(14,165,233,0.12); color: #7dd3fc; }
+
+/* Brightness fixes for §3 bottom */
+#s3 .z-eng  .zone-title { color: #94a3b8; }
+#s3 .z-eng  .zone-num   { color: #64748b; }
+#s3 .z-src  .zone-title { color: #64748b; }
+#s3 .z-src  .zone-num   { color: #475569; }
+#s3 .src-name { color: #94a3b8; }
+#s3 .src-sub  { color: #64748b; }
+#s3 .src-icon { opacity: 0.6; }
+</style>
+</head>
+<body>
+
+<!-- PROGRESS -->
+<div id="progress"></div>
+
+<!-- COVER -->
+<div id="cover">
+  <div class="cover-label">产品规划文档 · 2026</div>
+  <div class="cover-title">Chowbus Payroll</div>
+  <div class="cover-sub">华人餐饮市场唯一中文原生 Payroll 系统<br/>从工时到工资，一个系统全搞定</div>
+  <div class="cover-meta">
+    <span>版本 v1.0</span>
+    <span>2026-05-08</span>
+    <span>Designed by Sisi Hu</span>
+  </div>
+  <div class="cover-scroll-hint">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    向下滚动
+  </div>
+</div>
+
+<!-- STICKY NAV (becomes sticky after cover) -->
+<nav id="navbar">
+  <span class="nav-brand">Chowbus Payroll</span>
+  <div class="nav-divider"></div>
+  <a href="#s1" data-section="s1">§1 用户是谁</a><a href="#s2" data-section="s2">§2 痛点与机会点</a><a href="#s3" data-section="s3">§3 功能架构全景</a><a href="#s4" data-section="s4">§4 产品路线图</a><a href="#s5" data-section="s5">§5 风险与结语</a>
+</nav>
+
+<!-- SECTIONS -->
+<section id="s1" data-label="§1 用户是谁">
+<div class="section-inner">
+<h1>§1 用户是谁</h1>
+<p class="subtitle">4类核心用户，付费决策者是老板与会计，员工是被服务方</p>
+
+<div class="section-label">核心用户</div>
+
+<div class="grid">
+
+  <div class="card c1">
+    <div class="card-header">
+      <div class="icon">🏪</div>
+      <div>
+        <div class="badge">连锁优先</div>
+        <div class="card-title">连锁店店长</div>
+        <div class="card-sub">Chain Store Manager</div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="fact-icon">👥</span>管理10–40名时薪员工，多门店</div>
+      <div class="fact"><span class="fact-icon">🔧</span>负责工时审核与异常处理</div>
+    </div>
+    <ul class="pain-list">
+      <li>员工漏打卡，补卡靠微信群</li>
+      <li>工时有争议时没有系统记录</li>
+      <li>工资发完才发现有错</li>
+    </ul>
+    <div class="story">
+      收到提醒「3人未确认工时」→ 逐条核实代确认 → <span class="highlight">5分钟搞定，不再靠微信对账</span>
+    </div>
+  </div>
+
+  <div class="card c2">
+    <div class="card-header">
+      <div class="icon">🧮</div>
+      <div>
+        <div class="badge">付费核心</div>
+        <div class="card-title">集团会计</div>
+        <div class="card-sub">In-house Group Accountant</div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="fact-icon">🏢</span>负责集团旗下多家门店账务</div>
+      <div class="fact"><span class="fact-icon">⚖️</span>关注合规准确性，承担税务风险</div>
+    </div>
+    <ul class="pain-list">
+      <li>各店工时格式不同，汇总靠手动</li>
+      <li>各州加班/小费规则记不住</li>
+      <li>出了税务问题第一个被追责</li>
+    </ul>
+    <div class="story">
+      切换门店 → 工时已确认，异常自动标红 → 审核后出工资单，<span class="highlight">4小时压缩到40分钟</span>
+    </div>
+  </div>
+
+  <div class="card c3">
+    <div class="card-header">
+      <div class="icon">📋</div>
+      <div>
+        <div class="badge">付费核心</div>
+        <div class="card-title">第三方会计</div>
+        <div class="card-sub">External Bookkeeper / CPA</div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="fact-icon">🔗</span>同时服务3–8家餐厅客户</div>
+      <div class="fact"><span class="fact-icon">💼</span>效率直接影响接单量和利润</div>
+    </div>
+    <ul class="pain-list">
+      <li>每家客户数据格式各不同</li>
+      <li>老板临时改数据，版本混乱</li>
+      <li>无法远程确认员工已签字</li>
+    </ul>
+    <div class="story">
+      系统内切换客户 → 拿到已确认工时 → 出单发回老板 → <span class="highlight">每客户省2小时，多接2个客户</span>
+    </div>
+  </div>
+
+  <div class="card c4">
+    <div class="card-header">
+      <div class="icon">👨‍🍳</div>
+      <div>
+        <div class="badge">增长潜力</div>
+        <div class="card-title">华人小老板</div>
+        <div class="card-sub">Owner-Operator，自兼会计</div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="fact-icon">👥</span>5–15名员工，单店，价格敏感</div>
+      <div class="fact"><span class="fact-icon">🌏</span>中文为主，英文吃力</div>
+    </div>
+    <ul class="pain-list">
+      <li>发工资要打开4个软件</li>
+      <li>不懂税法，出问题才知道</li>
+      <li>不想花钱请会计，又搞不定</li>
+    </ul>
+    <div class="story">
+      打烊后一键发确认短信 → 次日工资单自动生成 → <span class="highlight">从2小时缩短到20分钟</span>
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider">
+<div class="section-label">产品设计原则（从用户痛点直接推导）</div>
+
+<div class="principles">
+  <div class="principles-grid">
+
+    <div class="principle highlight-card">
+      <div class="principle-name">🚨 合规主动提醒</div>
+      <div class="principle-desc">系统直接告诉老板/会计「这里有问题，你需要这样做」——而不是扔一堆看不懂的数据让他自己判断</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-name">🇨🇳 中文优先</div>
+      <div class="principle-desc">界面、提示、错误信息全中文，覆盖英文不流利的华人老板群体</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-name">💻 双端协同</div>
+      <div class="principle-desc">员工用手机接收/确认工资单；老板和会计用电脑查报表、处理复杂操作</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-name">🔐 双角色权限</div>
+      <div class="principle-desc">老板 vs 会计权限分离，支持多门店切换，第三方会计可管理多个客户</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-name">🔗 员工零摩擦</div>
+      <div class="principle-desc">短信/邮件链接确认，无需注册或下载 App，覆盖率最高</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-name">🗂️ 全程留底</div>
+      <div class="principle-desc">每步操作带时间戳存档，工资确认有电子签字，防纠纷有据可查</div>
+    </div>
+
+  </div>
+</div>
+</div>
+</section>
+<section id="s2" data-label="§2 痛点与机会点">
+<div class="section-inner">
+<h1>§2 用户痛点与机会点</h1>
+<p class="subtitle">华人餐厅在 Payroll 上的核心困境，以及 Chowbus 的切入空间</p>
+
+<!-- PAIN POINTS -->
+<div class="section-label label-pain">用户痛点 · 现状有多痛</div>
+
+<div class="pain-grid">
+
+  <div class="pain-card">
+    <div class="pain-num">痛点 01</div>
+    <div class="pain-title">发工资要开4个软件</div>
+    <div class="pain-desc">排班在一个系统，打卡在另一个，算工资靠 Excel，发工资在银行网站，中间全靠手动搬运数据。</div>
+    <div class="pain-quote">「每次发工资我都要搞两三个小时，还经常搞错。」</div>
+  </div>
+
+  <div class="pain-card">
+    <div class="pain-num">痛点 02</div>
+    <div class="pain-title">线下流程无凭无据</div>
+    <div class="pain-desc">工时靠口头确认或微信截图，工资单靠纸质签字。员工说没拿到？老板说已经给了？无据可查，纠纷难断。</div>
+    <div class="pain-quote">「有员工事后说工资给少了，我没有系统记录，很麻烦。」</div>
+  </div>
+
+  <div class="pain-card">
+    <div class="pain-num">痛点 03</div>
+    <div class="pain-title">合规是盲区，出事才知道</div>
+    <div class="pain-desc">小费抵扣最低工资（Tip Credit）、加班双倍计算（CA）、每周必发（NY）——大多数老板不知道这些规则，违规了才被追查。</div>
+    <div class="pain-quote">「我不知道小费算进去之后工资还要不要补差价。」</div>
+  </div>
+
+  <div class="pain-card">
+    <div class="pain-num">痛点 04</div>
+    <div class="pain-title">英文界面，华人用不惯</div>
+    <div class="pain-desc">ADP、QuickBooks、7shifts 全是英文界面。华人老板看不懂，只能靠会计帮忙，额外花钱。竞品无一做中文本地化。</div>
+    <div class="pain-quote">「QuickBooks 我搞不太懂，都让会计来弄，每次还要付费。」</div>
+  </div>
+
+  <div class="pain-card">
+    <div class="pain-num">痛点 05</div>
+    <div class="pain-title">税务焦虑，怕出错</div>
+    <div class="pain-desc">联邦税、州税、季报、年报……老板和会计都怕算错被罚。现有软件给的是数据，不是指引，出了问题不知道该怎么办。</div>
+    <div class="pain-quote">「每到报税季我就很紧张，不知道有没有漏掉什么。」</div>
+  </div>
+
+  <div class="pain-card">
+    <div class="pain-num">痛点 06</div>
+    <div class="pain-title">小费计算混乱，容易违规</div>
+    <div class="pain-desc">Tip pooling 规则、FICA Tip Credit 退税（餐厅每年可省数千美元）——大部分餐厅老板根本不知道有这个，更不知道怎么算。</div>
+    <div class="pain-quote">「小费怎么分配我是按经验来的，不确定合不合法。」</div>
+  </div>
+
+</div>
+
+<!-- OPPORTUNITIES -->
+<div class="section-label label-opp">机会点 · Chowbus 能做什么</div>
+
+<div class="opp-grid">
+
+  <div class="opp-card">
+    <div class="opp-icon">🔗</div>
+    <div>
+      <div class="opp-title">数据已在 Chowbus，打通最后一公里</div>
+      <div class="opp-desc">排班、打卡、小费数据已有，Payroll 是自然延伸。无需用户重复输入，直接打通发薪全流程。</div>
+      <div class="opp-badge">竞品无法复制的数据优势</div>
+    </div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-icon">🇨🇳</div>
+    <div>
+      <div class="opp-title">中文界面，零竞争蓝海</div>
+      <div class="opp-desc">现有所有竞品均无中文本地化。Chowbus 服务华人餐厅多年，语言 + 信任双重优势，直接占领这个细分市场。</div>
+      <div class="opp-badge">市场空白，先发优势</div>
+    </div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-icon">🚨</div>
+    <div>
+      <div class="opp-title">合规主动护航，而非数据堆砌</div>
+      <div class="opp-desc">系统检测到 Tip Credit 未用、加班计算可能违规时，直接弹出提示和操作建议——把专业知识变成傻瓜式引导。</div>
+      <div class="opp-badge">差异化体验卖点</div>
+    </div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-icon">📄</div>
+    <div>
+      <div class="opp-title">线下流程完全数字化，法律存档</div>
+      <div class="opp-desc">工时确认、工资单签收全部线上完成，带时间戳电子存档。替代微信截图 + 纸质签字，防纠纷、可审计。</div>
+      <div class="opp-badge">合规刚需，续费黏性强</div>
+    </div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-icon">💰</div>
+    <div>
+      <div class="opp-title">FICA Tip Credit，帮老板省真金白银</div>
+      <div class="opp-desc">餐厅雇主每年可通过 FICA Tip Credit 抵税数千美元，但大多数不知道。系统自动计算并提示，直接转化为销售卖点。</div>
+      <div class="opp-badge">可量化的 ROI，助力销售</div>
+    </div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-icon">🚀</div>
+    <div>
+      <div class="opp-title">增值服务入口，长期货币化</div>
+      <div class="opp-desc">MVP 做工作流，后续可叠加税务代缴、AI 合规顾问、薪酬基准数据等增值服务，从工具升级为平台。</div>
+      <div class="opp-badge">长期收入增长飞轮</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MOAT -->
+<div class="moat">
+  <div class="moat-title">Chowbus 的护城河——为什么是我们</div>
+  <div class="moat-grid">
+    <div class="moat-item">
+      <div class="moat-num">0</div>
+      <div class="moat-label">现有竞品提供中文 Payroll 界面</div>
+    </div>
+    <div class="moat-item">
+      <div class="moat-num">4合1</div>
+      <div class="moat-label">排班 + 打卡 + 小费 + 工资<br/>一个系统搞定</div>
+    </div>
+    <div class="moat-item">
+      <div class="moat-num">数千$</div>
+      <div class="moat-label">FICA Tip Credit 每店每年<br/>可节省税款（可量化卖点）</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<section id="s3" data-label="§3 功能架构全景">
+<div class="section-inner">
+<h1>§3 Chowbus Payroll 功能架构全景</h1>
+<p class="subtitle">结论先行：从用户价值出发，向下展示技术底座</p>
+
+<div class="legend">
+  <div class="leg"><div class="pip" style="background:#10b981"></div>MVP（第一期）</div>
+  <div class="leg"><div class="pip" style="background:#6366f1"></div>2.0（第二期）</div>
+  <div class="leg"><div class="pip" style="background:#f59e0b"></div>3.0（第三期）</div>
+</div>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <div style="font-size:32px">🃏</div>
+  <div>
+    <div class="hero-title">Chowbus Payroll 五大王牌能力</div>
+    <div class="hero-sub">华人餐饮市场唯一中文原生 Payroll 系统 · 从工时到工资，一个系统全搞定</div>
+  </div>
+</div>
+
+<!-- ① AI -->
+<div class="zone z-ai">
+  <div class="zone-header">
+    <div class="zone-emoji">🤖</div>
+    <div>
+      <div class="zone-num">王牌 01</div>
+      <div class="zone-title">AI 合规护航</div>
+      <div class="zone-tagline">主动发现问题、给出答案——不是扔数据，是当你的合规顾问</div>
+    </div>
+  </div>
+  <div class="ai-chips">
+    <div class="chip">🚨<span><span class="b bm" style="margin-right:6px">MVP</span>合规异常检测 & 即时提醒</span></div>
+    <div class="chip">💡<span><span class="b bm" style="margin-right:6px">MVP</span>Tip Credit 资格自动识别</span></div>
+    <div class="chip">⏰<span><span class="b bm" style="margin-right:6px">MVP</span>加班超时预警</span></div>
+    <div class="chip">💬<span><span class="b b2" style="margin-right:6px">2.0</span>中文 Payroll 智能问答</span></div>
+    <div class="chip">💰<span><span class="b b2" style="margin-right:6px">2.0</span>FICA Tip Credit 节税金额测算</span></div>
+    <div class="chip">🎯<span><span class="b b3" style="margin-right:6px">3.0</span>预测性合规风险评分</span></div>
+  </div>
+</div>
+
+<!-- ② FLOW -->
+<div class="zone z-flow">
+  <div class="zone-header">
+    <div class="zone-emoji">🔄</div>
+    <div>
+      <div class="zone-num">王牌 02</div>
+      <div class="zone-title">发薪全流程线上化</div>
+      <div class="zone-tagline">工时确认 → 审批 → 工资单 → 电子存档，微信群对账成为历史</div>
+    </div>
+  </div>
+  <div class="zone-body">
+    <div class="cards-row">
+      <div class="mcard">
+        <div class="mcard-title">✅ 工时确认</div>
+        <div class="feat"><span class="b bm">MVP</span>短信 / 邮件一键发送确认</div>
+        <div class="feat"><span class="b bm">MVP</span>员工链接签字，超时可跳过</div>
+        <div class="feat"><span class="b b2">2.0</span>App 推送 + 员工异议流程</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📋 审批仪表盘</div>
+        <div class="feat"><span class="b bm">MVP</span>发薪周期全局状态看板</div>
+        <div class="feat"><span class="b bm">MVP</span>店长 → 会计多级审批</div>
+        <div class="feat"><span class="b b2">2.0</span>多门店并行处理</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📄 工资单 & 存档</div>
+        <div class="feat"><span class="b bm">MVP</span>标准工资单生成 & PDF 导出</div>
+        <div class="feat"><span class="b bm">MVP</span>电子签收，时间戳存档</div>
+        <div class="feat"><span class="b b2">2.0</span>中英双语工资单</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">🔐 权限 & 角色</div>
+        <div class="feat"><span class="b bm">MVP</span>老板 / 会计双角色权限</div>
+        <div class="feat"><span class="b bm">MVP</span>完整操作审计日志</div>
+        <div class="feat"><span class="b b2">2.0</span>第三方会计多客户管理</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ③④⑤ TRIO -->
+<div class="trio">
+
+  <div class="zone z-tax">
+    <div class="zone-header">
+      <div class="zone-emoji">🏛️</div>
+      <div>
+        <div class="zone-num">王牌 03</div>
+        <div class="zone-title">税务申报</div>
+        <div class="zone-tagline">从辅助到全代申报，逐步减负</div>
+      </div>
+    </div>
+    <div class="zone-body">
+      <div class="feat"><span class="b bm">MVP</span>税务汇总报告（会计直接用）</div>
+      <div class="feat"><span class="b b2">2.0</span>W-2 / 1099 自动生成分发</div>
+      <div class="feat"><span class="b b2">2.0</span>New Hire Reporting 自动提交</div>
+      <div class="feat"><span class="b b3">3.0</span>联邦 + 州税 全代申报代缴</div>
+    </div>
+  </div>
+
+  <div class="zone z-pay">
+    <div class="zone-header">
+      <div class="zone-emoji">💳</div>
+      <div>
+        <div class="zone-num">王牌 04</div>
+        <div class="zone-title">支付能力</div>
+        <div class="zone-tagline">从导出清单到系统直接打款</div>
+      </div>
+    </div>
+    <div class="zone-body">
+      <div class="feat"><span class="b bm">MVP</span>付款清单 CSV 导出</div>
+      <div class="feat"><span class="b b2">2.0</span>员工银行账户统一收集</div>
+      <div class="feat"><span class="b b3">3.0</span>ACH 直接存款，系统内完成打款</div>
+      <div class="feat"><span class="b b3">3.0</span>On-Demand Pay 即时工资</div>
+    </div>
+  </div>
+
+  <div class="zone z-rpt">
+    <div class="zone-header">
+      <div class="zone-emoji">📊</div>
+      <div>
+        <div class="zone-num">王牌 05</div>
+        <div class="zone-title">报表 & 员工自助</div>
+        <div class="zone-tagline">老板看成本，员工看明细</div>
+      </div>
+    </div>
+    <div class="zone-body">
+      <div class="feat"><span class="b bm">MVP</span>劳动力成本报告</div>
+      <div class="feat"><span class="b bm">MVP</span>员工工资单历史自助查看</div>
+      <div class="feat"><span class="b b2">2.0</span>多门店对比 & 小费趋势分析</div>
+      <div class="feat"><span class="b b3">3.0</span>行业薪酬基准对比</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOUNDATION -->
+<div class="connector">↑ &nbsp;&nbsp; 用户可见价值 &nbsp;&nbsp; | &nbsp;&nbsp; 技术底座 &nbsp;&nbsp; ↓</div>
+
+<div class="foundation-label">底层技术支撑</div>
+
+<!-- ENGINE -->
+<div class="zone z-eng">
+  <div class="zone-header">
+    <div class="zone-emoji" style="opacity:0.5">⚙️</div>
+    <div>
+      <div class="zone-num" style="color:#64748b">核心引擎（新建）</div>
+      <div class="zone-title">工资计算 & 合规规则引擎</div>
+      <div class="zone-tagline" style="color:#64748b">驱动五大王牌的算法核心，用户看不见，但不能出错</div>
+    </div>
+  </div>
+  <div class="zone-body">
+    <div class="cards-row">
+      <div class="mcard" style="border-color:#1e293b">
+        <div class="mcard-title" style="color:#94a3b8">💰 工资计算</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">时薪 × 工时 / 联邦 OT / 小费汇入</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">CA 双倍加班 / 固定薪资支持</span></div>
+      </div>
+      <div class="mcard" style="border-color:#1e293b">
+        <div class="mcard-title" style="color:#94a3b8">🏷️ 小费合规</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">Tip Credit / 最低工资补差</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">FICA Tip Credit / Allocated Tips</span></div>
+      </div>
+      <div class="mcard" style="border-color:#1e293b">
+        <div class="mcard-title" style="color:#94a3b8">🏛️ 税务预扣</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">Federal / FICA / 主要州税</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">本地税 / Pre-tax 扣款</span></div>
+      </div>
+      <div class="mcard" style="border-color:#1e293b">
+        <div class="mcard-title" style="color:#94a3b8">⚖️ 合规规则库</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">主要州最低工资 / 发薪频率</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">50州完整规则 / 自动更新</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DATA SOURCES -->
+<div class="zone z-src">
+  <div class="zone-header">
+    <div class="zone-emoji" style="opacity:0.3">🔌</div>
+    <div>
+      <div class="zone-num" style="color:#475569">数据来源（现有模块直接调用）</div>
+      <div class="zone-title" style="color:#64748b">Chowbus 已有数据接入</div>
+      <div class="zone-tagline" style="color:#475569">打卡、小费、员工信息无需重复录入，Payroll 直接读取</div>
+    </div>
+  </div>
+  <div class="zone-body">
+    <div class="source-row">
+      <div class="src"><div class="src-icon">👤</div><div class="src-name">员工管理</div><div class="src-sub">姓名 / 时薪 / 税务信息</div><div class="src-tag">✓ 已有</div></div>
+      <div class="src"><div class="src-icon">⏱️</div><div class="src-name">打卡 / 工时</div><div class="src-sub">Clock-in/out / 补卡记录</div><div class="src-tag">✓ 已有</div></div>
+      <div class="src"><div class="src-icon">📅</div><div class="src-name">排班</div><div class="src-sub">计划班次 / 辅助核对</div><div class="src-tag indev">⚙ 开发中</div></div>
+      <div class="src"><div class="src-icon">💵</div><div class="src-name">Tip Pool</div><div class="src-sub">小费汇总 / 员工分配</div><div class="src-tag">✓ 已有</div></div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<section id="s4" data-label="§4 产品路线图">
+<div class="section-inner">
+<h1>§4 产品路线图</h1>
+<p class="subtitle">三个阶段，每期独立交付价值，逐步进化为全栈 Payroll 平台</p>
+
+<div class="phases">
+
+  <!-- MVP -->
+  <div class="phase phase-mvp">
+    <div class="phase-header">
+      <div class="phase-eyebrow">🚀 第一期</div>
+      <div class="phase-name">MVP</div>
+      <div class="phase-timeline">⏱ 目标上线：6个月内</div>
+      <div class="phase-headline">把发工资这件事<br/>彻底搬到线上</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="feat-group">
+        <div class="feat-group-title">🔄 发薪流程</div>
+        <div class="feat-item"><div class="dot"></div>工时自动汇总 + 短信/邮件确认</div>
+        <div class="feat-item"><div class="dot"></div>店长 → 会计多级审批流</div>
+        <div class="feat-item"><div class="dot"></div>工资单生成 & 员工电子签收</div>
+        <div class="feat-item"><div class="dot"></div>付款清单 CSV 导出</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">⚖️ 合规计算</div>
+        <div class="feat-item"><div class="dot"></div>时薪 / 联邦 OT / 小费汇入</div>
+        <div class="feat-item"><div class="dot"></div><span>Tip Credit + 最低工资补差</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-item"><div class="dot"></div>Federal + FICA + 主要州税预扣</div>
+        <div class="feat-item"><div class="dot"></div><span>州最低工资 & 发薪频率校验</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🔐 权限 & 存档</div>
+        <div class="feat-item"><div class="dot"></div>老板 / 会计双角色权限</div>
+        <div class="feat-item"><div class="dot"></div>操作审计日志 + 历史存档</div>
+      </div>
+
+      <div class="phase-outcome">
+        <div class="outcome-label">✦ 交付价值</div>
+        发工资 2小时 → 20分钟，线下流程全数字化，有据可查
+      </div>
+
+    </div>
+  </div>
+
+  <div class="arrow-divider">→</div>
+
+  <!-- 2.0 -->
+  <div class="phase phase-v2">
+    <div class="phase-header">
+      <div class="phase-eyebrow">📈 第二期</div>
+      <div class="phase-name">2.0</div>
+      <div class="phase-timeline">⏱ MVP 上线后 6–12 个月</div>
+      <div class="phase-headline">成为餐厅会计的<br/>专业合规助手</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="feat-group">
+        <div class="feat-group-title">🏛️ 税务进阶</div>
+        <div class="feat-item"><div class="dot"></div>W-2 / 1099 自动生成 & 分发</div>
+        <div class="feat-item"><div class="dot"></div>New Hire Reporting 自动提交</div>
+        <div class="feat-item"><div class="dot"></div><span>FICA Tip Credit 计算 & 报告</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">⚙️ 计算增强</div>
+        <div class="feat-item"><div class="dot"></div>CA 双倍加班 / Split Shift Premium</div>
+        <div class="feat-item"><div class="dot"></div>50州完整合规规则库</div>
+        <div class="feat-item"><div class="dot"></div>Pre-tax 扣款（401k 等福利）</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🏢 多门店 & 角色</div>
+        <div class="feat-item"><div class="dot"></div>多门店并行发薪 & 统一仪表盘</div>
+        <div class="feat-item"><div class="dot"></div>第三方会计多客户账号</div>
+        <div class="feat-item"><div class="dot"></div><span>多门店对比报表 & 小费趋势</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🤖 AI 升级</div>
+        <div class="feat-item"><div class="dot"></div>中文 Payroll 智能问答</div>
+        <div class="feat-item"><div class="dot"></div>FICA Tip Credit 节税金额测算</div>
+      </div>
+
+      <div class="phase-outcome">
+        <div class="outcome-label">✦ 交付价值</div>
+        集团会计一个系统管所有门店，税务合规有保障，每店省数千 $ 税款
+      </div>
+
+    </div>
+  </div>
+
+  <div class="arrow-divider">→</div>
+
+  <!-- 3.0 -->
+  <div class="phase phase-v3">
+    <div class="phase-header">
+      <div class="phase-eyebrow">🏆 第三期</div>
+      <div class="phase-name">3.0</div>
+      <div class="phase-timeline">⏱ 2.0 成熟后启动</div>
+      <div class="phase-headline">打款报税一站到底<br/>全栈 Payroll 平台</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="feat-group">
+        <div class="feat-group-title">💳 系统直接打款</div>
+        <div class="feat-item"><div class="dot"></div>ACH 直接存款，系统内完成打款</div>
+        <div class="feat-item"><div class="dot"></div>On-Demand Pay 即时工资</div>
+        <div class="feat-item"><div class="dot"></div>数字钱包 / Pay Card 支持</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🏛️ 全代申报</div>
+        <div class="feat-item"><div class="dot"></div>联邦 941 / 940 代申报代缴</div>
+        <div class="feat-item"><div class="dot"></div>州税全代缴代申报（50州）</div>
+        <div class="feat-item"><div class="dot"></div>Form 8027 自动提交</div>
+        <div class="feat-item"><div class="dot"></div>税务错误责任承担</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🤖 AI 深度能力</div>
+        <div class="feat-item"><div class="dot"></div><span>预测性合规风险评分</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-item"><div class="dot"></div><span>薪酬优化建议</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-item"><div class="dot"></div><span>行业薪酬基准对比</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+      </div>
+
+      <div class="phase-outcome">
+        <div class="outcome-label">✦ 交付价值</div>
+        华人餐厅无需任何第三方 Payroll 服务，Chowbus 即是 ADP 的中文替代
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="metrics">
+  <div class="metric-card">
+    <div class="metric-num">MVP</div>
+    <div class="metric-label">流程线上化<br/>发薪 2小时 → 20分钟<br/>有据可查，防纠纷</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-num">2.0</div>
+    <div class="metric-label">合规专业化<br/>FICA Tip Credit 每店省数千 $<br/>集团客户一个系统搞定</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-num">3.0</div>
+    <div class="metric-label">全栈平台化<br/>华人餐饮 Payroll 基础设施<br/>ADP 的中文替代方案</div>
+  </div>
+</div>
+</div>
+</section>
+<section id="s5" data-label="§5 风险与结语">
+<div class="section-inner">
+<h1>§5 风险点 & 知识来源</h1>
+<p class="subtitle">提前识别风险，明确信息来源，为后续规划提供依据</p>
+
+<!-- RISKS -->
+<div class="section-label" style="color:#ef4444">⚠️ 关键风险点</div>
+
+<div class="risk-grid">
+
+  <div class="risk-card high">
+    <div class="risk-header">
+      <div class="risk-icon">🧮</div>
+      <div class="risk-level">高风险</div>
+    </div>
+    <div class="risk-title">税务计算错误的法律责任</div>
+    <div class="risk-desc">工资少发、税款算错可能导致劳工投诉或 IRS 罚款。MVP 阶段 Chowbus 自己承担计算，但没有第三方背书。</div>
+    <div class="mitigation-label">应对策略</div>
+    <div class="mitigation">MVP 明确标注「计算结果供参考，最终由会计确认」；2.0 阶段引入合规合作方（如 Gusto API）作为兜底；同步完善错误责任条款。</div>
+  </div>
+
+  <div class="risk-card high">
+    <div class="risk-header">
+      <div class="risk-icon">⚖️</div>
+      <div class="risk-level">高风险</div>
+    </div>
+    <div class="risk-title">各州劳工法规维护成本</div>
+    <div class="risk-desc">美国50州最低工资、加班规则、发薪频率要求各不相同，且每年都有更新。人工维护规则库容易出错，滞后就是合规风险。</div>
+    <div class="mitigation-label">应对策略</div>
+    <div class="mitigation">MVP 只支持 Chowbus 用户最集中的 5–8 个州；引入第三方合规数据服务（如 Symmetry、Payroll Tax API）；设置法规变动监控告警机制。</div>
+  </div>
+
+  <div class="risk-card high">
+    <div class="risk-header">
+      <div class="risk-icon">🔗</div>
+      <div class="risk-level">高风险</div>
+    </div>
+    <div class="risk-title">跨模块依赖 & 数据质量</div>
+    <div class="risk-desc">Payroll 强依赖打卡/Tip Pool/员工管理模块的数据质量。如果上游数据缺失或格式不标准，Payroll 计算结果就不可信。</div>
+    <div class="mitigation-label">应对策略</div>
+    <div class="mitigation">早期与相关 PM 对齐数据接口规范；Payroll 模块内置数据校验层，异常数据弹窗提示而非静默通过；定义清晰的模块边界和责任归属。</div>
+  </div>
+
+  <div class="risk-card mid">
+    <div class="risk-header">
+      <div class="risk-icon">💰</div>
+      <div class="risk-level">中风险</div>
+    </div>
+    <div class="risk-title">小老板不愿付费</div>
+    <div class="risk-desc">华人小馆子价格极度敏感。单店5–15人规模，月均省下的时间成本未必能说服他们为 Payroll 功能额外买单。</div>
+    <div class="mitigation-label">应对策略</div>
+    <div class="mitigation">MVP 阶段打包进现有 Chowbus 套餐，降低决策门槛；以「FICA Tip Credit 帮你省 $X」做 ROI 量化沟通；连锁/集团客户作为主要商业目标。</div>
+  </div>
+
+  <div class="risk-card mid">
+    <div class="risk-header">
+      <div class="risk-icon">🏃</div>
+      <div class="risk-level">中风险</div>
+    </div>
+    <div class="risk-title">竞品追加中文支持</div>
+    <div class="risk-desc">7shifts、Homebase 若意识到华人市场并推出中文界面，Chowbus 的语言护城河将快速消失。</div>
+    <div class="mitigation-label">应对策略</div>
+    <div class="mitigation">语言只是入门壁垒，真正护城河是「排班+打卡+Tip+Payroll 全链路数据打通」——这是竞品难以复制的生态优势，尽快夯实。</div>
+  </div>
+
+  <div class="risk-card low">
+    <div class="risk-header">
+      <div class="risk-icon">🚢</div>
+      <div class="risk-level">低风险</div>
+    </div>
+    <div class="risk-title">6个月 MVP 范围蔓延</div>
+    <div class="risk-desc">Payroll 功能天然复杂，开发过程中极易把 2.0/3.0 功能拉入 MVP，导致延期上线。</div>
+    <div class="mitigation-label">应对策略</div>
+    <div class="mitigation">严格锁定 MVP 边界：不做实际打款、不做税务代申报、只支持主要几个州。超出边界的需求统一进 Backlog，季度评审时再排期。</div>
+  </div>
+
+</div>
+
+<!-- SOURCES -->
+<div class="section-label" style="color:#7dd3fc">📚 知识来源</div>
+
+<div class="sources-grid">
+
+  <div class="source-group">
+    <div class="source-group-title">🏛️ 官方法规来源</div>
+
+    <div class="source-item">
+      <div class="source-name">IRS — FICA Tip Credit</div>
+      <div class="source-desc">Form 8846 指引，雇主小费税务抵扣规则</div>
+      <div><span class="source-tag tag-gov">政府官方</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">IRS — Publication 15 (Circular E)</div>
+      <div class="source-desc">联邦薪资税预扣标准，W-2/941 表格说明</div>
+      <div><span class="source-tag tag-gov">政府官方</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">DOL — FLSA Fact Sheet #15</div>
+      <div class="source-desc">小费员工最低工资、Tip Credit 联邦规则</div>
+      <div><span class="source-tag tag-gov">政府官方</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">各州劳工局官网</div>
+      <div class="source-desc">NY / CA / TX / IL 州最低工资 & 发薪频率要求</div>
+      <div><span class="source-tag tag-gov">政府官方</span></div>
+    </div>
+  </div>
+
+  <div class="source-group">
+    <div class="source-group-title">🔍 竞品研究来源</div>
+
+    <div class="source-item">
+      <div class="source-name">ADP RUN 官网 & 定价页</div>
+      <div class="source-desc">功能矩阵、SmartCompliance 税务服务范围</div>
+      <div><span class="source-tag tag-comp">竞品分析</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">QuickBooks Payroll 文档</div>
+      <div class="source-desc">餐厅场景配置指南、2025 税务更新说明</div>
+      <div><span class="source-tag tag-comp">竞品分析</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">7shifts Payroll 知识库</div>
+      <div class="source-desc">与 Gusto 的集成方式、餐厅场景功能说明</div>
+      <div><span class="source-tag tag-comp">竞品分析</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">Homebase 帮助中心</div>
+      <div class="source-desc">W-2/1099 处理、税务申报流程、直接存款</div>
+      <div><span class="source-tag tag-comp">竞品分析</span></div>
+    </div>
+  </div>
+
+  <div class="source-group">
+    <div class="source-group-title">👥 用户 & 内部来源</div>
+
+    <div class="source-item">
+      <div class="source-name">华人餐厅老板访谈</div>
+      <div class="source-desc">「打开4个软件才能发工资」等痛点的第一手来源</div>
+      <div><span class="source-tag tag-user">用户调研</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">Chowbus 现有客户数据</div>
+      <div class="source-desc">餐厅地域分布、员工规模、小费模式分析</div>
+      <div><span class="source-tag tag-intern">内部数据</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">Gusto / Check.com API 文档</div>
+      <div class="source-desc">未来接入 Payroll Infrastructure 的技术可行性参考</div>
+      <div><span class="source-tag tag-comp">技术参考</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">Symmetry / Payroll Tax API</div>
+      <div class="source-desc">第三方合规规则数据库，覆盖50州税率自动更新</div>
+      <div><span class="source-tag tag-comp">技术参考</span></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- CLOSING -->
+<div style="margin-top: 48px; padding: 36px 40px; background: linear-gradient(160deg, #0a1628, #080d1a); border: 1px solid #1e293b; border-radius: 16px; text-align: center;">
+  <div style="font-size: 13px; color: #334155; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-bottom: 20px;">✦ &nbsp; A Note from the Designer &nbsp; ✦</div>
+
+  <div style="font-size: 19px; font-weight: 700; color: #e2e8f0; line-height: 1.9; margin-bottom: 10px;">
+    每一家餐厅背后，都是一个家庭在撑着。<br/>
+    愿 Chowbus Payroll 让每一位老板<span style="color:#34d399">用对人、算对账</span>，<br/>
+    <span style="color:#818cf8">安安心心开店，平平安安回家。</span>
+  </div>
+
+  <div style="font-size: 14px; color: #475569; margin-top: 6px; margin-bottom: 32px; font-style: italic;">
+    Because behind every restaurant, there's a family giving everything they've got.
+  </div>
+
+  <div style="width: 48px; height: 1px; background: #1e293b; margin: 0 auto 28px;"></div>
+
+  <div style="font-size: 13px; color: #334155; margin-bottom: 6px; letter-spacing: 0.05em;">Thank you.</div>
+  <div style="font-size: 15px; font-weight: 700; color: #64748b; letter-spacing: 0.08em;">Designed by &nbsp;Sisi Hu</div>
+</div>
+</div>
+</section>
+
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const total = document.body.scrollHeight - window.innerHeight;
+  document.getElementById('progress').style.transform =
+    'scaleX(' + (total > 0 ? window.scrollY / total : 0) + ')';
+});
+
+// ScrollSpy — highlight active nav link
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#navbar a[data-section]');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector('#navbar a[data-section="' + entry.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
