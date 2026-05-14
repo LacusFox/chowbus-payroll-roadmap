@@ -57,10 +57,10 @@ body {
   font-size: 18px; color: #94a3b8; margin-bottom: 48px; line-height: 1.6;
 }
 .cover-meta {
-  font-size: 13px; color: #475569; margin-bottom: 0;
+  font-size: 13px; color: #94a3b8; margin-bottom: 0;
   display: flex; gap: 28px; justify-content: center;
 }
-.cover-meta span { color: #94a3b8; }
+.cover-meta span { color: #cbd5e1; }
 
 /* ── STICKY NAV ── */
 #navbar {
@@ -289,7 +289,7 @@ section {
 }#s4 .foundation-label::before, #s4 .foundation-label::after { content:''; flex:1; height:1px; background:#1e293b; }#s4 .z-eng { border: 1px dashed #334155; }#s4 .z-eng  .zone-header { background: linear-gradient(135deg, #0f1a2e, #070e1a); }#s4 .z-eng  .zone-title { color: #475569; }#s4 .z-eng  .zone-num { color: #334155; }#s4 .z-src { border: 1px dashed #1e293b; }#s4 .z-src  .zone-header { background: linear-gradient(135deg, #080d18, #04080f); }#s4 .z-src  .zone-title { color: #334155; }#s4 .z-src  .zone-num { color: #1e293b; }#s4 .source-row { display: flex; gap: 10px; }#s4 .src {
   flex: 1; background: rgba(255,255,255,0.015); border: 1px dashed #1e293b;
   border-radius: 10px; padding: 14px; text-align: center;
-}#s4 .src-icon { font-size: 22px; opacity: 0.4; margin-bottom: 6px; }#s4 .src-name { font-size: 13px; font-weight: 700; color: #475569; }#s4 .src-sub { font-size: 11px; color: #334155; margin-top: 4px; line-height: 1.5; }#s4 .src-tag { display: inline-block; margin-top: 8px; font-size: 10px; padding: 2px 8px; border-radius: 12px; background: rgba(30,41,59,0.6); color: #475569; }#s4 .src-tag.indev { background: rgba(120,53,15,0.15); color: #78350f; }
+}#s4 .src-icon { font-size: 22px; opacity: 1; margin-bottom: 6px; }#s4 .src-name { font-size: 13px; font-weight: 700; color: #475569; }#s4 .src-sub { font-size: 11px; color: #334155; margin-top: 4px; line-height: 1.5; }#s4 .src-tag { display: inline-block; margin-top: 8px; font-size: 10px; padding: 2px 8px; border-radius: 12px; background: rgba(16,185,129,0.18); color: #34d399; font-weight: 700; }#s4 .src-tag.indev { background: rgba(245,158,11,0.2); color: #fbbf24; }
 /* §4 */
 #s5 { box-sizing: border-box; margin: 0; padding: 0; }#s5 {
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
@@ -394,14 +394,18 @@ section {
   font-weight: 700;
 }#s7 .tag-gov { background: rgba(16,185,129,0.12); color: #34d399; }#s7 .tag-comp { background: rgba(99,102,241,0.12); color: #818cf8; }#s7 .tag-user { background: rgba(245,158,11,0.12); color: #fbbf24; }#s7 .tag-intern { background: rgba(14,165,233,0.12); color: #7dd3fc; }
 
-/* Brightness fixes for §4 bottom */
-#s4 .z-eng  .zone-title { color: #94a3b8; }
-#s4 .z-eng  .zone-num   { color: #64748b; }
-#s4 .z-src  .zone-title { color: #64748b; }
-#s4 .z-src  .zone-num   { color: #475569; }
-#s4 .src-name { color: #94a3b8; }
-#s4 .src-sub  { color: #64748b; }
-#s4 .src-icon { opacity: 0.6; }
+/* Brightness fixes for §4 bottom - made brighter */
+#s4 .z-eng  .zone-title { color: #f1f5f9; }
+#s4 .z-eng  .zone-num   { color: #a5b4fc; }
+#s4 .z-eng  .zone-tagline { color: #94a3b8 !important; }
+#s4 .z-src  .zone-title { color: #f1f5f9 !important; }
+#s4 .z-src  .zone-num   { color: #a5b4fc !important; }
+#s4 .z-src  .zone-tagline { color: #94a3b8 !important; }
+#s4 .src-name { color: #e2e8f0 !important; }
+#s4 .src-sub  { color: #94a3b8 !important; }
+#s4 .src-icon { opacity: 1; }
+#s4 .z-eng .mcard-title { color: #e2e8f0 !important; }
+#s4 .z-eng .mcard .feat span[style*="color:#94a3b8"] { color: #cbd5e1 !important; }
 
 /* APPENDIX COLLAPSIBLE (details/summary) */
 #s7 details.appendix-block {
@@ -979,6 +983,96 @@ section {
   #intro .intro-title { font-size: 42px; }
 }
 
+
+/* === HOVER 效果：§1 设计原则 + §3 6 步卡片 === */
+#s1 .principle {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+}
+#s1 .principle:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: #0f1a35;
+  border-color: #818cf8;
+  box-shadow: 0 12px 32px rgba(129,140,248,0.3), 0 0 24px rgba(99,102,241,0.4);
+}
+#s1 .principle:hover .principle-name { color: #c7d2fe; }
+#s1 .principle:hover .principle-desc { color: #cbd5e1; }
+
+#s3 .step-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+}
+#s3 .step-card:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: #131f3a;
+  border-color: #34d399;
+  border-left-color: #34d399;
+  box-shadow: 0 12px 32px rgba(52,211,153,0.3), 0 0 24px rgba(52,211,153,0.4);
+}
+#s3 .step-card:hover .step-title { color: #ffffff; }
+#s3 .step-card:hover .step-desc { color: #e2e8f0; }
+
+
+/* HOVER · §1 用户卡片 */
+#s1 .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+#s1 .card:hover {
+  transform: translateY(-4px) scale(1.025);
+  border-color: #818cf8;
+  background: #131c35;
+  box-shadow: 0 14px 36px rgba(129,140,248,0.32), 0 0 28px rgba(99,102,241,0.4);
+}
+#s1 .card:hover .card-title { color: #ffffff; }
+#s1 .card:hover .card-sub { color: #cbd5e1; }
+#s1 .card:hover .fact { color: #cbd5e1; }
+#s1 .card:hover .pain-list li { color: #e2e8f0; }
+
+/* HOVER · §2 痛点卡 */
+#s2 .pain-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+#s2 .pain-card:hover {
+  transform: translateY(-4px) scale(1.025);
+  border-color: #f87171;
+  border-left-color: #ef4444;
+  background: #1a1418;
+  box-shadow: 0 14px 36px rgba(239,68,68,0.28), 0 0 26px rgba(248,113,113,0.35);
+}
+#s2 .pain-card:hover .pain-title { color: #ffffff; }
+#s2 .pain-card:hover .pain-desc { color: #e2e8f0; }
+#s2 .pain-card:hover .pain-quote { color: #fecaca; }
+
+/* HOVER · §2 机会卡 */
+#s2 .opp-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+#s2 .opp-card:hover {
+  transform: translateY(-4px) scale(1.025);
+  border-color: #34d399;
+  background: #0f1f1a;
+  box-shadow: 0 14px 36px rgba(16,185,129,0.28), 0 0 26px rgba(52,211,153,0.4);
+}
+#s2 .opp-card:hover .opp-title { color: #ffffff; }
+#s2 .opp-card:hover .opp-desc { color: #e2e8f0; }
+
+/* HOVER · §5 MVP 6 SVG panel · 滤镜光晕 + 边框高亮 */
+#s5 svg g.story-panel {
+  transition: filter 0.25s ease;
+  cursor: pointer;
+}
+#s5 svg g.story-panel:hover {
+  filter: drop-shadow(0 0 16px rgba(52,211,153,0.55)) drop-shadow(0 0 30px rgba(52,211,153,0.25));
+}
+#s5 svg g.story-panel > rect:first-of-type {
+  transition: stroke 0.25s ease, stroke-width 0.25s ease, fill 0.25s ease;
+}
+#s5 svg g.story-panel:hover > rect:first-of-type {
+  stroke: #34d399;
+  stroke-width: 2.2;
+  fill: #0d1a2b;
+}
+
 </style>
 </head>
 <body>
@@ -1233,7 +1327,7 @@ section {
 <div class="principles">
   <div class="principles-grid">
 
-    <div class="principle highlight-card">
+    <div class="principle">
       <div class="principle-name">🚨 合规主动提醒</div>
       <div class="principle-desc">系统直接告诉老板/会计「这里有问题，你需要这样做」——而不是扔一堆看不懂的数据让他自己判断</div>
     </div>
@@ -1612,7 +1706,7 @@ section {
 <!-- ENGINE -->
 <div class="zone z-eng">
   <div class="zone-header">
-    <div class="zone-emoji" style="opacity:0.5">⚙️</div>
+    <div class="zone-emoji" style="opacity:0.9">⚙️</div>
     <div>
       <div class="zone-num" style="color:#64748b">技术底座（自建 + 伙伴混合）</div>
       <div class="zone-title">工资估算 & 合规规则引擎</div>
@@ -1649,7 +1743,7 @@ section {
 <!-- DATA SOURCES -->
 <div class="zone z-src">
   <div class="zone-header">
-    <div class="zone-emoji" style="opacity:0.3">🔌</div>
+    <div class="zone-emoji" style="opacity:0.9">🔌</div>
     <div>
       <div class="zone-num" style="color:#475569">数据来源（现有模块直接调用）</div>
       <div class="zone-title" style="color:#64748b">Chowbus 已有数据接入</div>
@@ -1694,11 +1788,10 @@ section {
 
       <!-- 6-STEP STORYBOARD（详细版，每步对应一格分镜，全宽放大）-->
       <div style="grid-column: 1 / -1; background:#04080f; border:1px solid #1e293b; border-radius:10px; padding:20px 22px; margin-bottom:18px;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+        <div style="margin-bottom:6px;">
           <div style="font-size:16px; font-weight:700; color:#f1f5f9;">🎬 全自动跑薪 6 步分镜（详细版）</div>
-          <a href="#s3" style="font-size:12px; color:#34d399; text-decoration:none; font-weight:600;">→ 看 §3 4 角色漫画概览</a>
         </div>
-        <div style="font-size:12px; color:#64748b; margin-bottom:16px;">每格分镜对应一步操作 · 字段、按钮、UI 元素的细化示意</div>
+        
         <svg viewBox="0 0 1140 560" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
           <defs>
             <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -1712,7 +1805,7 @@ section {
           </defs>
 
           <!-- ===== PANEL 1: 设置规则 ===== -->
-          <g transform="translate(0,20)">
+          <g class="story-panel" transform="translate(0,20)">
             <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b" stroke-width="1"/>
             <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
             <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">1</text>
@@ -1760,7 +1853,7 @@ section {
           </g>
 
           <!-- ===== PANEL 2: 员工打卡 ===== -->
-          <g transform="translate(390,20)">
+          <g class="story-panel" transform="translate(390,20)">
             <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
             <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
             <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">2</text>
@@ -1817,7 +1910,7 @@ section {
           </g>
 
           <!-- ===== PANEL 3: 5渠道发出工时单 ===== -->
-          <g transform="translate(780,20)">
+          <g class="story-panel" transform="translate(780,20)">
             <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
             <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
             <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">3</text>
@@ -1877,7 +1970,7 @@ section {
           </g>
 
           <!-- ===== PANEL 4: 员工签字 ===== -->
-          <g transform="translate(0,290)">
+          <g class="story-panel" transform="translate(0,290)">
             <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
             <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
             <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">4</text>
@@ -1932,7 +2025,7 @@ section {
           </g>
 
           <!-- ===== PANEL 5: 工资计算草案 ===== -->
-          <g transform="translate(390,290)">
+          <g class="story-panel" transform="translate(390,290)">
             <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
             <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
             <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">5</text>
@@ -1977,7 +2070,7 @@ section {
           </g>
 
           <!-- ===== PANEL 6: 工资单 4 渠道 + 签字 ===== -->
-          <g transform="translate(780,290)">
+          <g class="story-panel" transform="translate(780,290)">
             <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
             <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
             <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">6</text>
