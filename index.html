@@ -127,7 +127,29 @@ section {
     background: #0f172a; border: 1px solid #1e293b;
     border-radius: 10px; padding: 20px;
     position: relative; overflow: hidden;
-  }#s1 .card::before {
+    display: flex;
+    gap: 18px;
+    align-items: stretch;
+  }#s1 .card-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }#s1 .card-portrait {
+    width: 130px;
+    flex-shrink: 0;
+    align-self: center;
+    padding: 3px;
+    background: linear-gradient(135deg, #d4a017 0%, #fbbf24 25%, #fef3c7 50%, #fbbf24 75%, #d4a017 100%);
+    border-radius: 14px;
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.4), 0 2px 8px rgba(0, 0, 0, 0.35);
+  }#s1 .card-portrait img {
+    width: 100%;
+    height: auto;
+    border-radius: 11px;
+    display: block;
+    background: #0f172a;
+  }#s1 .card .story { margin-top: auto; }#s1 .card::before {
     content: ''; position: absolute;
     top: 0; left: 0; right: 0; height: 3px;
   }#s1 .card.c1::before { background: linear-gradient(90deg, #6366f1, #818cf8); }#s1 .card.c2::before { background: linear-gradient(90deg, #10b981, #34d399); }#s1 .card.c3::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }#s1 .card.c4::before { background: linear-gradient(90deg, #ef4444, #f87171); }#s1 .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }#s1 .icon {
@@ -224,12 +246,12 @@ section {
     margin-bottom: 4px;
   }#s2 .moat-label { font-size: 12px; color: #94a3b8; line-height: 1.4; }
 /* §3 */
-#s3 { box-sizing: border-box; margin: 0; padding: 0; }#s3 {
+#s4 { box-sizing: border-box; margin: 0; padding: 0; }#s4 {
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
   background: #04080f;
   color: #f1f5f9;
   padding: 40px 44px;
-}#s3 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s3 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 28px; }#s3 .legend { display: flex; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; align-items: center; }#s3 .leg { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; }#s3 .pip { width: 12px; height: 12px; border-radius: 3px; }#s3 .legend-divider { width: 1px; height: 16px; background: #1e293b; }#s3 /* ── HERO BANNER ── */
+}#s4 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s4 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 28px; }#s4 .legend { display: flex; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; align-items: center; }#s4 .leg { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; }#s4 .pip { width: 12px; height: 12px; border-radius: 3px; }#s4 .legend-divider { width: 1px; height: 16px; background: #1e293b; }#s4 /* ── HERO BANNER ── */
 .hero-banner {
   background: linear-gradient(135deg, #0a1f12 0%, #061a28 50%, #0d0a20 100%);
   border: 1px solid rgba(16,185,129,0.3);
@@ -239,59 +261,79 @@ section {
   display: flex;
   align-items: center;
   gap: 16px;
-}#s3 .hero-title {
+}#s4 .hero-title {
   font-size: 22px; font-weight: 900; letter-spacing: -0.3px;
   background: linear-gradient(135deg, #34d399, #7dd3fc, #c4b5fd);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
-}#s3 .hero-sub { font-size: 13px; color: #065f46; margin-top: 4px; }#s3 /* ── ZONE ── */
-.zone { border-radius: 14px; overflow: hidden; margin-bottom: 10px; }#s3 .zone-header { display: flex; align-items: center; gap: 14px; padding: 18px 24px; }#s3 .zone-emoji { font-size: 26px; flex-shrink: 0; }#s3 .zone-num {
+}#s4 .hero-sub { font-size: 13px; color: #065f46; margin-top: 4px; }#s4 /* ── ZONE ── */
+.zone { border-radius: 14px; overflow: hidden; margin-bottom: 10px; }#s4 .zone-header { display: flex; align-items: center; gap: 14px; padding: 18px 24px; }#s4 .zone-emoji { font-size: 26px; flex-shrink: 0; }#s4 .zone-num {
   font-size: 11px; font-weight: 900; letter-spacing: 0.12em;
   text-transform: uppercase; margin-bottom: 4px; opacity: 0.7;
-}#s3 .zone-title { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }#s3 .zone-tagline { font-size: 13px; margin-top: 4px; opacity: 0.65; }#s3 .zone-body { padding: 14px 18px 18px; background: rgba(255,255,255,0.025); }#s3 .cards-row { display: flex; gap: 10px; }#s3 .mcard {
+}#s4 .zone-title { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }#s4 .zone-tagline { font-size: 13px; margin-top: 4px; opacity: 0.65; }#s4 .zone-body { padding: 14px 18px 18px; background: rgba(255,255,255,0.025); }#s4 .cards-row { display: flex; gap: 10px; }#s4 .mcard {
   flex: 1; background: rgba(0,0,0,0.4);
   border-radius: 10px; padding: 14px 15px;
   border: 1px solid rgba(255,255,255,0.06);
-}#s3 .mcard-title { font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 9px; display: flex; align-items: center; gap: 7px; }#s3 .feat { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: #94a3b8; margin-bottom: 5px; line-height: 1.4; }#s3 .feat:last-child { margin-bottom: 0; }#s3 .b { flex-shrink: 0; font-size: 9px; font-weight: 800; padding: 2px 5px; border-radius: 3px; margin-top: 1px; }#s3 .bm { background: rgba(16,185,129,0.25); color: #6ee7b7; }#s3 .b2 { background: rgba(99,102,241,0.25); color: #a5b4fc; }#s3 .b3 { background: rgba(245,158,11,0.25); color: #fcd34d; }#s3 /* Zone themes */
-.z-ai { border: 2px solid rgba(139,92,246,0.5); }#s3 .z-ai  .zone-header { background: linear-gradient(135deg, #1e0a38, #0a051c); }#s3 .z-ai  .zone-title { color: #c4b5fd; }#s3 .z-ai  .zone-num { color: #7c3aed; }#s3 .z-flow { border: 1px solid rgba(99,102,241,0.4); }#s3 .z-flow .zone-header { background: linear-gradient(135deg, #1e1b4b, #0d0b2a); }#s3 .z-flow .zone-title { color: #818cf8; }#s3 .z-flow .zone-num { color: #4338ca; }#s3 .z-tax { border: 1px solid rgba(244,63,94,0.4); }#s3 .z-tax  .zone-header { background: linear-gradient(135deg, #881337, #3b0815); }#s3 .z-tax  .zone-title { color: #fb7185; }#s3 .z-tax  .zone-num { color: #9f1239; }#s3 .z-pay { border: 1px solid rgba(139,92,246,0.4); }#s3 .z-pay  .zone-header { background: linear-gradient(135deg, #4c1d95, #1e0a38); }#s3 .z-pay  .zone-title { color: #c4b5fd; }#s3 .z-pay  .zone-num { color: #5b21b6; }#s3 .z-rpt { border: 1px solid rgba(14,165,233,0.4); }#s3 .z-rpt  .zone-header { background: linear-gradient(135deg, #0c4a6e, #041e2f); }#s3 .z-rpt  .zone-title { color: #7dd3fc; }#s3 .z-rpt  .zone-num { color: #0369a1; }#s3 /* Row of 3 zones */
-.trio { display: flex; gap: 10px; margin-bottom: 10px; }#s3 .trio .zone { flex: 1; margin-bottom: 0; }#s3 .trio .zone-header { padding: 16px 18px; }#s3 .trio .zone-title { font-size: 17px; }#s3 .trio .zone-body { padding: 12px 14px 14px; }#s3 /* AI chips */
-.ai-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 18px 18px; background: rgba(88,28,220,0.06); }#s3 .chip {
+}#s4 .mcard-title { font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 9px; display: flex; align-items: center; gap: 7px; }#s4 .feat { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: #94a3b8; margin-bottom: 5px; line-height: 1.4; }#s4 .feat:last-child { margin-bottom: 0; }#s4 .b { flex-shrink: 0; font-size: 9px; font-weight: 800; padding: 2px 5px; border-radius: 3px; margin-top: 1px; }#s4 .bm { background: rgba(16,185,129,0.25); color: #6ee7b7; }#s4 .b2 { background: rgba(99,102,241,0.25); color: #a5b4fc; }#s4 .b3 { background: rgba(245,158,11,0.25); color: #fcd34d; }#s4 /* Zone themes */
+.z-ai { border: 2px solid rgba(139,92,246,0.5); }#s4 .z-ai  .zone-header { background: linear-gradient(135deg, #1e0a38, #0a051c); }#s4 .z-ai  .zone-title { color: #c4b5fd; }#s4 .z-ai  .zone-num { color: #7c3aed; }#s4 .z-flow { border: 1px solid rgba(99,102,241,0.4); }#s4 .z-flow .zone-header { background: linear-gradient(135deg, #1e1b4b, #0d0b2a); }#s4 .z-flow .zone-title { color: #818cf8; }#s4 .z-flow .zone-num { color: #4338ca; }#s4 .z-tax { border: 1px solid rgba(244,63,94,0.4); }#s4 .z-tax  .zone-header { background: linear-gradient(135deg, #881337, #3b0815); }#s4 .z-tax  .zone-title { color: #fb7185; }#s4 .z-tax  .zone-num { color: #9f1239; }#s4 .z-pay { border: 1px solid rgba(139,92,246,0.4); }#s4 .z-pay  .zone-header { background: linear-gradient(135deg, #4c1d95, #1e0a38); }#s4 .z-pay  .zone-title { color: #c4b5fd; }#s4 .z-pay  .zone-num { color: #5b21b6; }#s4 .z-rpt { border: 1px solid rgba(14,165,233,0.4); }#s4 .z-rpt  .zone-header { background: linear-gradient(135deg, #0c4a6e, #041e2f); }#s4 .z-rpt  .zone-title { color: #7dd3fc; }#s4 .z-rpt  .zone-num { color: #0369a1; }#s4 /* Row of 3 zones */
+.trio { display: flex; gap: 10px; margin-bottom: 10px; }#s4 .trio .zone { flex: 1; margin-bottom: 0; }#s4 .trio .zone-header { padding: 16px 18px; }#s4 .trio .zone-title { font-size: 17px; }#s4 .trio .zone-body { padding: 12px 14px 14px; }#s4 /* AI chips */
+.ai-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 18px 18px; background: rgba(88,28,220,0.06); }#s4 .chip {
   background: rgba(109,40,217,0.12); border: 1px solid rgba(109,40,217,0.28);
   border-radius: 8px; padding: 9px 14px;
   display: flex; align-items: center; gap: 9px; font-size: 13px; color: #ddd6fe;
-}#s3 /* CONNECTOR */
-.connector { text-align: center; color: #1e293b; font-size: 20px; margin: 8px 0; user-select: none; }#s3 /* ── FOUNDATION ── */
+}#s4 /* CONNECTOR */
+.connector { text-align: center; color: #1e293b; font-size: 20px; margin: 8px 0; user-select: none; }#s4 /* ── FOUNDATION ── */
 .foundation-label {
   display: flex; align-items: center; gap: 10px; margin: 16px 0 10px;
   font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #334155;
-}#s3 .foundation-label::before, #s3 .foundation-label::after { content:''; flex:1; height:1px; background:#1e293b; }#s3 .z-eng { border: 1px dashed #334155; }#s3 .z-eng  .zone-header { background: linear-gradient(135deg, #0f1a2e, #070e1a); }#s3 .z-eng  .zone-title { color: #475569; }#s3 .z-eng  .zone-num { color: #334155; }#s3 .z-src { border: 1px dashed #1e293b; }#s3 .z-src  .zone-header { background: linear-gradient(135deg, #080d18, #04080f); }#s3 .z-src  .zone-title { color: #334155; }#s3 .z-src  .zone-num { color: #1e293b; }#s3 .source-row { display: flex; gap: 10px; }#s3 .src {
+}#s4 .foundation-label::before, #s4 .foundation-label::after { content:''; flex:1; height:1px; background:#1e293b; }#s4 .z-eng { border: 1px dashed #334155; }#s4 .z-eng  .zone-header { background: linear-gradient(135deg, #0f1a2e, #070e1a); }#s4 .z-eng  .zone-title { color: #475569; }#s4 .z-eng  .zone-num { color: #334155; }#s4 .z-src { border: 1px dashed #1e293b; }#s4 .z-src  .zone-header { background: linear-gradient(135deg, #080d18, #04080f); }#s4 .z-src  .zone-title { color: #334155; }#s4 .z-src  .zone-num { color: #1e293b; }#s4 .source-row { display: flex; gap: 10px; }#s4 .src {
   flex: 1; background: rgba(255,255,255,0.015); border: 1px dashed #1e293b;
   border-radius: 10px; padding: 14px; text-align: center;
-}#s3 .src-icon { font-size: 22px; opacity: 0.4; margin-bottom: 6px; }#s3 .src-name { font-size: 13px; font-weight: 700; color: #475569; }#s3 .src-sub { font-size: 11px; color: #334155; margin-top: 4px; line-height: 1.5; }#s3 .src-tag { display: inline-block; margin-top: 8px; font-size: 10px; padding: 2px 8px; border-radius: 12px; background: rgba(30,41,59,0.6); color: #475569; }#s3 .src-tag.indev { background: rgba(120,53,15,0.15); color: #78350f; }
+}#s4 .src-icon { font-size: 22px; opacity: 0.4; margin-bottom: 6px; }#s4 .src-name { font-size: 13px; font-weight: 700; color: #475569; }#s4 .src-sub { font-size: 11px; color: #334155; margin-top: 4px; line-height: 1.5; }#s4 .src-tag { display: inline-block; margin-top: 8px; font-size: 10px; padding: 2px 8px; border-radius: 12px; background: rgba(30,41,59,0.6); color: #475569; }#s4 .src-tag.indev { background: rgba(120,53,15,0.15); color: #78350f; }
 /* §4 */
-#s4 { box-sizing: border-box; margin: 0; padding: 0; }#s4 {
+#s5 { box-sizing: border-box; margin: 0; padding: 0; }#s5 {
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
   background: #04080f;
   color: #f1f5f9;
   padding: 40px 44px;
-}#s4 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s4 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 36px; }#s4 .phases {
+}#s5 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s5 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 36px; }#s5 .phases {
   display: grid;
-  grid-template-columns: 1fr 36px 1fr 36px 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "mvp mvp" "v2 v3";
+  gap: 18px;
   align-items: stretch;
-  gap: 0;
-}#s4 .arrow-divider {
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px; color: #1e293b; padding-top: 80px;
-}#s4 .phase { border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }#s4 .phase-header { padding: 22px 24px 20px; }#s4 .phase-eyebrow { font-size: 10px; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.7; }#s4 .phase-name { font-size: 30px; font-weight: 900; letter-spacing: -0.5px; }#s4 .phase-timeline { font-size: 12px; margin-top: 6px; opacity: 0.55; display: flex; align-items: center; gap: 6px; }#s4 .phase-headline { font-size: 16px; font-weight: 700; margin-top: 16px; line-height: 1.4; }#s4 .phase-body { padding: 16px 20px 20px; background: rgba(255,255,255,0.025); flex: 1; display: flex; flex-direction: column; gap: 16px; }#s4 /* FEAT GROUP - bigger titles */
+}#s5 .phase-mvp { grid-area: mvp; }
+#s5 .phase-v2 { grid-area: v2; }
+#s5 .phase-v3 { grid-area: v3; }
+#s5 .arrow-divider { display: none; }
+#s5 .phase-mvp .phase-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+#s5 .phase-mvp .phase-header > div:first-child { min-width: 240px; }
+#s5 .phase-mvp .phase-name { font-size: 42px; line-height: 1; }
+#s5 .phase-mvp .phase-headline { margin-top: 0; font-size: 18px; }
+#s5 .phase-mvp .phase-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+#s5 .phase-mvp .phase-body > div:first-child,
+#s5 .phase-mvp .phase-body > a,
+#s5 .phase-mvp .phase-body > .phase-outcome {
+  grid-column: 1 / -1;
+}#s5 .phase { border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }#s5 .phase-header { padding: 22px 24px 20px; }#s5 .phase-eyebrow { font-size: 10px; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.7; }#s5 .phase-name { font-size: 30px; font-weight: 900; letter-spacing: -0.5px; }#s5 .phase-timeline { font-size: 12px; margin-top: 6px; opacity: 0.55; display: flex; align-items: center; gap: 6px; }#s5 .phase-headline { font-size: 16px; font-weight: 700; margin-top: 16px; line-height: 1.4; }#s5 .phase-body { padding: 16px 20px 20px; background: rgba(255,255,255,0.025); flex: 1; display: flex; flex-direction: column; gap: 16px; }#s5 /* FEAT GROUP - bigger titles */
 .feat-group-title {
   font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
   margin-bottom: 8px; padding-bottom: 6px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   display: flex; align-items: center; gap: 6px;
-}#s4 .feat-item {
+}#s5 .feat-item {
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 13px; color: #cbd5e1; margin-bottom: 6px; line-height: 1.4;
-}#s4 .feat-item:last-child { margin-bottom: 0; }#s4 .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }#s4 /* AI TAG */
+}#s5 .feat-item:last-child { margin-bottom: 0; }#s5 .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }#s5 /* AI TAG */
 .ai-tag {
   display: inline-flex; align-items: center; gap: 3px;
   font-size: 9px; font-weight: 800; padding: 1px 5px;
@@ -299,67 +341,644 @@ section {
   background: rgba(139,92,246,0.25); color: #c4b5fd;
   border: 1px solid rgba(139,92,246,0.3);
   flex-shrink: 0; margin-top: 2px; white-space: nowrap;
-}#s4 .phase-outcome {
+}#s5 .phase-outcome {
   margin-top: auto; padding: 12px 14px; border-radius: 8px;
   font-size: 13px; line-height: 1.5; font-weight: 500;
-}#s4 .outcome-label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }#s4 /* MVP — emerald */
-.phase-mvp { border: 1px solid rgba(16,185,129,0.4); }#s4 .phase-mvp .phase-header { background: linear-gradient(160deg, #064e3b, #042f23); }#s4 .phase-mvp .phase-eyebrow { color: #34d399; }#s4 .phase-mvp .phase-name { color: #34d399; }#s4 .phase-mvp .phase-headline { color: #a7f3d0; }#s4 .phase-mvp .feat-group-title { color: #34d399; }#s4 .phase-mvp .dot { background: #10b981; }#s4 .phase-mvp .phase-outcome { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); }#s4 .phase-mvp .outcome-label { color: #059669; }#s4 /* 2.0 — indigo */
-.phase-v2 { border: 1px solid rgba(99,102,241,0.4); }#s4 .phase-v2 .phase-header { background: linear-gradient(160deg, #1e1b4b, #100f2e); }#s4 .phase-v2 .phase-eyebrow { color: #818cf8; }#s4 .phase-v2 .phase-name { color: #818cf8; }#s4 .phase-v2 .phase-headline { color: #c7d2fe; }#s4 .phase-v2 .feat-group-title { color: #818cf8; }#s4 .phase-v2 .dot { background: #6366f1; }#s4 .phase-v2 .phase-outcome { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); }#s4 .phase-v2 .outcome-label { color: #6366f1; }#s4 /* 3.0 — amber */
-.phase-v3 { border: 1px solid rgba(245,158,11,0.4); }#s4 .phase-v3 .phase-header { background: linear-gradient(160deg, #451a03, #2a0f02); }#s4 .phase-v3 .phase-eyebrow { color: #fbbf24; }#s4 .phase-v3 .phase-name { color: #fbbf24; }#s4 .phase-v3 .phase-headline { color: #fde68a; }#s4 .phase-v3 .feat-group-title { color: #fbbf24; }#s4 .phase-v3 .dot { background: #f59e0b; }#s4 .phase-v3 .phase-outcome { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); }#s4 .phase-v3 .outcome-label { color: #d97706; }#s4 /* METRICS */
-.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }#s4 .metric-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 18px 20px; text-align: center; }#s4 .metric-num {
+}#s5 .outcome-label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }#s5 /* MVP — emerald */
+.phase-mvp { border: 1px solid rgba(16,185,129,0.4); }#s5 .phase-mvp .phase-header { background: linear-gradient(160deg, #064e3b, #042f23); }#s5 .phase-mvp .phase-eyebrow { color: #34d399; }#s5 .phase-mvp .phase-name { color: #34d399; }#s5 .phase-mvp .phase-headline { color: #a7f3d0; }#s5 .phase-mvp .feat-group-title { color: #34d399; }#s5 .phase-mvp .dot { background: #10b981; }#s5 .phase-mvp .phase-outcome { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); }#s5 .phase-mvp .outcome-label { color: #059669; }#s5 /* 2.0 — indigo */
+.phase-v2 { border: 1px solid rgba(99,102,241,0.4); }#s5 .phase-v2 .phase-header { background: linear-gradient(160deg, #1e1b4b, #100f2e); }#s5 .phase-v2 .phase-eyebrow { color: #818cf8; }#s5 .phase-v2 .phase-name { color: #818cf8; }#s5 .phase-v2 .phase-headline { color: #c7d2fe; }#s5 .phase-v2 .feat-group-title { color: #818cf8; }#s5 .phase-v2 .dot { background: #6366f1; }#s5 .phase-v2 .phase-outcome { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); }#s5 .phase-v2 .outcome-label { color: #6366f1; }#s5 /* 3.0 — amber */
+.phase-v3 { border: 1px solid rgba(245,158,11,0.4); }#s5 .phase-v3 .phase-header { background: linear-gradient(160deg, #451a03, #2a0f02); }#s5 .phase-v3 .phase-eyebrow { color: #fbbf24; }#s5 .phase-v3 .phase-name { color: #fbbf24; }#s5 .phase-v3 .phase-headline { color: #fde68a; }#s5 .phase-v3 .feat-group-title { color: #fbbf24; }#s5 .phase-v3 .dot { background: #f59e0b; }#s5 .phase-v3 .phase-outcome { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); }#s5 .phase-v3 .outcome-label { color: #d97706; }#s5 /* METRICS */
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }#s5 .metric-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 18px 20px; text-align: center; }#s5 .metric-num {
   font-size: 30px; font-weight: 900;
   background: linear-gradient(135deg, #34d399, #818cf8, #fbbf24);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   margin-bottom: 6px;
-}#s4 .metric-label { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+}#s5 .metric-label { font-size: 13px; color: #94a3b8; line-height: 1.6; }
 /* §5 */
-#s5 { box-sizing: border-box; margin: 0; padding: 0; }#s5 {
+#s6 { box-sizing: border-box; margin: 0; padding: 0; }#s6 {
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
   background: #04080f;
   color: #f1f5f9;
   padding: 40px 44px;
-}#s5 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s5 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 32px; }#s5 .section-label {
+}#s6 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }#s6 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 32px; }#s6 .section-label {
   font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
   text-transform: uppercase; margin-bottom: 14px;
   padding-bottom: 8px; border-bottom: 1px solid #1e293b;
   display: flex; align-items: center; gap: 8px;
-}#s5 /* RISK GRID */
-.risk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 32px; }#s5 .risk-card {
+}#s6 /* RISK GRID */
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 32px; }#s6 .risk-card {
   background: #0f172a; border-radius: 12px;
   padding: 18px 20px;
   border-left: 3px solid;
   border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid;
-}#s5 .risk-card.high { border-color: rgba(239,68,68,0.5);  border-left-color: #ef4444; }#s5 .risk-card.mid { border-color: rgba(245,158,11,0.4); border-left-color: #f59e0b; }#s5 .risk-card.low { border-color: rgba(99,102,241,0.35);border-left-color: #6366f1; }#s5 .risk-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }#s5 .risk-icon { font-size: 20px; }#s5 .risk-level {
+}#s6 .risk-card.high { border-color: rgba(239,68,68,0.5);  border-left-color: #ef4444; }#s6 .risk-card.mid { border-color: rgba(245,158,11,0.4); border-left-color: #f59e0b; }#s6 .risk-card.low { border-color: rgba(99,102,241,0.35);border-left-color: #6366f1; }#s6 .risk-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }#s6 .risk-icon { font-size: 20px; }#s6 .risk-level {
   font-size: 10px; font-weight: 800; padding: 2px 8px;
   border-radius: 20px; letter-spacing: 0.06em;
-}#s5 .high .risk-level { background: rgba(239,68,68,0.15);  color: #f87171; }#s5 .mid  .risk-level { background: rgba(245,158,11,0.15); color: #fbbf24; }#s5 .low  .risk-level { background: rgba(99,102,241,0.15); color: #a5b4fc; }#s5 .risk-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }#s5 .risk-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 12px; }#s5 .mitigation-label {
+}#s6 .high .risk-level { background: rgba(239,68,68,0.15);  color: #f87171; }#s6 .mid  .risk-level { background: rgba(245,158,11,0.15); color: #fbbf24; }#s6 .low  .risk-level { background: rgba(99,102,241,0.15); color: #a5b4fc; }#s6 .risk-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }#s6 .risk-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 12px; }#s6 .mitigation-label {
   font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
   text-transform: uppercase; margin-bottom: 5px;
-}#s5 .high .mitigation-label { color: #ef4444; }#s5 .mid  .mitigation-label { color: #f59e0b; }#s5 .low  .mitigation-label { color: #6366f1; }#s5 .mitigation { font-size: 12px; color: #cbd5e1; line-height: 1.6; }#s5 /* SOURCES */
-.sources-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }#s5 .source-group {
+}#s6 .high .mitigation-label { color: #ef4444; }#s6 .mid  .mitigation-label { color: #f59e0b; }#s6 .low  .mitigation-label { color: #6366f1; }#s6 .mitigation { font-size: 12px; color: #cbd5e1; line-height: 1.6; }#s6 /* SOURCES */
+.sources-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }#s7 .source-group {
   background: #0f172a; border: 1px solid #1e293b;
   border-radius: 12px; padding: 18px 20px;
-}#s5 .source-group-title {
+}#s7 .source-group-title {
   font-size: 14px; font-weight: 700; color: #f1f5f9;
   margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
-}#s5 .source-item {
+}#s7 .source-item {
   display: flex; flex-direction: column;
   margin-bottom: 10px; padding-bottom: 10px;
   border-bottom: 1px solid #1e293b;
-}#s5 .source-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }#s5 .source-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }#s5 .source-desc { font-size: 12px; color: #64748b; line-height: 1.4; }#s5 .source-tag {
+}#s7 .source-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }#s7 .source-name { font-size: 13px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }#s7 .source-desc { font-size: 12px; color: #64748b; line-height: 1.4; }#s7 .source-tag {
   display: inline-block; margin-top: 5px;
   font-size: 10px; padding: 2px 7px; border-radius: 10px;
   font-weight: 700;
-}#s5 .tag-gov { background: rgba(16,185,129,0.12); color: #34d399; }#s5 .tag-comp { background: rgba(99,102,241,0.12); color: #818cf8; }#s5 .tag-user { background: rgba(245,158,11,0.12); color: #fbbf24; }#s5 .tag-intern { background: rgba(14,165,233,0.12); color: #7dd3fc; }
+}#s7 .tag-gov { background: rgba(16,185,129,0.12); color: #34d399; }#s7 .tag-comp { background: rgba(99,102,241,0.12); color: #818cf8; }#s7 .tag-user { background: rgba(245,158,11,0.12); color: #fbbf24; }#s7 .tag-intern { background: rgba(14,165,233,0.12); color: #7dd3fc; }
 
-/* Brightness fixes for §3 bottom */
-#s3 .z-eng  .zone-title { color: #94a3b8; }
-#s3 .z-eng  .zone-num   { color: #64748b; }
-#s3 .z-src  .zone-title { color: #64748b; }
-#s3 .z-src  .zone-num   { color: #475569; }
-#s3 .src-name { color: #94a3b8; }
-#s3 .src-sub  { color: #64748b; }
-#s3 .src-icon { opacity: 0.6; }
+/* Brightness fixes for §4 bottom */
+#s4 .z-eng  .zone-title { color: #94a3b8; }
+#s4 .z-eng  .zone-num   { color: #64748b; }
+#s4 .z-src  .zone-title { color: #64748b; }
+#s4 .z-src  .zone-num   { color: #475569; }
+#s4 .src-name { color: #94a3b8; }
+#s4 .src-sub  { color: #64748b; }
+#s4 .src-icon { opacity: 0.6; }
+
+/* APPENDIX COLLAPSIBLE (details/summary) */
+#s7 details.appendix-block {
+  margin-top: 32px;
+  background: #0a1024;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+}
+#s7 details.appendix-block > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #cbd5e1;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  background: linear-gradient(135deg, #0f172a, #0a1024);
+}
+#s7 details.appendix-block > summary::-webkit-details-marker { display: none; }
+#s7 details.appendix-block > summary::after {
+  content: "▼";
+  color: #475569;
+  font-size: 11px;
+  transition: transform 0.2s;
+}
+#s7 details.appendix-block[open] > summary::after { transform: rotate(180deg); }
+#s7 details.appendix-block > .appendix-body {
+  padding: 20px 24px;
+  border-top: 1px solid #1e293b;
+}
+#s7 .appendix-hint {
+  font-size: 12px;
+  color: #475569;
+  margin-left: auto;
+  margin-right: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+#s7 table.req-list {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+#s7 table.req-list th {
+  background: #0f172a;
+  color: #94a3b8;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid #1e293b;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+}
+#s7 table.req-list td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #1e293b;
+  color: #cbd5e1;
+  vertical-align: top;
+  line-height: 1.55;
+}
+#s7 table.req-list tr:hover td { background: #0f172a; }
+#s7 table.req-list td.idx { color: #64748b; font-weight: 700; width: 48px; }
+#s7 table.req-list td.feat-name { font-weight: 600; color: #f1f5f9; width: 220px; }
+#s7 table.req-list .pri {
+  display: inline-block; padding: 2px 8px; border-radius: 12px;
+  font-size: 11px; font-weight: 700;
+}
+#s7 table.req-list .pri-mvp { background: rgba(16,185,129,0.15); color: #34d399; }
+#s7 table.req-list .pri-v2 { background: rgba(99,102,241,0.15); color: #818cf8; }
+#s7 table.req-list .pri-v3 { background: rgba(245,158,11,0.15); color: #fbbf24; }
+#s7 table.req-list tr.cat-row td {
+  background: linear-gradient(135deg, #1e1b4b, #131129);
+  color: #a5b4fc;
+  font-weight: 700;
+  padding: 8px 12px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* §3 NEW: 员工提效专属剧场 */
+#s3 {
+  background: linear-gradient(180deg, #060d1f 0%, #0a1024 100%);
+  color: #e2e8f0;
+  padding: 48px 44px 64px;
+}
+#s3 h1 { font-size: 30px; font-weight: 800; color: #f8fafc; letter-spacing: -0.4px; }
+#s3 .subtitle { color: #64748b; font-size: 15px; margin-top: 8px; margin-bottom: 32px; }
+#s3 .comic-stage {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+  text-align: center;
+}
+#s3 .comic-stage .zoom-hint {
+  position: absolute; top: 14px; right: 18px;
+  background: rgba(15,23,42,0.85); color: #34d399;
+  padding: 6px 12px; border-radius: 20px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.05em;
+}
+#s3 .comic-stage svg { width: 100%; height: auto; display: block; }
+#s3 .step-list {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+#s3 .step-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #34d399;
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+#s3 .step-card .step-num {
+  display: inline-block;
+  background: linear-gradient(135deg, #34d399, #818cf8);
+  color: #0a1024;
+  font-size: 12px; font-weight: 900;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  line-height: 22px; text-align: center;
+  margin-right: 8px;
+}
+#s3 .step-card .step-title {
+  font-size: 14px; font-weight: 700; color: #f1f5f9;
+  margin-bottom: 6px;
+}
+#s3 .step-card .step-desc {
+  font-size: 12px; color: #94a3b8; line-height: 1.6;
+}
+
+/* COMIC MODAL (click to expand) */
+#comic-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(4,8,15,0.94);
+  z-index: 9999;
+  align-items: center; justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+}
+#comic-modal.open { display: flex; }
+#comic-modal .modal-inner {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 1400px; width: 95%;
+  max-height: 90vh; overflow: auto;
+  position: relative;
+}
+#comic-modal .modal-close {
+  position: absolute; top: 12px; right: 16px;
+  background: #1e1b4b; color: #fff;
+  border: none; border-radius: 50%;
+  width: 36px; height: 36px;
+  font-size: 18px; font-weight: 700;
+  cursor: pointer;
+}
+#comic-modal svg, #comic-modal img { width: 100%; height: auto; display: block; border-radius: 12px; }
+
+/* §7 NEW: 需求清单 & 知识来源 */
+#s7 {
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  background: #04080f;
+  color: #f1f5f9;
+  padding: 40px 44px;
+}
+#s7 h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+#s7 .subtitle { color: #475569; font-size: 14px; margin-top: 6px; margin-bottom: 28px; }
+#s7 details.appendix-block:first-of-type { margin-top: 0; }
+#s7 details.appendix-block { margin-top: 18px; }
+
+
+#s7 .req-grid {
+  columns: 3;
+  column-gap: 14px;
+  margin-top: 4px;
+}
+#s7 .req-category {
+  break-inside: avoid;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+#s7 .req-cat-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #a5b4fc;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), transparent);
+  margin: -12px -14px 8px -14px;
+  padding: 9px 14px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+#s7 .req-item {
+  padding: 7px 0;
+  border-bottom: 1px dashed #1e293b;
+}
+#s7 .req-item:last-child { border-bottom: none; padding-bottom: 0; }
+#s7 .req-item .req-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  flex-wrap: wrap;
+}
+#s7 .req-item .idx {
+  display: inline-block;
+  color: #64748b;
+  font-weight: 700;
+  font-size: 10px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+#s7 .req-item .name {
+  font-weight: 600;
+  color: #f1f5f9;
+  font-size: 11.5px;
+  flex: 1;
+  min-width: 0;
+}
+#s7 .req-item .pri {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+#s7 .req-item .pri-mvp { background: rgba(16,185,129,0.15); color: #34d399; }
+#s7 .req-item .pri-v2 { background: rgba(99,102,241,0.15); color: #818cf8; }
+#s7 .req-item .pri-v3 { background: rgba(245,158,11,0.15); color: #fbbf24; }
+#s7 .req-item .desc {
+  color: #94a3b8;
+  font-size: 10.5px;
+  line-height: 1.55;
+  padding-left: 34px;
+}
+
+/* Tighter sources: 4 columns instead of 3, smaller items */
+#s7 .sources-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+}
+#s7 .source-group {
+  padding: 12px 14px !important;
+}
+#s7 .source-group-title {
+  font-size: 12px !important;
+  margin-bottom: 10px !important;
+}
+#s7 .source-item {
+  margin-bottom: 8px !important;
+  padding-bottom: 8px !important;
+}
+#s7 .source-name {
+  font-size: 11.5px !important;
+}
+#s7 .source-desc {
+  font-size: 10.5px !important;
+  line-height: 1.4 !important;
+}
+
+
+/* INTRO HERO · 序幕 - 30 秒看懂 */
+#intro {
+  background: linear-gradient(180deg, #04080f 0%, #060d1f 100%);
+  padding: 80px 44px 90px;
+  color: #f1f5f9;
+  border-top: 1px solid #1e293b;
+}
+#intro .intro-stage {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-left: 80px;
+}
+#intro .intro-text {
+  padding-left: 20px;
+}
+#intro .intro-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #818cf8;
+  margin-bottom: 22px;
+  padding: 5px 12px;
+  border: 1px solid rgba(99,102,241,0.4);
+  border-radius: 20px;
+  background: rgba(99,102,241,0.08);
+}
+#intro .intro-title {
+  font-size: 62px;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #34d399 0%, #818cf8 50%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 22px;
+}
+#intro .intro-sub {
+  font-size: 17px;
+  color: #94a3b8;
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+#intro .intro-tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#intro .intro-tag {
+  padding: 10px 18px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #c7d2fe;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.4s ease;
+}
+#intro .intro-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#intro .device-frame {
+  background: linear-gradient(160deg, #1e1b4b, #0f172a);
+  border: 1px solid #3730a3;
+  border-radius: 26px;
+  padding: 24px 22px;
+  box-shadow: 0 24px 60px rgba(99,102,241,0.25), 0 12px 24px rgba(0,0,0,0.5);
+  position: relative;
+  width: 340px;
+  height: 480px;
+  overflow: hidden;
+}
+#intro .panel {
+  position: absolute;
+  top: 24px; left: 22px; right: 22px; bottom: 24px;
+  opacity: 0;
+}
+#intro .panel-header {
+  font-size: 12px;
+  font-weight: 700;
+  color: #a5b4fc;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+#intro .panel-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+#intro .step-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+#intro .step-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+#intro .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  background: #475569;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+#intro .step-num.done { background: #10b981; color: #ffffff; }
+#intro .step-num.active { background: #818cf8; color: #ffffff; animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+#intro .progress-dots {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 14px 0 6px;
+}
+#intro .pd {
+  flex: 1;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 3px;
+}
+#intro .pd.done { background: #10b981; }
+#intro .pd.active { background: #818cf8; animation: pulse 1.5s ease-in-out infinite; }
+#intro .panel-tag {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 6px;
+  font-weight: 600;
+}
+#intro .panel-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  text-align: center;
+  font-size: 11px;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+#intro .tax-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#intro .tax-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #cbd5e1;
+  opacity: 0;
+  animation: tax-pop 3s ease-out forwards;
+}
+#intro .panel-2 .tax-list li:nth-child(1) { animation-delay: 0.15s; }
+#intro .panel-2 .tax-list li:nth-child(2) { animation-delay: 0.5s; }
+#intro .panel-2 .tax-list li:nth-child(3) { animation-delay: 0.85s; }
+#intro .panel-2 .tax-list li:nth-child(4) { animation-delay: 1.2s; }
+#intro .panel-2 .tax-list li:nth-child(5) { animation-delay: 1.55s; }
+@keyframes tax-pop {
+  0% { opacity: 0; transform: translateX(-10px); }
+  20%, 100% { opacity: 1; transform: translateX(0); }
+}
+#intro .tax-check {
+  color: #34d399;
+  font-weight: 700;
+}
+#intro .shield-wrap {
+  text-align: center;
+  margin: 32px 0 16px;
+}
+#intro .shield {
+  font-size: 80px;
+  display: inline-block;
+  animation: shield-glow 2s ease-in-out infinite;
+}
+@keyframes shield-glow {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(52,211,153,0.5)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 24px rgba(52,211,153,0.9)); transform: scale(1.05); }
+}
+#intro .map-num {
+  font-size: 52px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #34d399, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 4px;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+#intro .compliance-list {
+  margin-top: 24px;
+}
+#intro .compliance-list div {
+  font-size: 11px;
+  color: #cbd5e1;
+  padding: 6px 0;
+  border-bottom: 1px dashed #1e293b;
+}
+#intro .compliance-list div:last-child { border-bottom: none; }
+
+
+#intro .hub-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 6px 0 4px;
+}
+@keyframes dash-flow {
+  to { stroke-dashoffset: -10; }
+}
+#intro .flow-line {
+  animation: dash-flow 0.9s linear infinite;
+}
+@keyframes hub-pulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(129,140,248,0.5)); }
+  50% { filter: drop-shadow(0 0 16px rgba(52,211,153,0.7)); }
+}
+#intro .hub-center {
+  animation: hub-pulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Animation cycle: 12 seconds total */
+@keyframes p1 {
+  0% { opacity: 0; transform: translateY(20px); }
+  3%, 30% { opacity: 1; transform: translateY(0); }
+  33%, 100% { opacity: 0; transform: translateY(-20px); }
+}
+@keyframes p2 {
+  0%, 30% { opacity: 0; transform: translateY(20px); }
+  33%, 63% { opacity: 1; transform: translateY(0); }
+  66%, 100% { opacity: 0; transform: translateY(-20px); }
+}
+@keyframes p3 {
+  0%, 63% { opacity: 0; transform: translateY(20px); }
+  66%, 96% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+#intro .panel-1 { animation: p1 12s ease-in-out infinite; }
+#intro .panel-2 { animation: p2 12s ease-in-out infinite; }
+#intro .panel-3 { animation: p3 12s ease-in-out infinite; }
+
+@keyframes tag1 {
+  0%, 33% { background: rgba(52,211,153,0.18); border-color: #34d399; color: #6ee7b7; transform: scale(1.02); }
+  34%, 100% { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.28); color: #c7d2fe; transform: scale(1); }
+}
+@keyframes tag2 {
+  0%, 33% { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.28); color: #c7d2fe; }
+  34%, 66% { background: rgba(99, 102, 241, 0.22); border-color: #818cf8; color: #a5b4fc; transform: scale(1.02); }
+  67%, 100% { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.28); color: #c7d2fe; transform: scale(1); }
+}
+@keyframes tag3 {
+  0%, 66% { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.28); color: #c7d2fe; }
+  67%, 100% { background: rgba(251, 191, 36, 0.18); border-color: #fbbf24; color: #fde68a; transform: scale(1.02); }
+}
+#intro .intro-tag.t1 { animation: tag1 12s ease-in-out infinite; }
+#intro .intro-tag.t2 { animation: tag2 12s ease-in-out infinite; }
+#intro .intro-tag.t3 { animation: tag3 12s ease-in-out infinite; }
+
+@media (max-width: 900px) {
+  #intro .intro-stage { grid-template-columns: 1fr; gap: 32px; }
+  #intro .intro-title { font-size: 42px; }
+}
+
 </style>
 </head>
 <body>
@@ -373,8 +992,8 @@ section {
   <div class="cover-title">Chowbus Payroll</div>
   <div class="cover-sub">华人餐饮市场唯一中文原生 Payroll 系统<br/>从工时到工资，一个系统全搞定</div>
   <div class="cover-meta">
-    <span>版本 v1.0</span>
-    <span>2026-05-08</span>
+    <span>版本 v2.0</span>
+    <span>2026-05-14</span>
     <span>Designed by Sisi Hu</span>
   </div>
   <div class="cover-scroll-hint">
@@ -389,20 +1008,121 @@ section {
 <nav id="navbar">
   <span class="nav-brand">Chowbus Payroll</span>
   <div class="nav-divider"></div>
-  <a href="#s1" data-section="s1">§1 用户是谁</a><a href="#s2" data-section="s2">§2 痛点与机会点</a><a href="#s3" data-section="s3">§3 功能架构全景</a><a href="#s4" data-section="s4">§4 产品路线图</a><a href="#s5" data-section="s5">§5 风险与结语</a>
+  <a href="#s1" data-section="s1">§1 用户是谁</a><a href="#s2" data-section="s2">§2 痛点与机会点</a><a href="#s3" data-section="s3">§3 员工提效剧场</a><a href="#s4" data-section="s4">§4 功能架构全景</a><a href="#s5" data-section="s5">§5 产品路线图</a><a href="#s6" data-section="s6">§6 风险一览</a><a href="#s7" data-section="s7">§7 清单 & 来源</a>
 </nav>
+
+<!-- INTRO HERO · 序幕 -->
+<div id="intro">
+  <div class="intro-stage">
+    <div class="intro-text">
+      <div class="intro-eyebrow">🎬 序幕 · 30 秒看懂全剧</div>
+      <h1 class="intro-title">让发薪<br/>像呼吸一样轻松</h1>
+      <p class="intro-sub">跑薪 · 报税 · 合规，3 件大事，Chowbus 帮你一次搞定<br/>老板把时间还给生意，员工把心思放在客人</p>
+      <div class="intro-tags">
+        <span class="intro-tag t1">🔄 一键跑薪</span>
+        <span class="intro-tag t2">🏛️ 自动报税</span>
+        <span class="intro-tag t3">⚖️ 合规守门</span>
+      </div>
+    </div>
+    <div class="intro-visual">
+      <div class="device-frame">
+        <!-- Panel 1: 跑薪 - 矢量数据中枢图 + 大字 -->
+        <div class="panel panel-1">
+          <div class="panel-header">Chowbus Payroll</div>
+          <div class="panel-sub">全流程线上跑薪 · 数据中枢已打通</div>
+          <svg class="hub-svg" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="hub-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#818cf8"/>
+                <stop offset="60%" stop-color="#34d399" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0.5"/>
+              </radialGradient>
+            </defs>
+            <line class="flow-line" x1="48" y1="30" x2="108" y2="60" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3 2" stroke-linecap="round"/>
+            <line class="flow-line" x1="232" y1="30" x2="172" y2="60" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="3 2" stroke-linecap="round"/>
+            <line class="flow-line" x1="48" y1="110" x2="108" y2="80" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 2" stroke-linecap="round"/>
+            <line class="flow-line" x1="232" y1="110" x2="172" y2="80" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="3 2" stroke-linecap="round"/>
+            <g class="hub-center" transform="translate(140, 70)">
+              <ellipse cx="0" cy="0" rx="40" ry="28" fill="url(#hub-grad)" opacity="0.95"/>
+              <ellipse cx="0" cy="0" rx="40" ry="28" fill="none" stroke="#a5b4fc" stroke-width="0.6"/>
+              <text text-anchor="middle" y="-3" fill="#ffffff" font-size="10" font-weight="800" font-family="-apple-system, sans-serif">Chowbus</text>
+              <text text-anchor="middle" y="10" fill="#c7d2fe" font-size="8" font-weight="600">数据中枢</text>
+            </g>
+            <g transform="translate(32, 28)">
+              <circle r="16" fill="#0f172a" stroke="#34d399" stroke-width="1.8"/>
+              <text y="3" text-anchor="middle" fill="#34d399" font-size="9" font-weight="800">POS</text>
+            </g>
+            <g transform="translate(248, 28)">
+              <circle r="16" fill="#0f172a" stroke="#818cf8" stroke-width="1.8"/>
+              <text y="3" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="800">打卡</text>
+            </g>
+            <g transform="translate(32, 112)">
+              <circle r="16" fill="#0f172a" stroke="#fbbf24" stroke-width="1.8"/>
+              <text y="3" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="800">小费</text>
+            </g>
+            <g transform="translate(248, 112)">
+              <circle r="16" fill="#0f172a" stroke="#f472b6" stroke-width="1.8"/>
+              <text y="3" text-anchor="middle" fill="#f9a8d4" font-size="9" font-weight="800">员工</text>
+            </g>
+          </svg>
+          <div class="map-num">6 步</div>
+          <div style="font-size:11px; color:#34d399; text-align:center; font-weight:700; margin-bottom:8px;">全自动跑完 · 30 秒搞定</div>
+          <div class="compliance-list">
+            <div>✓ 4 大数据源自动汇成工时单</div>
+            <div>✓ 5 渠道发员工 · 电子签字</div>
+            <div>✓ 工资单 4 渠道分发 + 留痕</div>
+          </div>
+          <div class="panel-footer">🔄 一键跑薪</div>
+        </div>
+
+        <!-- Panel 2: 报税 -->
+        <div class="panel panel-2">
+          <div class="panel-header">税务申报</div>
+          <div class="panel-sub">联邦 + 州 + 地方，全自动</div>
+          <ul class="tax-list">
+            <li><span>联邦税表 941</span><span class="tax-check">✓ 已申报</span></li>
+            <li><span>失业税 940</span><span class="tax-check">✓ 已申报</span></li>
+            <li><span>社保 + 医保税</span><span class="tax-check">✓ 已扣缴</span></li>
+            <li><span>50 州州税</span><span class="tax-check">✓ 同步中</span></li>
+            <li><span>小费税抵免</span><span class="tax-check">✓ 备料</span></li>
+          </ul>
+          <div class="panel-footer">🏛️ 自动报税</div>
+        </div>
+
+        <!-- Panel 3: 合规 -->
+        <div class="panel panel-3">
+          <div class="panel-header">合规守护</div>
+          <div class="panel-sub">Symmetry API 实时同步</div>
+          <div class="shield-wrap">
+            <div class="shield">🛡️</div>
+          </div>
+          <div class="map-num">50 州</div>
+          <div style="font-size:11px; color:#fbbf24; text-align:center; font-weight:700; margin-bottom:8px;">法规自动更新</div>
+          <div class="compliance-list">
+            <div>✓ 最低工资 · 加班 · 漏餐补偿</div>
+            <div>✓ 发薪频率 · 跨班次补偿</div>
+            <div>✓ 法规变更 · 自动告警推送</div>
+          </div>
+          <div class="panel-footer">⚖️ 合规守门</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- SECTIONS -->
 <section id="s1" data-label="§1 用户是谁">
 <div class="section-inner">
 <h1>§1 用户是谁</h1>
-<p class="subtitle">4类核心用户，付费决策者是老板与会计，员工是被服务方</p>
+<p class="subtitle">第一幕 · 主角登场 — 4 个角色 4 种心病 · 老板和会计是「付费观众」，员工是「台上演员」</p>
 
 <div class="section-label">核心用户</div>
 
 <div class="grid">
 
   <div class="card c1">
+    <div class="card-main">
     <div class="card-header">
       <div class="icon">🏪</div>
       <div>
@@ -423,9 +1143,12 @@ section {
     <div class="story">
       收到提醒「3人未确认工时」→ 逐条核实代确认 → <span class="highlight">5分钟搞定，不再靠微信对账</span>
     </div>
+      </div>
+    <div class="card-portrait"><img src="1.png" alt="连锁店店长"/></div>
   </div>
 
   <div class="card c2">
+    <div class="card-main">
     <div class="card-header">
       <div class="icon">🧮</div>
       <div>
@@ -446,9 +1169,12 @@ section {
     <div class="story">
       切换门店 → 工时已确认，异常自动标红 → 审核后出工资单，<span class="highlight">4小时压缩到40分钟</span>
     </div>
+      </div>
+    <div class="card-portrait"><img src="2.png" alt="集团会计"/></div>
   </div>
 
   <div class="card c3">
+    <div class="card-main">
     <div class="card-header">
       <div class="icon">📋</div>
       <div>
@@ -469,9 +1195,12 @@ section {
     <div class="story">
       系统内切换客户 → 拿到已确认工时 → 出单发回老板 → <span class="highlight">每客户省2小时，多接2个客户</span>
     </div>
+      </div>
+    <div class="card-portrait"><img src="3.png" alt="第三方会计"/></div>
   </div>
 
   <div class="card c4">
+    <div class="card-main">
     <div class="card-header">
       <div class="icon">👨‍🍳</div>
       <div>
@@ -492,6 +1221,8 @@ section {
     <div class="story">
       打烊后一键发确认短信 → 次日工资单自动生成 → <span class="highlight">从2小时缩短到20分钟</span>
     </div>
+      </div>
+    <div class="card-portrait"><img src="4.png" alt="华人小老板"/></div>
   </div>
 
 </div>
@@ -518,8 +1249,8 @@ section {
     </div>
 
     <div class="principle">
-      <div class="principle-name">🔐 双角色权限</div>
-      <div class="principle-desc">老板 vs 会计权限分离，支持多门店切换，第三方会计可管理多个客户</div>
+      <div class="principle-name">📡 100% 线上化</div>
+      <div class="principle-desc">工时确认、工资单、入职表、签字全部电子存根——告别纸质流程和微信群对账</div>
     </div>
 
     <div class="principle">
@@ -539,7 +1270,7 @@ section {
 <section id="s2" data-label="§2 痛点与机会点">
 <div class="section-inner">
 <h1>§2 用户痛点与机会点</h1>
-<p class="subtitle">华人餐厅在 Payroll 上的核心困境，以及 Chowbus 的切入空间</p>
+<p class="subtitle">第二幕 · 矛盾点燃 — 4 个软件来回切、纸质签字、微信对账、小费税不会算…痛点的尽头，就是 Chowbus 的舞台</p>
 
 <!-- PAIN POINTS -->
 <div class="section-label label-pain">用户痛点 · 现状有多痛</div>
@@ -563,7 +1294,7 @@ section {
   <div class="pain-card">
     <div class="pain-num">痛点 03</div>
     <div class="pain-title">合规是盲区，出事才知道</div>
-    <div class="pain-desc">小费抵扣最低工资（Tip Credit）、加班双倍计算（CA）、每周必发（NY）——大多数老板不知道这些规则，违规了才被追查。</div>
+    <div class="pain-desc">小费抵扣最低工资（小费抵扣（Tip Credit））、加班双倍计算（CA）、每周必发（NY）——大多数老板不知道这些规则，违规了才被追查。</div>
     <div class="pain-quote">「我不知道小费算进去之后工资还要不要补差价。」</div>
   </div>
 
@@ -584,7 +1315,7 @@ section {
   <div class="pain-card">
     <div class="pain-num">痛点 06</div>
     <div class="pain-title">小费计算混乱，容易违规</div>
-    <div class="pain-desc">Tip pooling 规则、FICA Tip Credit 退税（餐厅每年可省数千美元）——大部分餐厅老板根本不知道有这个，更不知道怎么算。</div>
+    <div class="pain-desc">Tip pooling 规则、FICA Tip Credit 退税抵免——大部分餐厅老板根本不知道有这些，更不知道怎么算。具体能省多少要看员工小费占比、工资结构和历史申报情况，需 CPA 确认。</div>
     <div class="pain-quote">「小费怎么分配我是按经验来的，不确定合不合法。」</div>
   </div>
 
@@ -607,8 +1338,8 @@ section {
   <div class="opp-card">
     <div class="opp-icon">🇨🇳</div>
     <div>
-      <div class="opp-title">中文界面，零竞争蓝海</div>
-      <div class="opp-desc">现有所有竞品均无中文本地化。Chowbus 服务华人餐厅多年，语言 + 信任双重优势，直接占领这个细分市场。</div>
+      <div class="opp-title">中文原生 workflow，零竞争蓝海</div>
+      <div class="opp-desc">主流 Payroll/POS 厂商至多有零散中文帮助文档，没有为北美华人餐厅设计的中文原生工作流。Chowbus 服务华人餐厅多年，语言 + 信任双重优势，先发占领这条赛道。</div>
       <div class="opp-badge">市场空白，先发优势</div>
     </div>
   </div>
@@ -616,36 +1347,18 @@ section {
   <div class="opp-card">
     <div class="opp-icon">🚨</div>
     <div>
-      <div class="opp-title">合规主动护航，而非数据堆砌</div>
-      <div class="opp-desc">系统检测到 Tip Credit 未用、加班计算可能违规时，直接弹出提示和操作建议——把专业知识变成傻瓜式引导。</div>
+      <div class="opp-title">AI 合规护航，而非数据堆砌</div>
+      <div class="opp-desc">规则引擎硬性检测 Tip Credit 缺失、加班可疑、最低工资差额，AI 把每条规则的来源和操作建议翻译成中文——把专业知识变成傻瓜式引导。最终判断仍由 CPA 拍板，但 80% 的合规盲区在系统层就被点亮。</div>
       <div class="opp-badge">差异化体验卖点</div>
-    </div>
-  </div>
-
-  <div class="opp-card">
-    <div class="opp-icon">📄</div>
-    <div>
-      <div class="opp-title">线下流程完全数字化，法律存档</div>
-      <div class="opp-desc">工时确认、工资单签收全部线上完成，带时间戳电子存档。替代微信截图 + 纸质签字，防纠纷、可审计。</div>
-      <div class="opp-badge">合规刚需，续费黏性强</div>
     </div>
   </div>
 
   <div class="opp-card">
     <div class="opp-icon">💰</div>
     <div>
-      <div class="opp-title">FICA Tip Credit，帮老板省真金白银</div>
-      <div class="opp-desc">餐厅雇主每年可通过 FICA Tip Credit 抵税数千美元，但大多数不知道。系统自动计算并提示，直接转化为销售卖点。</div>
-      <div class="opp-badge">可量化的 ROI，助力销售</div>
-    </div>
-  </div>
-
-  <div class="opp-card">
-    <div class="opp-icon">🚀</div>
-    <div>
-      <div class="opp-title">增值服务入口，长期货币化</div>
-      <div class="opp-desc">MVP 做工作流，后续可叠加税务代缴、AI 合规顾问、薪酬基准数据等增值服务，从工具升级为平台。</div>
-      <div class="opp-badge">长期收入增长飞轮</div>
+      <div class="opp-title">小费税抵免（FICA Tip Credit），帮老板省真金白银</div>
+      <div class="opp-desc">餐厅老板为员工小费缴的「社保 + 医保税」共 7.65%，可向美国国税局申请退抵。一家年小费 20 万美金的餐厅，每年潜在退税 1 万美金起。系统自动识别有资格的员工 + 一键生成给会计师用的「资料表」（IRS 小费税抵免申请表 Form 8846），具体退多少由会计师审核签字。</div>
+      <div class="opp-badge">可量化的真金白银 · 直接成为销售卖点</div>
     </div>
   </div>
 
@@ -657,24 +1370,64 @@ section {
   <div class="moat-grid">
     <div class="moat-item">
       <div class="moat-num">0</div>
-      <div class="moat-label">现有竞品提供中文 Payroll 界面</div>
+      <div class="moat-label">现有竞品提供中文原生<br/>Payroll workflow</div>
     </div>
     <div class="moat-item">
       <div class="moat-num">4合1</div>
-      <div class="moat-label">排班 + 打卡 + 小费 + 工资<br/>一个系统搞定</div>
+      <div class="moat-label">人事 + 薪资 + 报税 + 合规<br/>一个系统搞定</div>
     </div>
     <div class="moat-item">
       <div class="moat-num">数千$</div>
-      <div class="moat-label">FICA Tip Credit 每店每年<br/>可节省税款（可量化卖点）</div>
+      <div class="moat-label">小费税抵免 每店每年可省<br/>（金额由会计师确认）</div>
     </div>
   </div>
 </div>
 </div>
 </section>
-<section id="s3" data-label="§3 功能架构全景">
+
+<section id="s3" data-label="§3 员工提效专属剧场">
 <div class="section-inner">
-<h1>§3 Chowbus Payroll 功能架构全景</h1>
-<p class="subtitle">结论先行：从用户价值出发，向下展示技术底座</p>
+<h1>§3 Chowbus Payroll 1.0 ——员工提效专属剧场</h1>
+<p class="subtitle">第三幕 · 高光时刻 — 灯光全开，Action！店长 / 服务员 / 厨师 / 会计 4 位主角同台，告别手记账，由 AI 带飞 6 步跑完薪</p>
+
+<div class="comic-stage" id="comic-stage">
+  <img src="comic.png" alt="Chowbus Payroll 4 角色协作漫画" style="width:85%; height:auto; display:block; margin:0 auto; border-radius:12px;"/>
+</div>
+
+<div class="step-list">
+  <div class="step-card">
+    <div class="step-title"><span class="step-num">1</span>前期一次性设置</div>
+    <div class="step-desc">时薪 / OT 倍率 / 小费规则 / 发薪日 / 统计日 — 店长设置完成后下次自动套用</div>
+  </div>
+  <div class="step-card">
+    <div class="step-title"><span class="step-num">2</span>工时单 5 渠道发送</div>
+    <div class="step-desc">Chowbus POS 自动汇总 → App / 短信 / 邮件 / 微信 / 小票打印任选其一</div>
+  </div>
+  <div class="step-card">
+    <div class="step-title"><span class="step-num">3</span>员工签字确认工时</div>
+    <div class="step-desc">手机上一键签字；超时未签 → 经理 override 留痕（争议记录，不阻断发薪）</div>
+  </div>
+  <div class="step-card">
+    <div class="step-title"><span class="step-num">4</span>工资单草案自动生成</div>
+    <div class="step-desc">系统计算 → 店长 / 会计可手动微调 → 标"DRAFT 草案"，需 会计师复核最终税务</div>
+  </div>
+  <div class="step-card">
+    <div class="step-title"><span class="step-num">5</span>会计复核 + 线下发薪</div>
+    <div class="step-desc">复核后线下发钱（P2 接 ACH 自动打款）+ 完整 audit log 留痕</div>
+  </div>
+  <div class="step-card">
+    <div class="step-title"><span class="step-num">6</span>工资单 4 渠道签收</div>
+    <div class="step-desc">App / 短信 / 邮件 / 微信电子签收（敏感数据不走小票）+ 时间戳存档</div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section id="s4" data-label="§4 功能架构全景">
+<div class="section-inner">
+<h1>§4 Chowbus Payroll 功能架构全景</h1>
+<p class="subtitle">第四幕 · 揭秘后台 — 6 张王牌摊在桌上，看清楚 Chowbus 自己主演什么、找哪些「专业替身」搭戏</p>
 
 <div class="legend">
   <div class="leg"><div class="pip" style="background:#10b981"></div>MVP（第一期）</div>
@@ -702,12 +1455,13 @@ section {
     </div>
   </div>
   <div class="ai-chips">
-    <div class="chip">🚨<span><span class="b bm" style="margin-right:6px">MVP</span>合规异常检测 & 即时提醒</span></div>
-    <div class="chip">💡<span><span class="b bm" style="margin-right:6px">MVP</span>Tip Credit 资格自动识别</span></div>
-    <div class="chip">⏰<span><span class="b bm" style="margin-right:6px">MVP</span>加班超时预警</span></div>
-    <div class="chip">💬<span><span class="b b2" style="margin-right:6px">2.0</span>中文 Payroll 智能问答</span></div>
-    <div class="chip">💰<span><span class="b b2" style="margin-right:6px">2.0</span>FICA Tip Credit 节税金额测算</span></div>
-    <div class="chip">🎯<span><span class="b b3" style="margin-right:6px">3.0</span>预测性合规风险评分</span></div>
+    <div class="chip">🚨<span><span class="b bm" style="margin-right:6px">MVP</span>规则化合规异常检测（漏打卡/超 40h/缺信息）🏗️</span></div>
+    <div class="chip">💡<span><span class="b bm" style="margin-right:6px">MVP</span>"小费抵扣最低工资"资格识别（规则） + AI 中文解释 🏗️</span></div>
+    <div class="chip">⏰<span><span class="b bm" style="margin-right:6px">MVP</span>加班超时预警（联邦 + 主要州规则）🏗️</span></div>
+    <div class="chip">📍<span><span class="b b2" style="margin-right:6px">2.0</span>按 Location 加载 Symmetry 州法规包 🤝</span></div>
+    <div class="chip">💬<span><span class="b b2" style="margin-right:6px">2.0</span>中文 Payroll 智能问答（解释规则 + checklist）🏗️</span></div>
+    <div class="chip">💰<span><span class="b b2" style="margin-right:6px">2.0</span>FICA "小费抵扣最低工资"资格识别 + CPA 备料 🤝</span></div>
+    <div class="chip">🎯<span><span class="b b3" style="margin-right:6px">3.0</span>预测性合规风险评分 + 多门店趋势 🔧</span></div>
   </div>
 </div>
 
@@ -717,35 +1471,76 @@ section {
     <div class="zone-emoji">🔄</div>
     <div>
       <div class="zone-num">王牌 02</div>
-      <div class="zone-title">发薪全流程线上化</div>
-      <div class="zone-tagline">工时确认 → 审批 → 工资单 → 电子存档，微信群对账成为历史</div>
+      <div class="zone-title">全自动跑薪 · 全流程线上化</div>
+      <div class="zone-tagline">打开 Chowbus 就能跑完全部 · 工时 → 确认 → 估算 → 发放 → 工资单签收，6 步全数字化</div>
     </div>
   </div>
   <div class="zone-body">
     <div class="cards-row">
       <div class="mcard">
-        <div class="mcard-title">✅ 工时确认</div>
-        <div class="feat"><span class="b bm">MVP</span>短信 / 邮件一键发送确认</div>
-        <div class="feat"><span class="b bm">MVP</span>员工链接签字，超时可跳过</div>
-        <div class="feat"><span class="b b2">2.0</span>App 推送 + 员工异议流程</div>
+        <div class="mcard-title">✅ 工时确认（5 渠道）</div>
+        <div class="feat"><span class="b bm">MVP</span>Chowbus App / 短信 / 邮件 / 微信 / 小票打印 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>员工电子签字 = 争议记录，不阻断发薪 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>超时未确认 → 管理者 override + 留痕 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>员工异议流 + 工时改派 → 重新签字 🏗️</div>
       </div>
       <div class="mcard">
         <div class="mcard-title">📋 审批仪表盘</div>
-        <div class="feat"><span class="b bm">MVP</span>发薪周期全局状态看板</div>
-        <div class="feat"><span class="b bm">MVP</span>店长 → 会计多级审批</div>
-        <div class="feat"><span class="b b2">2.0</span>多门店并行处理</div>
+        <div class="feat"><span class="b bm">MVP</span>发薪周期全局状态看板 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>店长 → 会计多级审批 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>多门店并行处理 + 总部视图 🏗️</div>
       </div>
       <div class="mcard">
-        <div class="mcard-title">📄 工资单 & 存档</div>
-        <div class="feat"><span class="b bm">MVP</span>标准工资单生成 & PDF 导出</div>
-        <div class="feat"><span class="b bm">MVP</span>电子签收，时间戳存档</div>
-        <div class="feat"><span class="b b2">2.0</span>中英双语工资单</div>
+        <div class="mcard-title">📄 工资单 & 存档（4 渠道）</div>
+        <div class="feat"><span class="b bm">MVP</span>Chowbus App / 短信 / 邮件 / 微信（敏感数据不走小票）🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>员工电子签收 + 时间戳存档 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>中英双语工资单 + PDF 自助下载 🏗️</div>
       </div>
       <div class="mcard">
         <div class="mcard-title">🔐 权限 & 角色</div>
-        <div class="feat"><span class="b bm">MVP</span>老板 / 会计双角色权限</div>
-        <div class="feat"><span class="b bm">MVP</span>完整操作审计日志</div>
-        <div class="feat"><span class="b b2">2.0</span>第三方会计多客户管理</div>
+        <div class="feat"><span class="b bm">MVP</span>老板 / 经理 / 会计 / 员工 4 角色权限 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>完整操作审计日志（防纠纷）🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>第三方会计多客户账号 🏗️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ② FLOW - 入职合规模块 -->
+<div class="zone z-flow" style="margin-top:14px;">
+  <div class="zone-header">
+    <div class="zone-emoji">📝</div>
+    <div>
+      <div class="zone-num">王牌 03</div>
+      <div class="zone-title">一键快速入职 + 合规文件归档</div>
+      <div class="zone-tagline">2.0 升级模块：从「加账号」升级为完整人事系统——经理代填 / 员工自填 · 全职 W-2 / 兼职 / Contractor 1099 三档表格 · 政府机构自动提交</div>
+    </div>
+  </div>
+  <div class="zone-body">
+    <div class="cards-row">
+      <div class="mcard">
+        <div class="mcard-title">🚀 入职流程</div>
+        <div class="feat"><span class="b b2">2.0</span>管理者后台填表 OR 短信发员工自填 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>社保号 / 个人税号 / 公司税号 三种身份切换（亚裔刚需）🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>支持中文姓名 + 英文 英文 Chosen Name（首选名） 🏗️</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📂 合规文件归档</div>
+        <div class="feat"><span class="b b2">2.0</span>I-9 + W-4 电子签 + 加密存档 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>直接转账授权书（员工签字）🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>E-Verify 资格核验（API 对接）🤝</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">⚡ 一键账号开通</div>
+        <div class="feat"><span class="b b2">2.0</span>入职完成 → 自动分配 POS 工号 + 系统账号 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>员工 Day-1 即可打卡 + 收工资单 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>离职 离职流程（清退权限 + 末次薪）🏗️</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📋 新员工政府备案</div>
+        <div class="feat"><span class="b b2">2.0</span>新员工州级报告自动生成 🔧</div>
+        <div class="feat"><span class="b b2">2.0</span>5 高优州（NY/CA/TX/IL/MA）覆盖 🔧</div>
+        <div class="feat"><span class="b b3">3.0</span>50 州 新员工政府备案 自动提交 🤝</div>
       </div>
     </div>
   </div>
@@ -758,16 +1553,17 @@ section {
     <div class="zone-header">
       <div class="zone-emoji">🏛️</div>
       <div>
-        <div class="zone-num">王牌 03</div>
+        <div class="zone-num">王牌 04</div>
         <div class="zone-title">税务申报</div>
-        <div class="zone-tagline">从辅助到全代申报，逐步减负</div>
+        <div class="zone-tagline">从 CPA 备料到全代申报，逐步减负</div>
       </div>
     </div>
     <div class="zone-body">
-      <div class="feat"><span class="b bm">MVP</span>税务汇总报告（会计直接用）</div>
-      <div class="feat"><span class="b b2">2.0</span>W-2 / 1099 自动生成分发</div>
-      <div class="feat"><span class="b b2">2.0</span>New Hire Reporting 自动提交</div>
-      <div class="feat"><span class="b b3">3.0</span>联邦 + 州税 全代申报代缴</div>
+      <div class="feat"><span class="b bm">MVP</span>税务汇总 packet（CSV/PDF），给 CPA 直接用 🏗️</div>
+      <div class="feat"><span class="b bm">MVP</span>导出 ADP / Gusto / QuickBooks 兼容格式 🏗️</div>
+      <div class="feat"><span class="b b2">2.0</span>正式员工年度工资表（W-2）/ 外包人员收入表（1099）自动生成（伙伴引擎驱动）🤝</div>
+      <div class="feat"><span class="b b2">2.0</span>FICA Tip Credit Form 8846 备料 🔧</div>
+      <div class="feat"><span class="b b3">3.0</span>联邦 + 州税 电子申报 / 电子缴税（伙伴提供）🤝</div>
     </div>
   </div>
 
@@ -775,16 +1571,17 @@ section {
     <div class="zone-header">
       <div class="zone-emoji">💳</div>
       <div>
-        <div class="zone-num">王牌 04</div>
+        <div class="zone-num">王牌 05</div>
         <div class="zone-title">支付能力</div>
-        <div class="zone-tagline">从导出清单到系统直接打款</div>
+        <div class="zone-tagline">从导出清单到系统直接打款，再到即时发薪</div>
       </div>
     </div>
     <div class="zone-body">
-      <div class="feat"><span class="b bm">MVP</span>付款清单 CSV 导出</div>
-      <div class="feat"><span class="b b2">2.0</span>员工银行账户统一收集</div>
-      <div class="feat"><span class="b b3">3.0</span>ACH 直接存款，系统内完成打款</div>
-      <div class="feat"><span class="b b3">3.0</span>On-Demand Pay 即时工资</div>
+      <div class="feat"><span class="b bm">MVP</span>付款清单 CSV / PDF 导出（含估算扣款明细）🏗️</div>
+      <div class="feat"><span class="b bm">MVP</span>线下发放追踪 + 工资单 4 渠道分发 🏗️</div>
+      <div class="feat"><span class="b b2">2.0</span>员工银行账户 + 直接转账授权收集 🏗️</div>
+      <div class="feat"><span class="b b2">2.0</span>ACH 直接转账存款（Check / Gusto Embedded API）🤝</div>
+      <div class="feat"><span class="b b3">3.0</span>预付薪资卡 / 即时发薪（员工随时提取已工作部分）（第三方发卡机构）🤝</div>
     </div>
   </div>
 
@@ -792,7 +1589,7 @@ section {
     <div class="zone-header">
       <div class="zone-emoji">📊</div>
       <div>
-        <div class="zone-num">王牌 05</div>
+        <div class="zone-num">王牌 06</div>
         <div class="zone-title">报表 & 员工自助</div>
         <div class="zone-tagline">老板看成本，员工看明细</div>
       </div>
@@ -817,32 +1614,33 @@ section {
   <div class="zone-header">
     <div class="zone-emoji" style="opacity:0.5">⚙️</div>
     <div>
-      <div class="zone-num" style="color:#64748b">核心引擎（新建）</div>
-      <div class="zone-title">工资计算 & 合规规则引擎</div>
-      <div class="zone-tagline" style="color:#64748b">驱动五大王牌的算法核心，用户看不见，但不能出错</div>
+      <div class="zone-num" style="color:#64748b">技术底座（自建 + 伙伴混合）</div>
+      <div class="zone-title">工资估算 & 合规规则引擎</div>
+      <div class="zone-tagline" style="color:#64748b">MVP 自建估算 + 规则检测；P2 起接专业伙伴承担最终税务责任。用户看到的是中文界面，背后是组合方案。</div>
     </div>
   </div>
   <div class="zone-body">
     <div class="cards-row">
       <div class="mcard" style="border-color:#1e293b">
-        <div class="mcard-title" style="color:#94a3b8">💰 工资计算</div>
-        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">时薪 × 工时 / 联邦 OT / 小费汇入</span></div>
-        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">CA 双倍加班 / 固定薪资支持</span></div>
+        <div class="mcard-title" style="color:#94a3b8">💰 工资金额估算（系统初稿）</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">时薪 × 工时 + 加班费 + 小费汇总，系统出"初稿"，最终由会计签字定稿 🏗️</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">交给专业薪资伙伴（Gusto Embedded / Check（两家专业薪资 API 服务商） 等）算最终结果，由他们对税务结果负责 🤝</span></div>
       </div>
       <div class="mcard" style="border-color:#1e293b">
-        <div class="mcard-title" style="color:#94a3b8">🏷️ 小费合规</div>
-        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">Tip Credit / 最低工资补差</span></div>
-        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">FICA Tip Credit / Allocated Tips</span></div>
+        <div class="mcard-title" style="color:#94a3b8">🏷️ 小费合规自动检测</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">识别哪些员工符合"用小费抵扣最低工资"政策（Tip Credit），自动提示需要补差额 🏗️</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">生成 FICA 小费税退抵的资料表（Form 8846）+ 处理 IRS 强制的"分摊小费"申报 🔧</span></div>
       </div>
       <div class="mcard" style="border-color:#1e293b">
-        <div class="mcard-title" style="color:#94a3b8">🏛️ 税务预扣</div>
-        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">Federal / FICA / 主要州税</span></div>
-        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">本地税 / Pre-tax 扣款</span></div>
+        <div class="mcard-title" style="color:#94a3b8">🏛️ 工资扣税估算（仅供参考）</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">估算联邦税、社保医保税（FICA）、5 个重点州的州税 — 标"参考"，不作最终结论 🔧</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">最终扣税由专业薪资合规伙伴（Symmetry / Vertex / Check 这些第三方公司）计算 🤝</span></div>
       </div>
       <div class="mcard" style="border-color:#1e293b">
-        <div class="mcard-title" style="color:#94a3b8">⚖️ 合规规则库</div>
-        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">主要州最低工资 / 发薪频率</span></div>
-        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">50州完整规则 / 自动更新</span></div>
+        <div class="mcard-title" style="color:#94a3b8">⚖️ 各州劳工法规库（接 Symmetry）</div>
+        <div class="feat"><span class="b bm">MVP</span><span style="color:#94a3b8">规则引擎搭好骨架，预留接口（不自己维护各州法规）🏗️</span></div>
+        <div class="feat"><span class="b b2">2.0</span><span style="color:#94a3b8">接 Symmetry → 全美 50 州的最低工资、加班、发薪频率法规自动同步 🤝</span></div>
+        <div class="feat"><span class="b b3">3.0</span><span style="color:#94a3b8">扩展到城市级法规（如纽约、旧金山本地规则）+ 法规变更自动告警 🤝</span></div>
       </div>
     </div>
   </div>
@@ -863,54 +1661,405 @@ section {
       <div class="src"><div class="src-icon">👤</div><div class="src-name">员工管理</div><div class="src-sub">姓名 / 时薪 / 税务信息</div><div class="src-tag">✓ 已有</div></div>
       <div class="src"><div class="src-icon">⏱️</div><div class="src-name">打卡 / 工时</div><div class="src-sub">Clock-in/out / 补卡记录</div><div class="src-tag">✓ 已有</div></div>
       <div class="src"><div class="src-icon">📅</div><div class="src-name">排班</div><div class="src-sub">计划班次 / 辅助核对</div><div class="src-tag indev">⚙ 开发中</div></div>
-      <div class="src"><div class="src-icon">💵</div><div class="src-name">Tip Pool</div><div class="src-sub">小费汇总 / 员工分配</div><div class="src-tag">✓ 已有</div></div>
+      <div class="src"><div class="src-icon">💵</div><div class="src-name">小费池（按规则在员工间分配）</div><div class="src-sub">小费汇总 / 员工分配</div><div class="src-tag">✓ 已有</div></div>
     </div>
   </div>
 </div>
 </div>
 </section>
-<section id="s4" data-label="§4 产品路线图">
+<section id="s5" data-label="§5 产品路线图">
 <div class="section-inner">
-<h1>§4 产品路线图</h1>
-<p class="subtitle">三个阶段，每期独立交付价值，逐步进化为全栈 Payroll 平台</p>
+<h1>§5 产品路线图</h1>
+<p class="subtitle">第五幕 · 三段式成名路 — MVP 出道 · 2.0 升咖 · 3.0 封神 · 演员挣钱、出品方挣钱、大家一起挣钱</p>
+
+<!-- Strategic Note -->
+<div style="background:linear-gradient(135deg,#0f1a2e,#0a1628); border:1px solid #1e293b; border-left:3px solid #818cf8; border-radius:10px; padding:18px 22px; margin-bottom:28px;">
+  <div style="font-size:11px; font-weight:700; color:#818cf8; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">⚡ 路径设计原则</div>
+  <div style="font-size:14px; color:#cbd5e1; line-height:1.7;">
+    每期独立交付价值 + 明确技术伙伴边界。<b style="color:#34d399">MVP</b> 用 6 步全自动流程把华人餐厅最痛的环节搬到线上，6 个月落地；<b style="color:#818cf8">2.0</b> 按 Location 智能合规护航 + 接专业 Payroll 伙伴拿下真税务能力（Toast / Square 同路径，行业标准玩法）；<b style="color:#fbbf24">3.0</b> 在指标达标后启动全栈，成为 ADP 的中文替代。每一步都有明确门槛和退出策略，不靠"all-in"赌博。
+  </div>
+</div>
 
 <div class="phases">
 
   <!-- MVP -->
   <div class="phase phase-mvp">
     <div class="phase-header">
-      <div class="phase-eyebrow">🚀 第一期</div>
+      <div class="phase-eyebrow">🚀 Payroll 1.0</div>
       <div class="phase-name">MVP</div>
-      <div class="phase-timeline">⏱ 目标上线：6个月内</div>
-      <div class="phase-headline">把发工资这件事<br/>彻底搬到线上</div>
+      <div class="phase-timeline">⏱ 目标上线：6 个月内</div>
+      <div class="phase-headline">全自动跑薪助手<br/>把发工资搬到线上</div>
     </div>
     <div class="phase-body">
 
-      <div class="feat-group">
-        <div class="feat-group-title">🔄 发薪流程</div>
-        <div class="feat-item"><div class="dot"></div>工时自动汇总 + 短信/邮件确认</div>
-        <div class="feat-item"><div class="dot"></div>店长 → 会计多级审批流</div>
-        <div class="feat-item"><div class="dot"></div>工资单生成 & 员工电子签收</div>
-        <div class="feat-item"><div class="dot"></div>付款清单 CSV 导出</div>
+      <!-- 6-STEP STORYBOARD（详细版，每步对应一格分镜，全宽放大）-->
+      <div style="grid-column: 1 / -1; background:#04080f; border:1px solid #1e293b; border-radius:10px; padding:20px 22px; margin-bottom:18px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <div style="font-size:16px; font-weight:700; color:#f1f5f9;">🎬 全自动跑薪 6 步分镜（详细版）</div>
+          <a href="#s3" style="font-size:12px; color:#34d399; text-decoration:none; font-weight:600;">→ 看 §3 4 角色漫画概览</a>
+        </div>
+        <div style="font-size:12px; color:#64748b; margin-bottom:16px;">每格分镜对应一步操作 · 字段、按钮、UI 元素的细化示意</div>
+        <svg viewBox="0 0 1140 560" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+            </marker>
+            <linearGradient id="step-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#34d399"/>
+              <stop offset="50%" stop-color="#818cf8"/>
+              <stop offset="100%" stop-color="#fbbf24"/>
+            </linearGradient>
+          </defs>
+
+          <!-- ===== PANEL 1: 设置规则 ===== -->
+          <g transform="translate(0,20)">
+            <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b" stroke-width="1"/>
+            <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
+            <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">1</text>
+            <text x="46" y="26" font-size="13" fill="#f1f5f9" font-weight="700">一次性设置规则</text>
+            <text x="46" y="42" font-size="10.5" fill="#64748b">时薪 / OT / 小费 / 发薪日 / 统计日</text>
+
+            <!-- Laptop -->
+            <g transform="translate(140,90)">
+              <rect x="0" y="0" width="80" height="50" rx="3" fill="#1e293b" stroke="#475569"/>
+              <rect x="4" y="4" width="72" height="38" fill="#04080f"/>
+              <text x="40" y="20" text-anchor="middle" font-size="10" fill="#34d399" font-weight="700">⚙ Chowbus</text>
+              <text x="40" y="33" text-anchor="middle" font-size="9" fill="#94a3b8">设置面板</text>
+              <rect x="-10" y="50" width="100" height="4" rx="2" fill="#1e293b"/>
+            </g>
+
+            <!-- 店长 (left) -->
+            <g transform="translate(80,130)">
+              <circle cx="0" cy="0" r="18" fill="#818cf8"/>
+              <circle cx="-5" cy="-2" r="1.5" fill="#0a1628"/>
+              <circle cx="5" cy="-2" r="1.5" fill="#0a1628"/>
+              <path d="M -5 5 Q 0 9 5 5" stroke="#0a1628" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <rect x="-10" y="-5" width="8" height="5" rx="1" fill="none" stroke="#0a1628" stroke-width="0.8"/>
+              <rect x="2" y="-5" width="8" height="5" rx="1" fill="none" stroke="#0a1628" stroke-width="0.8"/>
+              <line x1="-2" y1="-3" x2="2" y2="-3" stroke="#0a1628" stroke-width="0.8"/>
+              <path d="M -16 18 Q -18 32 -10 38 L 10 38 Q 18 32 16 18 Z" fill="#818cf8" opacity="0.6"/>
+              <text x="0" y="55" text-anchor="middle" font-size="10" fill="#a5b4fc" font-weight="700">店长</text>
+            </g>
+
+            <!-- 会计 (right) -->
+            <g transform="translate(280,130)">
+              <circle cx="0" cy="-14" r="7" fill="#34d399"/>
+              <circle cx="0" cy="0" r="18" fill="#34d399"/>
+              <circle cx="-5" cy="-2" r="1.5" fill="#0a1628"/>
+              <circle cx="5" cy="-2" r="1.5" fill="#0a1628"/>
+              <path d="M -5 5 Q 0 9 5 5" stroke="#0a1628" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M -16 18 Q -18 32 -10 38 L 10 38 Q 18 32 16 18 Z" fill="#34d399" opacity="0.6"/>
+              <text x="0" y="55" text-anchor="middle" font-size="10" fill="#6ee7b7" font-weight="700">会计</text>
+            </g>
+
+            <!-- Speech bubble -->
+            <g transform="translate(180,210)">
+              <rect x="-110" y="0" width="220" height="22" rx="11" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+              <text x="0" y="15" text-anchor="middle" font-size="10" fill="#cbd5e1">规则一次设好，下次自动套用</text>
+            </g>
+          </g>
+
+          <!-- ===== PANEL 2: 员工打卡 ===== -->
+          <g transform="translate(390,20)">
+            <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
+            <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
+            <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">2</text>
+            <text x="46" y="26" font-size="13" fill="#f1f5f9" font-weight="700">员工照常打卡</text>
+            <text x="46" y="42" font-size="10.5" fill="#64748b">POS 数据 → 自动汇成工时单</text>
+
+            <!-- POS device center -->
+            <g transform="translate(180,100)">
+              <rect x="-30" y="0" width="60" height="80" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+              <rect x="-26" y="6" width="52" height="56" fill="#04080f"/>
+              <text x="0" y="22" text-anchor="middle" font-size="9" fill="#fbbf24" font-weight="700">CLOCK IN</text>
+              <text x="0" y="36" text-anchor="middle" font-size="14" fill="#34d399">●</text>
+              <text x="0" y="52" text-anchor="middle" font-size="8" fill="#94a3b8">11:42 AM</text>
+              <circle cx="0" cy="70" r="3" fill="#475569"/>
+              <text x="0" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">Chowbus POS</text>
+            </g>
+
+            <!-- 服务员 (left) -->
+            <g transform="translate(80,140)">
+              <circle cx="0" cy="0" r="16" fill="#34d399"/>
+              <circle cx="-4" cy="-2" r="1.4" fill="#0a1628"/>
+              <circle cx="4" cy="-2" r="1.4" fill="#0a1628"/>
+              <path d="M -4 4 Q 0 7 4 4" stroke="#0a1628" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+              <!-- apron -->
+              <path d="M -14 16 Q -16 30 -10 36 L 10 36 Q 16 30 14 16 Z" fill="#34d399" opacity="0.5"/>
+              <rect x="-10" y="18" width="20" height="14" fill="#f1f5f9" opacity="0.85" rx="1"/>
+              <!-- tray on hand -->
+              <ellipse cx="20" cy="14" rx="10" ry="3" fill="#fbbf24"/>
+              <text x="0" y="52" text-anchor="middle" font-size="10" fill="#6ee7b7" font-weight="700">服务员</text>
+            </g>
+
+            <!-- 后厨 (right) -->
+            <g transform="translate(280,140)">
+              <!-- chef hat -->
+              <path d="M -10 -16 Q -14 -28 -2 -28 Q 0 -34 8 -30 Q 16 -32 12 -18 Z" fill="#f1f5f9"/>
+              <rect x="-12" y="-18" width="24" height="3" fill="#f1f5f9"/>
+              <circle cx="0" cy="0" r="16" fill="#fbbf24"/>
+              <circle cx="-4" cy="-2" r="1.4" fill="#0a1628"/>
+              <circle cx="4" cy="-2" r="1.4" fill="#0a1628"/>
+              <path d="M -4 4 Q 0 7 4 4" stroke="#0a1628" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+              <path d="M -14 16 Q -16 30 -10 36 L 10 36 Q 16 30 14 16 Z" fill="#fbbf24" opacity="0.5"/>
+              <rect x="-10" y="18" width="20" height="14" fill="#f1f5f9" opacity="0.85" rx="1"/>
+              <text x="0" y="52" text-anchor="middle" font-size="10" fill="#fcd34d" font-weight="700">后厨</text>
+            </g>
+
+            <!-- arrows pointing to POS -->
+            <path d="M 105 130 Q 130 110 145 110" stroke="#475569" stroke-width="1.2" fill="none" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+            <path d="M 255 130 Q 230 110 215 110" stroke="#475569" stroke-width="1.2" fill="none" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+
+            <g transform="translate(180,210)">
+              <rect x="-110" y="0" width="220" height="22" rx="11" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+              <text x="0" y="15" text-anchor="middle" font-size="10" fill="#cbd5e1">打卡数据自动流入 · 无需人工汇总</text>
+            </g>
+          </g>
+
+          <!-- ===== PANEL 3: 5渠道发出工时单 ===== -->
+          <g transform="translate(780,20)">
+            <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
+            <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
+            <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">3</text>
+            <text x="46" y="26" font-size="13" fill="#f1f5f9" font-weight="700">工时单 5 渠道发出</text>
+            <text x="46" y="42" font-size="10.5" fill="#64748b">自动或手动触发，员工随便选哪种都行</text>
+
+            <!-- center: Chowbus tablet -->
+            <g transform="translate(180,130)">
+              <rect x="-32" y="-25" width="64" height="50" rx="4" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+              <text x="0" y="-8" text-anchor="middle" font-size="8" fill="#818cf8" font-weight="700">Chowbus</text>
+              <text x="0" y="4" text-anchor="middle" font-size="9" fill="#cbd5e1">工时单</text>
+              <text x="0" y="16" text-anchor="middle" font-size="14" fill="#34d399">⏱</text>
+            </g>
+
+            <!-- 5 channels radiating out -->
+            <!-- App -->
+            <g transform="translate(60,100)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#818cf8" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">📱</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#a5b4fc" font-weight="600">Chowbus App</text>
+            </g>
+            <!-- SMS -->
+            <g transform="translate(80,180)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">💬</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#6ee7b7" font-weight="600">短信</text>
+            </g>
+            <!-- Email -->
+            <g transform="translate(180,210)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">📧</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#fcd34d" font-weight="600">邮件</text>
+            </g>
+            <!-- WeChat -->
+            <g transform="translate(280,180)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+              <text x="0" y="5" text-anchor="middle" font-size="11" fill="#34d399" font-weight="700">微信</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#6ee7b7" font-weight="600">WeChat</text>
+            </g>
+            <!-- Receipt printer -->
+            <g transform="translate(300,100)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#f472b6" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">🧾</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#fbcfe8" font-weight="600">小票打印</text>
+            </g>
+            <!-- arrows from center to channels -->
+            <path d="M 156 122 L 80 105" stroke="#818cf8" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 153 138 L 98 175" stroke="#818cf8" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 180 155 L 180 195" stroke="#818cf8" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 208 138 L 262 175" stroke="#818cf8" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 205 122 L 282 105" stroke="#818cf8" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+          </g>
+
+          <!-- between row arrow -->
+          <g transform="translate(0,275)">
+            <text x="570" y="0" text-anchor="middle" font-size="11" fill="#475569" font-weight="600">↓ 员工确认完毕后</text>
+          </g>
+
+          <!-- ===== PANEL 4: 员工签字 ===== -->
+          <g transform="translate(0,290)">
+            <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
+            <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
+            <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">4</text>
+            <text x="46" y="26" font-size="13" fill="#f1f5f9" font-weight="700">员工电子签字确认</text>
+            <text x="46" y="42" font-size="10.5" fill="#64748b">超时未签 → 经理 override 留痕，不阻断发薪</text>
+
+            <!-- Employee 1 with phone showing ✓ -->
+            <g transform="translate(80,130)">
+              <!-- phone -->
+              <rect x="-12" y="-20" width="24" height="36" rx="3" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+              <rect x="-10" y="-17" width="20" height="28" fill="#04080f"/>
+              <text x="0" y="3" text-anchor="middle" font-size="16" fill="#34d399" font-weight="700">✓</text>
+              <text x="0" y="22" text-anchor="middle" font-size="7" fill="#64748b">已签</text>
+              <!-- employee head behind phone (small) -->
+              <circle cx="0" cy="-40" r="14" fill="#34d399"/>
+              <circle cx="-3" cy="-42" r="1.2" fill="#0a1628"/>
+              <circle cx="3" cy="-42" r="1.2" fill="#0a1628"/>
+              <path d="M -3 -36 Q 0 -33 3 -36" stroke="#0a1628" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#6ee7b7" font-weight="700">服务员</text>
+            </g>
+            <!-- Employee 2 -->
+            <g transform="translate(180,130)">
+              <rect x="-12" y="-20" width="24" height="36" rx="3" fill="#1e293b" stroke="#fbbf24" stroke-width="1"/>
+              <rect x="-10" y="-17" width="20" height="28" fill="#04080f"/>
+              <text x="0" y="3" text-anchor="middle" font-size="16" fill="#fbbf24" font-weight="700">✓</text>
+              <text x="0" y="22" text-anchor="middle" font-size="7" fill="#64748b">已签</text>
+              <circle cx="0" cy="-40" r="14" fill="#fbbf24"/>
+              <path d="M -8 -50 Q -12 -58 -2 -60 Q 0 -64 6 -60 Q 12 -62 8 -52 Z" fill="#f1f5f9"/>
+              <circle cx="-3" cy="-42" r="1.2" fill="#0a1628"/>
+              <circle cx="3" cy="-42" r="1.2" fill="#0a1628"/>
+              <path d="M -3 -36 Q 0 -33 3 -36" stroke="#0a1628" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#fcd34d" font-weight="700">后厨</text>
+            </g>
+            <!-- Employee 3 - 未签 状态 with override -->
+            <g transform="translate(280,130)">
+              <rect x="-12" y="-20" width="24" height="36" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+              <rect x="-10" y="-17" width="20" height="28" fill="#04080f"/>
+              <text x="0" y="3" text-anchor="middle" font-size="11" fill="#ef4444" font-weight="700">?</text>
+              <text x="0" y="22" text-anchor="middle" font-size="7" fill="#ef4444">未签</text>
+              <circle cx="0" cy="-40" r="14" fill="#f472b6"/>
+              <circle cx="-3" cy="-42" r="1.2" fill="#0a1628"/>
+              <circle cx="3" cy="-42" r="1.2" fill="#0a1628"/>
+              <path d="M -3 -34 Q 0 -38 3 -34" stroke="#0a1628" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#f9a8d4" font-weight="700">小李</text>
+              <text x="0" y="65" text-anchor="middle" font-size="8" fill="#fbbf24">经理 override</text>
+            </g>
+
+            <g transform="translate(180,210)">
+              <rect x="-130" y="0" width="260" height="22" rx="11" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+              <text x="0" y="15" text-anchor="middle" font-size="10" fill="#cbd5e1">争议留痕，不卡发薪 — 法律安全网</text>
+            </g>
+          </g>
+
+          <!-- ===== PANEL 5: 工资计算草案 ===== -->
+          <g transform="translate(390,290)">
+            <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
+            <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
+            <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">5</text>
+            <text x="46" y="26" font-size="13" fill="#f1f5f9" font-weight="700">自动生成工资单草案</text>
+            <text x="46" y="42" font-size="10.5" fill="#64748b">需要可手动微调 · 标"草案"非最终税务结论</text>
+
+            <!-- Pay slip mini -->
+            <g transform="translate(180,130)">
+              <rect x="-70" y="-40" width="140" height="80" rx="4" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+              <rect x="-65" y="-35" width="130" height="14" fill="#818cf8" opacity="0.15"/>
+              <text x="-60" y="-25" font-size="9" fill="#a5b4fc" font-weight="700">📋 工资单草案</text>
+              <text x="55" y="-25" text-anchor="end" font-size="8" fill="#fbbf24">DRAFT</text>
+              <!-- rows -->
+              <text x="-60" y="-10" font-size="8" fill="#94a3b8">服务员 · 工时 32h</text>
+              <text x="55" y="-10" text-anchor="end" font-size="8" fill="#f1f5f9">$ 480.00</text>
+              <text x="-60" y="3" font-size="8" fill="#94a3b8">后厨 · 工时 38h + OT 2h</text>
+              <text x="55" y="3" text-anchor="end" font-size="8" fill="#f1f5f9">$ 624.00</text>
+              <text x="-60" y="16" font-size="8" fill="#94a3b8">服务员 · 小费 (cash)</text>
+              <text x="55" y="16" text-anchor="end" font-size="8" fill="#34d399">+ $ 142.00</text>
+              <line x1="-65" y1="22" x2="65" y2="22" stroke="#1e293b"/>
+              <text x="-60" y="33" font-size="8" fill="#94a3b8">合计估算</text>
+              <text x="55" y="33" text-anchor="end" font-size="9" fill="#f1f5f9" font-weight="700">$ 1,246.00</text>
+            </g>
+
+            <!-- Manager looking with magnifier -->
+            <g transform="translate(60,140)">
+              <circle cx="0" cy="0" r="16" fill="#818cf8"/>
+              <circle cx="-4" cy="-2" r="1.4" fill="#0a1628"/>
+              <circle cx="4" cy="-2" r="1.4" fill="#0a1628"/>
+              <path d="M -4 4 Q 0 7 4 4" stroke="#0a1628" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+              <path d="M -14 16 Q -16 30 -10 36 L 10 36 Q 16 30 14 16 Z" fill="#818cf8" opacity="0.5"/>
+              <!-- magnifier -->
+              <circle cx="22" cy="14" r="8" fill="none" stroke="#fbbf24" stroke-width="2"/>
+              <line x1="28" y1="20" x2="34" y2="26" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="0" y="52" text-anchor="middle" font-size="9" fill="#a5b4fc" font-weight="700">店长复核</text>
+            </g>
+
+            <g transform="translate(180,210)">
+              <rect x="-120" y="0" width="240" height="22" rx="11" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+              <text x="0" y="15" text-anchor="middle" font-size="10" fill="#cbd5e1">系统算好，店长 / 会计可微调 · 会计师复核</text>
+            </g>
+          </g>
+
+          <!-- ===== PANEL 6: 工资单 4 渠道 + 签字 ===== -->
+          <g transform="translate(780,290)">
+            <rect x="0" y="0" width="360" height="240" rx="12" fill="#0a1628" stroke="#1e293b"/>
+            <circle cx="22" cy="22" r="13" fill="url(#step-grad)"/>
+            <text x="22" y="26.5" text-anchor="middle" font-size="13" fill="#0a1628" font-weight="800">6</text>
+            <text x="46" y="26" font-size="13" fill="#f1f5f9" font-weight="700">工资单 4 渠道签收</text>
+            <text x="46" y="42" font-size="10.5" fill="#64748b">敏感数据不走小票 · 线下发放，P2 接 ACH</text>
+
+            <!-- Chowbus center -->
+            <g transform="translate(180,130)">
+              <rect x="-32" y="-25" width="64" height="50" rx="4" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+              <text x="0" y="-8" text-anchor="middle" font-size="8" fill="#34d399" font-weight="700">Chowbus</text>
+              <text x="0" y="4" text-anchor="middle" font-size="9" fill="#cbd5e1">工资单</text>
+              <text x="0" y="16" text-anchor="middle" font-size="14">💵</text>
+            </g>
+
+            <!-- 4 channels -->
+            <g transform="translate(70,100)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#818cf8" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">📱</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#a5b4fc" font-weight="600">App + ✓</text>
+            </g>
+            <g transform="translate(70,180)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">💬</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#6ee7b7" font-weight="600">短信 + ✓</text>
+            </g>
+            <g transform="translate(290,100)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#fbbf24" stroke-width="1"/>
+              <text x="0" y="4" text-anchor="middle" font-size="14">📧</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#fcd34d" font-weight="600">邮件 + ✓</text>
+            </g>
+            <g transform="translate(290,180)">
+              <circle cx="0" cy="0" r="20" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+              <text x="0" y="5" text-anchor="middle" font-size="11" fill="#34d399" font-weight="700">微信</text>
+              <text x="0" y="35" text-anchor="middle" font-size="9" fill="#6ee7b7" font-weight="600">WeChat + ✓</text>
+            </g>
+            <!-- Removed receipt printer with X marker -->
+            <g transform="translate(180,200)">
+              <text x="0" y="0" text-anchor="middle" font-size="9" fill="#ef4444">✗ 不走小票（敏感数据）</text>
+            </g>
+
+            <!-- arrows -->
+            <path d="M 148 122 L 90 110" stroke="#34d399" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 148 138 L 90 175" stroke="#34d399" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 212 122 L 270 110" stroke="#34d399" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+            <path d="M 212 138 L 270 175" stroke="#34d399" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.7"/>
+          </g>
+
+          <!-- Bottom finale tag -->
+          <g transform="translate(570,548)">
+            <rect x="-200" y="-12" width="400" height="22" rx="11" fill="url(#step-grad)" opacity="0.15"/>
+            <rect x="-200" y="-12" width="400" height="22" rx="11" fill="none" stroke="url(#step-grad)" stroke-width="0.8"/>
+            <text x="0" y="3" text-anchor="middle" font-size="11" fill="#f1f5f9" font-weight="700">🎬 全流程线上化 · 无需 4 个软件来回切 · 法律存档可追溯</text>
+          </g>
+        </svg>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">⚖️ 合规计算</div>
-        <div class="feat-item"><div class="dot"></div>时薪 / 联邦 OT / 小费汇入</div>
-        <div class="feat-item"><div class="dot"></div><span>Tip Credit + 最低工资补差</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
-        <div class="feat-item"><div class="dot"></div>Federal + FICA + 主要州税预扣</div>
-        <div class="feat-item"><div class="dot"></div><span>州最低工资 & 发薪频率校验</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-group-title">🔄 全自动跑薪 6 步</div>
+        <div class="feat-item"><div class="dot"></div>前期设置 + POS 打卡数据自动汇总</div>
+        <div class="feat-item"><div class="dot"></div>5 渠道工时单确认（App/短信/邮件/微信/小票）</div>
+        <div class="feat-item"><div class="dot"></div>工资单草案自动生成 + 手动微调</div>
+        <div class="feat-item"><div class="dot"></div>4 渠道工资单签收 + 时间戳存档</div>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">🔐 权限 & 存档</div>
-        <div class="feat-item"><div class="dot"></div>老板 / 会计双角色权限</div>
-        <div class="feat-item"><div class="dot"></div>操作审计日志 + 历史存档</div>
+        <div class="feat-group-title">⚖️ 合规检测（规则化 + AI 解释）</div>
+        <div class="feat-item"><div class="dot"></div>异常检测：漏打卡 / 超 40h / 缺信息 / Tip 分配异常</div>
+        <div class="feat-item"><div class="dot"></div><span>"小费抵扣最低工资"资格识别 + 中文规则解释</span>&nbsp;<span class="ai-tag">🤖 AI 解释</span></div>
+        <div class="feat-item"><div class="dot"></div>规则引擎结构搭好（接 Symmetry API 前置准备）</div>
+        <div class="feat-item"><div class="dot"></div><span>工资估算（gross wage 草案，非最终税务结论）</span></div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">📤 给会计师的资料包导出</div>
+        <div class="feat-item"><div class="dot"></div>付款清单 CSV + PDF（含估算扣款明细）</div>
+        <div class="feat-item"><div class="dot"></div>ADP / Gusto / QuickBooks 兼容格式导出</div>
+        <div class="feat-item"><div class="dot"></div>完整 audit log + 时间戳存档（防纠纷）</div>
       </div>
 
       <div class="phase-outcome">
         <div class="outcome-label">✦ 交付价值</div>
-        发工资 2小时 → 20分钟，线下流程全数字化，有据可查
+        发工资从 2 小时 → 20 分钟 · 线下流程全数字化 · 防纠纷有据可查 · 不替代 CPA，但减少 CPA 工作量
       </div>
 
     </div>
@@ -928,36 +2077,74 @@ section {
     </div>
     <div class="phase-body">
 
-      <div class="feat-group">
-        <div class="feat-group-title">🏛️ 税务进阶</div>
-        <div class="feat-item"><div class="dot"></div>W-2 / 1099 自动生成 & 分发</div>
-        <div class="feat-item"><div class="dot"></div>New Hire Reporting 自动提交</div>
-        <div class="feat-item"><div class="dot"></div><span>FICA Tip Credit 计算 & 报告</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+      <!-- POSITIONING -->
+      <div style="background:#070f20; border:1px solid #1e293b; border-radius:8px; padding:14px 16px; margin-bottom:18px;">
+        <div style="font-size:11px; font-weight:700; color:#818cf8; letter-spacing:0.08em; margin-bottom:8px;">P2 三大支柱</div>
+        <div style="font-size:12px; color:#94a3b8; line-height:1.7;">
+          <span style="color:#818cf8">📍 智能合规护航：</span>按 Location 自动加载州法规包，把"州法规盲区"做成"看得见的护航"<br/>
+          <span style="color:#fbbf24">🤝 接专业 Payroll 伙伴：</span>Gusto Embedded / Check 等候选承担税务申报，Chowbus 保持前端 + 餐饮数据控制权（Toast / Square 同路径）<br/>
+          <span style="color:#34d399">🏢 多门店总部能力：</span>连锁集团一个系统管全部门店
+        </div>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">⚙️ 计算增强</div>
-        <div class="feat-item"><div class="dot"></div>CA 双倍加班 / Split Shift Premium</div>
-        <div class="feat-item"><div class="dot"></div>50州完整合规规则库</div>
-        <div class="feat-item"><div class="dot"></div>Pre-tax 扣款（401k 等福利）</div>
+        <div class="feat-group-title">📍 按 Location 智能合规</div>
+        <div class="feat-item"><div class="dot"></div>新建门店 → 输入地址 → 自动加载州 + 城市法规包 🔧</div>
+        <div class="feat-item"><div class="dot"></div>接入 Symmetry API → 50 州合规库自动同步 🤝</div>
+        <div class="feat-item"><div class="dot"></div>规则项覆盖：最低工资 / Tipped Min Wage / OT / Pay Frequency / Meal & Rest Break / Split Shift / Wage Notice / Final Paycheck（由 Symmetry 提供）</div>
+        <div class="feat-item"><div class="dot"></div><span>未配置 / 有风险 → 智能提示并跳转配置页（规则触发）</span>&nbsp;<span class="ai-tag">🤖 AI 解释</span></div>
+        <div class="feat-item"><div class="dot"></div>Symmetry 法规变更监控告警 + 自动推送商户 🤝</div>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">🏢 多门店 & 角色</div>
-        <div class="feat-item"><div class="dot"></div>多门店并行发薪 & 统一仪表盘</div>
-        <div class="feat-item"><div class="dot"></div>第三方会计多客户账号</div>
-        <div class="feat-item"><div class="dot"></div><span>多门店对比报表 & 小费趋势</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-group-title">🤝 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）接入</div>
+        <div class="feat-item"><div class="dot"></div>商务合作评估（BD）候选：Gusto Embedded / Check / 其他</div>
+        <div class="feat-item"><div class="dot"></div>责任划分：Chowbus = 前端 + 餐饮数据；伙伴 = 薪资计算 / 税务申报 / DD</div>
+        <div class="feat-item"><div class="dot"></div>员工 直接转账授权 + 银行账户收集 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>ACH 直接转账存款（伙伴执行）🤝</div>
+        <div class="feat-item"><div class="dot"></div>正式员工年度工资表（W-2）/ 外包人员收入表（1099）自动生成 + 分发（伙伴执行）🤝</div>
+        <div class="feat-item"><div class="dot"></div>报税桥梁：API 对接 ADP / Gusto / QuickBooks / Xero，自动生成对方需要的表格格式 🤝</div>
+        <div class="feat-item"><div class="dot"></div>Federal 941/940 + 主要州税 e-File（伙伴执行）🤝</div>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">🤖 AI 升级</div>
-        <div class="feat-item"><div class="dot"></div>中文 Payroll 智能问答</div>
-        <div class="feat-item"><div class="dot"></div>FICA Tip Credit 节税金额测算</div>
+        <div class="feat-group-title">⚙️ 工资计算增强</div>
+        <div class="feat-item"><div class="dot"></div>加州双倍加班 / 跨班次补偿 / 漏餐补偿 🔧</div>
+        <div class="feat-item"><div class="dot"></div>税前扣款（退休账户 401k / 医疗储蓄账户 HSA / 医保保费）🤝</div>
+        <div class="feat-item"><div class="dot"></div>小费税抵免（Form 8846）资料表 + 给会计师的报告 🔧</div>
+        <div class="feat-item"><div class="dot"></div>"分摊小费"计算（IRS 小费年度申报表 Form 8027 资料表）🔧</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🚀 一键智能入职（新模块·2.0 重点）</div>
+        <div class="feat-item"><div class="dot"></div>经理后台填表 / 短信发员工自填 双模式 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>全职 W-2 / 兼职 / Contractor 1099 三档表格模板 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>社保号 / 个人税号 / 公司税号 三种身份切换 + 中文姓名 + Chosen Name 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>I-9 / W-4 / Direct Deposit 加密存档 + 一键调档 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>入职完成 → 自动开 POS 工号 + 账号 + 权限 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>新员工政府备案 5 高优州自动生成 🔧</div>
+        <div class="feat-item"><div class="dot"></div>联邦 E-Verify 雇佣资格核验（接联邦 API）🤝</div>
+        <div class="feat-item"><div class="dot"></div>离职 Off-boarding → 末次薪 + 权限清退 + 离职证明 🏗️</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🏢 多门店 & 角色升级</div>
+        <div class="feat-item"><div class="dot"></div>多门店并行发薪 + 总部统一仪表盘 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>第三方会计多客户账号 + 跨客户切换 🏗️</div>
+        <div class="feat-item"><div class="dot"></div><span>多门店人力成本对比 + 小费趋势分析</span>&nbsp;<span class="ai-tag">🤖 AI 解释</span></div>
+        <div class="feat-item"><div class="dot"></div>新员工州级报告自动生成（5 高优州）🔧</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🤖 AI 升级（仅解释 / 不判断）</div>
+        <div class="feat-item"><div class="dot"></div>中文 Payroll 智能问答（基于规则库 + 文档）</div>
+        <div class="feat-item"><div class="dot"></div>FICA Tip Credit 潜在抵免估算（需 CPA 确认）</div>
+        <div class="feat-item"><div class="dot"></div>异常风险 checklist 自动生成</div>
       </div>
 
       <div class="phase-outcome">
         <div class="outcome-label">✦ 交付价值</div>
-        集团会计一个系统管所有门店，税务合规有保障，每店省数千 $ 税款
+        集团会计一个系统管所有门店 · 真税务能力由伙伴提供 · 按 Location 自动合规守门 · 会计师工作量降 50%+
       </div>
 
     </div>
@@ -970,36 +2157,46 @@ section {
     <div class="phase-header">
       <div class="phase-eyebrow">🏆 第三期</div>
       <div class="phase-name">3.0</div>
-      <div class="phase-timeline">⏱ 2.0 成熟后启动</div>
+      <div class="phase-timeline">⏱ 2.0 成熟 + 指标达标后启动</div>
       <div class="phase-headline">打款报税一站到底<br/>全栈 Payroll 平台</div>
     </div>
     <div class="phase-body">
 
-      <div class="feat-group">
-        <div class="feat-group-title">💳 系统直接打款</div>
-        <div class="feat-item"><div class="dot"></div>ACH 直接存款，系统内完成打款</div>
-        <div class="feat-item"><div class="dot"></div>On-Demand Pay 即时工资</div>
-        <div class="feat-item"><div class="dot"></div>数字钱包 / Pay Card 支持</div>
+      <!-- DECISION GATE -->
+      <div style="background:#070f20; border:1px solid #1e293b; border-radius:8px; padding:14px 16px; margin-bottom:18px;">
+        <div style="font-size:11px; font-weight:700; color:#fbbf24; letter-spacing:0.08em; margin-bottom:8px;">P3 启动门槛（财务纪律 · 不靠 all-in 赌博）</div>
+        <div style="font-size:12px; color:#94a3b8; line-height:1.7;">
+          ① 薪资业务总流水（GMV） 达到目标线 · ② Attach rate ≥ 目标 % · ③ 已配齐 payroll compliance / legal / tax ops 团队 · ④ 保险 + 商户合同条款明确责任承担
+        </div>
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">🏛️ 全代申报</div>
-        <div class="feat-item"><div class="dot"></div>联邦 941 / 940 代申报代缴</div>
-        <div class="feat-item"><div class="dot"></div>州税全代缴代申报（50州）</div>
-        <div class="feat-item"><div class="dot"></div>Form 8027 自动提交</div>
-        <div class="feat-item"><div class="dot"></div>税务错误责任承担</div>
+        <div class="feat-group-title">💳 系统直接打款 + 即时发薪</div>
+        <div class="feat-item"><div class="dot"></div>ACH 直接转账存款，系统内完成打款 🏗️</div>
+        <div class="feat-item"><div class="dot"></div>On-Demand Pay / EWA 即时工资 🤝</div>
+        <div class="feat-item"><div class="dot"></div>预付薪资卡 / 数字钱包（第三方发卡）🤝</div>
+        <div class="feat-item"><div class="dot"></div>员工自助分账（多账户 工资分账（同时存到多个银行账户））🏗️</div>
+      </div>
+
+      <div class="feat-group">
+        <div class="feat-group-title">🏛️ 全代申报代缴</div>
+        <div class="feat-item"><div class="dot"></div>联邦季度税表（941）+ 年度失业税表（940）代申报代缴 🔧</div>
+        <div class="feat-item"><div class="dot"></div>州税全代缴代申报（覆盖 50 州）🔧</div>
+        <div class="feat-item"><div class="dot"></div>Form 8027 / 8846 自动提交 🔧</div>
+        <div class="feat-item"><div class="dot"></div>与 Drake / Lacerte / ProSeries 等专业报税软件建立深度桥梁 🤝</div>
+        <div class="feat-item"><div class="dot"></div>税务错误责任承担（保险 + 合规团队就位后启动）</div>
       </div>
 
       <div class="feat-group">
         <div class="feat-group-title">🤖 AI 深度能力</div>
         <div class="feat-item"><div class="dot"></div><span>预测性合规风险评分</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
-        <div class="feat-item"><div class="dot"></div><span>薪酬优化建议</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
-        <div class="feat-item"><div class="dot"></div><span>行业薪酬基准对比</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-item"><div class="dot"></div><span>多门店人力成本优化建议</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
+        <div class="feat-item"><div class="dot"></div><span>行业薪酬基准对比（基于 Chowbus 客户数据）</span>&nbsp;<span class="ai-tag">🤖 AI</span></div>
       </div>
 
       <div class="phase-outcome">
         <div class="outcome-label">✦ 交付价值</div>
-        华人餐厅无需任何第三方 Payroll 服务，Chowbus 即是 ADP 的中文替代
+        华人餐厅无需任何第三方 Payroll 服务 · Chowbus 即是 ADP 的中文替代
       </div>
 
     </div>
@@ -1014,7 +2211,7 @@ section {
   </div>
   <div class="metric-card">
     <div class="metric-num">2.0</div>
-    <div class="metric-label">合规专业化<br/>FICA Tip Credit 每店省数千 $<br/>集团客户一个系统搞定</div>
+    <div class="metric-label">合规专业化<br/>按 Location 智能合规<br/>集团客户一个系统搞定</div>
   </div>
   <div class="metric-card">
     <div class="metric-num">3.0</div>
@@ -1023,10 +2220,10 @@ section {
 </div>
 </div>
 </section>
-<section id="s5" data-label="§5 风险与结语">
+<section id="s6" data-label="§6 风险一览">
 <div class="section-inner">
-<h1>§5 风险点 & 知识来源</h1>
-<p class="subtitle">提前识别风险，明确信息来源，为后续规划提供依据</p>
+<h1>§6 风险一览</h1>
+<p class="subtitle">第六幕 · 戏外彩排 — 开演前把意外都摸清楚 · 6 道关卡 + 应对剧本，哪些坑要避、哪些雷不踩</p>
 
 <!-- RISKS -->
 <div class="section-label" style="color:#ef4444">⚠️ 关键风险点</div>
@@ -1035,24 +2232,24 @@ section {
 
   <div class="risk-card high">
     <div class="risk-header">
-      <div class="risk-icon">🧮</div>
+      <div class="risk-icon">⚠️</div>
       <div class="risk-level">高风险</div>
     </div>
-    <div class="risk-title">税务计算错误的法律责任</div>
-    <div class="risk-desc">工资少发、税款算错可能导致劳工投诉或 IRS 罚款。MVP 阶段 Chowbus 自己承担计算，但没有第三方背书。</div>
+    <div class="risk-title">责任边界模糊 · 用户依赖系统结果</div>
+    <div class="risk-desc">MVP 一旦展示工资单 + 扣税估算 + 员工签收，老板和员工天然会把它当成 Chowbus 的"最终结论"。即使加 disclaimer，少发 / 算错 / 扣税错也很难完全切割责任。</div>
     <div class="mitigation-label">应对策略</div>
-    <div class="mitigation">MVP 明确标注「计算结果供参考，最终由会计确认」；2.0 阶段引入合规合作方（如 Gusto API）作为兜底；同步完善错误责任条款。</div>
+    <div class="mitigation">产品命名为 <b>薪资准备（不替代正式薪资系统） / Pay Run Assistant</b> 而非 Payroll System；工资单永远标"草案 · DRAFT"+ 会计师复核字样；用户协议明确"Chowbus 不承担 tax filing 责任"；员工签字定位为"争议记录"不是"工资发放凭据"；P2 接 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）后由伙伴承担税务责任。</div>
   </div>
 
   <div class="risk-card high">
     <div class="risk-header">
-      <div class="risk-icon">⚖️</div>
+      <div class="risk-icon">🤝</div>
       <div class="risk-level">高风险</div>
     </div>
-    <div class="risk-title">各州劳工法规维护成本</div>
-    <div class="risk-desc">美国50州最低工资、加班规则、发薪频率要求各不相同，且每年都有更新。人工维护规则库容易出错，滞后就是合规风险。</div>
+    <div class="risk-title">嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）谈判失败</div>
+    <div class="risk-desc">Gusto Embedded / Check 等 BaaS 不一定愿意接餐饮高复杂场景（小费池、cash tips、tip credit、多门店）。商务谈判、KYB/KYC、责任划分、co-branding 各环节都可能卡住，导致 P2 没有可靠的税务能力底座。</div>
     <div class="mitigation-label">应对策略</div>
-    <div class="mitigation">MVP 只支持 Chowbus 用户最集中的 5–8 个州；引入第三方合规数据服务（如 Symmetry、Payroll Tax API）；设置法规变动监控告警机制。</div>
+    <div class="mitigation">MVP 阶段同步启动 商务合作评估（BD），候选至少 3 家（Gusto Embedded / Check / 第三家）并做 POC；明确合作条款（payroll of record 归属、tip 场景支持、revenue share、support 分工）；如所有候选均不可行，则 P2 仅做 CPA packet 加强 + 接 Symmetry/Vertex 等合规数据，把 ACH/税务交回 CPA。</div>
   </div>
 
   <div class="risk-card high">
@@ -1061,7 +2258,7 @@ section {
       <div class="risk-level">高风险</div>
     </div>
     <div class="risk-title">跨模块依赖 & 数据质量</div>
-    <div class="risk-desc">Payroll 强依赖打卡/Tip Pool/员工管理模块的数据质量。如果上游数据缺失或格式不标准，Payroll 计算结果就不可信。</div>
+    <div class="risk-desc">Payroll 强依赖打卡/小费池（按规则在员工间分配）/员工管理模块的数据质量。如果上游数据缺失或格式不标准，Payroll 计算结果就不可信。</div>
     <div class="mitigation-label">应对策略</div>
     <div class="mitigation">早期与相关 PM 对齐数据接口规范；Payroll 模块内置数据校验层，异常数据弹窗提示而非静默通过；定义清晰的模块边界和责任归属。</div>
   </div>
@@ -1072,9 +2269,9 @@ section {
       <div class="risk-level">中风险</div>
     </div>
     <div class="risk-title">小老板不愿付费</div>
-    <div class="risk-desc">华人小馆子价格极度敏感。单店5–15人规模，月均省下的时间成本未必能说服他们为 Payroll 功能额外买单。</div>
+    <div class="risk-desc">华人小馆子价格极度敏感。单店 5-15 人规模，月均省下的时间成本未必能说服他们为 Payroll 功能额外买单。</div>
     <div class="mitigation-label">应对策略</div>
-    <div class="mitigation">MVP 阶段打包进现有 Chowbus 套餐，降低决策门槛；以「FICA Tip Credit 帮你省 $X」做 ROI 量化沟通；连锁/集团客户作为主要商业目标。</div>
+    <div class="mitigation">MVP 阶段打包进现有 Chowbus 套餐，降低决策门槛；FICA Tip Credit 等抵免要做"线索发现 + CPA 备料"包装，强调"可能可观，需 CPA 确认"，不能承诺具体金额；连锁 / 集团客户（付费决策者是会计而非老板）作为主要商业目标。</div>
   </div>
 
   <div class="risk-card mid">
@@ -1083,9 +2280,9 @@ section {
       <div class="risk-level">中风险</div>
     </div>
     <div class="risk-title">竞品追加中文支持</div>
-    <div class="risk-desc">7shifts、Homebase 若意识到华人市场并推出中文界面，Chowbus 的语言护城河将快速消失。</div>
+    <div class="risk-desc">Toast / 7shifts / Homebase 若意识到华人市场并推出中文界面，Chowbus 的语言入门壁垒将削弱。</div>
     <div class="mitigation-label">应对策略</div>
-    <div class="mitigation">语言只是入门壁垒，真正护城河是「排班+打卡+Tip+Payroll 全链路数据打通」——这是竞品难以复制的生态优势，尽快夯实。</div>
+    <div class="mitigation">语言只是入门壁垒，真正护城河是「排班 + 打卡 + Tip + Payroll 全链路数据打通 + 亚裔餐厅垂直合规（ITIN / 现金小费高占比 / 家族雇佣）」—— 这些场景细节竞品需要时间和本地化团队才能复制，尽快夯实并建立品牌心智。</div>
   </div>
 
   <div class="risk-card low">
@@ -1093,16 +2290,313 @@ section {
       <div class="risk-icon">🚢</div>
       <div class="risk-level">低风险</div>
     </div>
-    <div class="risk-title">6个月 MVP 范围蔓延</div>
+    <div class="risk-title">6 个月 MVP 范围蔓延</div>
     <div class="risk-desc">Payroll 功能天然复杂，开发过程中极易把 2.0/3.0 功能拉入 MVP，导致延期上线。</div>
     <div class="mitigation-label">应对策略</div>
-    <div class="mitigation">严格锁定 MVP 边界：不做实际打款、不做税务代申报、只支持主要几个州。超出边界的需求统一进 Backlog，季度评审时再排期。</div>
+    <div class="mitigation">严格锁定 MVP 边界：<b>不做实际 ACH 打款 · 不做税务代申报 · 不承诺最终扣税准确性 · 只支持 5 个州基础规则</b>。超出边界的需求统一进 Backlog，季度评审时再排期。MVP 验收硬指标：完成 6 步全自动跑薪 + 入职合规 + CPA packet 导出即上线。</div>
   </div>
 
 </div>
 
-<!-- SOURCES -->
-<div class="section-label" style="color:#7dd3fc">📚 知识来源</div>
+</div>
+</section>
+
+<section id="s7" data-label="§7 需求清单 & 知识来源">
+<div class="section-inner">
+<h1>§7 需求清单 & 知识来源</h1>
+<p class="subtitle">终幕 · 道具间 — 完整功能剧本（按出场顺序）+ 这部戏的灵感档案室</p>
+
+<!-- APPENDIX 2: 需求清单 (collapsible) -->
+<details class="appendix-block">
+<summary>📋 需求清单（按优先级排序）<span class="appendix-hint">点击展开 / 收起</span></summary>
+<div class="appendix-body">
+
+<div class="req-grid">
+<div class="req-category">
+  <div class="req-cat-title">A. 入职合规模块（一键快速入职）</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A01</span><span class="name">管理者后台填表 / 短信发员工自填</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">支持两种入职方式：店长后台批量录入，或发短信链接员工自填 I-9 / W-4 表单</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A02</span><span class="name">社保号 / 个人税号 / 公司税号 三种身份切换</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">亚裔餐厅刚需：员工税号字段支持 SSN / ITIN（个人）/ EIN（Contractor）三种身份</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A03</span><span class="name">中文姓名 + 英文 Chosen Name</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">分离法定姓名（中文）与首选名（英文），W-2 报税用中文，日常 UI 用英文</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A04</span><span class="name">雇佣资格表 I-9 / 联邦代扣表 W-4 电子签 + 加密存档</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工手机端电子签字，PDF 自动归档加密存储，应对劳工局抽查</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A05</span><span class="name">直接转账授权书电子签</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工首次发薪前签授权书，授权 ACH 打款（接 Embedded Payroll 后启用）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A06</span><span class="name">一键账号开通 + POS 工号</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">入职完成 → 自动生成 POS 工号、Chowbus App 账号、权限，员工 Day-1 上岗</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A07</span><span class="name">离职 离职流程</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">停薪 → 清退权限 → 末次薪资 → 离职证明，全链路记录留痕</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A08</span><span class="name">E-Verify 雇佣资格核验</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">对接联邦 E-Verify API，员工 I-9 信息提交后自动核验合法工作权</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A09</span><span class="name">新员工政府备案 自动提交</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">新员工州级强制报告（NY/CA/TX/IL/MA 5 高优州）自动生成并提交</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A10</span><span class="name">50 州 新员工政府备案</span><span class="pri pri-v3">3.0</span></div>
+    <div class="desc">覆盖全部 50 州的新员工报告自动提交，由 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）执行</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">B. 全自动跑薪 6 步流程</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B01</span><span class="name">前期一次性发薪规则设置</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">店长设置时薪 / OT 倍率 / 小费规则 / 发薪日 / 统计日，下次自动套用</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B02</span><span class="name">POS 数据自动汇总工时单</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工 POS 打卡数据自动汇成 timesheet，无需人工 export/import CSV</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B03</span><span class="name">工时单 5 渠道发送</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">Chowbus App / 短信 / 邮件 / 微信 / 小票打印，员工选最方便的渠道</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B04</span><span class="name">员工电子签字确认工时</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">手机端一键签字，每条 timesheet 带时间戳存档，作为争议解决依据</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B05</span><span class="name">超时未签 → 经理 override</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工超时未签 → 经理可代为确认并留痕（争议记录而非发薪阻断）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B06</span><span class="name">未闭合打卡（员工漏打下班卡） 防呆 KPI</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">顶部 KPI 卡片显示未闭合打卡数，必须清零才能跑薪，防止漏单</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B07</span><span class="name">工资单草案自动生成</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">系统计算 → 标 "DRAFT" 草案，店长 / 会计可手动微调，CPA 最终复核</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B08</span><span class="name">店长 → 会计多级审批</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">店长提交 → 会计批准 → 最终发放，maker-checker 分离</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B09</span><span class="name">工资单 4 渠道签收</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">App / 短信 / 邮件 / 微信 4 种电子签收（敏感数据不走小票打印）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B10</span><span class="name">操作审计日志 + 时间戳存档</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">每步操作（修改/审批/发放/签收）全部带时间戳存档，防纠纷可追溯</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B11</span><span class="name">员工异议流程</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">员工对工时单 / 工资单有异议 → 一键 dispute → 经理修改 → 重新签字</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">B12</span><span class="name">多门店并行发薪</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">连锁集团一个总部账号同时跑所有门店的薪资，总部仪表盘汇总</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">C. 智能合规守门</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C01</span><span class="name">规则化异常检测</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">漏打卡 / 超 40 小时 / 缺失员工信息 / Tip 分配异常 → 系统弹窗提示</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C02</span><span class="name">"小费抵扣最低工资"资格识别 + AI 解释</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">规则检测员工是否符合 Tip Credit 资格，AI 用中文解释规则来源（Form 8846）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C03</span><span class="name">加班超时预警</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工本周工时接近 40h 触发预警，提示店长是否安排其他员工接班</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C04</span><span class="name">最低工资补差检测</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">当员工"时薪 + 小费"低于州最低工资时，系统提示补差并计算金额</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C05</span><span class="name">5 高优州合规规则库</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">NY / CA / TX / IL / MA 5 州的最低工资 + 发薪频率 + Tip Credit 规则</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C06</span><span class="name">按 Location 自动加载州法规包</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">新建门店输入地址 → 系统自动加载该州 + 城市的合规规则包</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C07</span><span class="name">15-20 州扩展规则库</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">覆盖 Chowbus 客户最集中的前 15-20 州，接 Symmetry / Vertex（两家薪资法规 API 厂商） 自动更新</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C08</span><span class="name">CA 双倍加班 / Split Shift Premium</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">加州特殊加班规则（>12h 双倍）、分班次 premium、meal premium 自动计算</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C09</span><span class="name">中文 Payroll 智能问答</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">AI 聊天助手回答合规问题，基于规则库 + ADP/IRS 公开文档，标注来源</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C10</span><span class="name">法规变更监控告警</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">第三方合规数据源订阅，州法规变更自动通知 Chowbus + 受影响商户</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C11</span><span class="name">FICA "小费抵扣最低工资"资格识别 + 备料</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">识别符合 Form 8846 抵免条件的员工，生成 CPA 备料表（公式 7.65% × 小费超额）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C12</span><span class="name">预测性合规风险评分</span><span class="pri pri-v3">3.0</span></div>
+    <div class="desc">基于历史数据预测下期可能出现的合规问题，红黄绿标识风险等级</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">C13</span><span class="name">50 州 + 城市级法规库</span><span class="pri pri-v3">3.0</span></div>
+    <div class="desc">由 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）维护，覆盖全美 50 州 + 主要城市 ordinance</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">D. 工资估算 & 计算引擎</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D01</span><span class="name">时薪 × 工时 + 联邦加班费 计算</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">基础工资估算（gross wage），标"草案 DRAFT"，非最终税务结论</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D02</span><span class="name">小费汇入工资单</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">Cash tips + Non-cash tips 自动汇入员工工资单，作为 earnings 类型</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D03</span><span class="name">Federal / FICA / 5 高优州税预扣（估算）</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">仅作参考估算，明确标注"非最终扣税"，需 会计师复核</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D04</span><span class="name">餐厅特色 deductions</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工餐 / 制服 / 押金 / 宿舍费等亚裔餐厅常见扣款项预设</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D05</span><span class="name">多岗位 + 多费率</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">单员工多 job 多 pay rate（如老板娘前台 $15 / 厨房 $20）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D06</span><span class="name">税前扣款（退休账户 401k / 医疗储蓄账户 HSA / 医保保费）</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">员工自愿税前扣款，接 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）处理</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D07</span><span class="name">Allocated Tips（IRS Form 8027 备料）</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">有 10+ 员工的餐饮雇主年度小费申报基础数据自动生成</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">D08</span><span class="name">最终薪资计算（伙伴执行）</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">由 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）（Check / Gusto）承担最终税务责任</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">E. 税务申报 & 支付</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E01</span><span class="name">给会计师的资料包导出（CSV / PDF）</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">付款清单 + 估算扣款明细 + audit log，给 CPA 直接用</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E02</span><span class="name">ADP / Gusto / QuickBooks 兼容导出</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">输出 4 种格式 payroll journal，方便客户切换或保留现有 CPA 工具</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E03</span><span class="name">线下发薪追踪</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">店长 / 会计标记"已发放"，员工签收确认，闭环留痕</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E04</span><span class="name">员工银行账户 + DD 授权收集</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">员工自助填写银行账号 + 路由号，签 直接转账授权书</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E05</span><span class="name">ACH 直接转账存款（伙伴执行）</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">接 Check / Gusto Embedded API，工资自动打款到员工账户</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E06</span><span class="name">正式员工年度工资表（W-2）/ 外包人员收入表（1099）自动生成 + 分发</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">年终税表由 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）生成，员工邮箱 / App 推送</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E07</span><span class="name">联邦 941 季度税表 / 940 失业税表 + 主要州税 电子申报</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">由伙伴执行联邦 + 主要州税务申报，Chowbus 不承担税务责任</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E08</span><span class="name">预付薪资卡 / 即时发薪（员工随时提取已工作部分）</span><span class="pri pri-v3">3.0</span></div>
+    <div class="desc">员工每班次结束可领取部分已工作工资（接第三方发卡机构）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">E09</span><span class="name">50 州 电子申报 / 电子缴税</span><span class="pri pri-v3">3.0</span></div>
+    <div class="desc">全美 50 州税务申报代缴，全栈 法律认可的薪资责任主体（Payroll of Record） 能力</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">F. 报表 & 员工自助</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">F01</span><span class="name">劳动力成本月度报告</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">人力成本占营收比例 + 同比环比，dashboard 形式</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">F02</span><span class="name">员工工资单历史自助查看</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工 App 内查看历史工资单、PTO 余额、税表（W-2 / 1099）</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">F03</span><span class="name">多门店对比 + 小费趋势分析</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">连锁集团总部视图，各门店人力成本 / 小费水平横向对比</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">F04</span><span class="name">中英双语工资单</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">员工可选语言查看 / 下载工资单，方便老一辈员工理解扣款明细</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">F05</span><span class="name">行业薪酬基准对比</span><span class="pri pri-v3">3.0</span></div>
+    <div class="desc">基于 Chowbus 客户群数据，提供亚裔餐厅薪酬基准（脱敏聚合）</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">G. 权限 & 多门店</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">G01</span><span class="name">4 角色权限体系</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">老板 / 经理 / 会计 / 员工 4 角色，权限按 RBAC 分离</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">G02</span><span class="name">第三方会计多客户管理</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">外部 CPA 一个账号管理多家餐厅客户，跨客户快速切换</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">G03</span><span class="name">多门店总部统一仪表盘</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">连锁集团总部一个视图看所有门店发薪状态 + 异常</div>
+  </div>
+</div>
+<div class="req-category">
+  <div class="req-cat-title">H. 客服 & 沟通</div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">H01</span><span class="name">中文客服 + 微信 / WhatsApp 渠道</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">把 Toast 最差的客服环节做到最好，亚裔老板对微信问问题接受度极高</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">H02</span><span class="name">透明计费 + 月度预估卡片</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">产品内显示"本月预估账单"，跑薪时显示"本次跑薪服务费"明细</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">H03</span><span class="name">多通道消息推送（微信 / SMS / 邮件）</span><span class="pri pri-v2">2.0</span></div>
+    <div class="desc">"明天发薪日，还有 3 张 timesheet 未审批" 推到微信 / SMS / 邮件</div>
+  </div>
+</div>
+</div>
+
+</div>
+</details>
+
+<!-- APPENDIX 1: SOURCES (collapsible) -->
+<details class="appendix-block">
+<summary>📚 知识来源 <span class="appendix-hint">点击展开 / 收起</span></summary>
+<div class="appendix-body">
 
 <div class="sources-grid">
 
@@ -1170,19 +2664,41 @@ section {
       <div><span class="source-tag tag-intern">内部数据</span></div>
     </div>
     <div class="source-item">
-      <div class="source-name">Gusto / Check.com API 文档</div>
-      <div class="source-desc">未来接入 Payroll Infrastructure 的技术可行性参考</div>
+      <div class="source-name">Toast Payroll 截图深度分析 (内部 v2)</div>
+      <div class="source-desc">基于 Toast 实际后台 6 页截图的功能拆解 + 公开 review 综合，是 v2 修订的主要交叉验证来源</div>
+      <div><span class="source-tag tag-comp">竞品分析</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">ADP RUN Getting Started Guide</div>
+      <div class="source-desc">19 模块工作流拆解（基于 ADP partner 版手册），借鉴的设计点见 §3 五大王牌</div>
+      <div><span class="source-tag tag-comp">竞品分析</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">Gusto Embedded Payroll 产品页 + API 文档</div>
+      <div class="source-desc">P2 候选伙伴评估对象之一；需评估餐饮 tip/tip pool 场景、责任划分、margin</div>
       <div><span class="source-tag tag-comp">技术参考</span></div>
     </div>
     <div class="source-item">
-      <div class="source-name">Symmetry / Payroll Tax API</div>
-      <div class="source-desc">第三方合规规则数据库，覆盖50州税率自动更新</div>
+      <div class="source-name">Check (checkhq.com) Payroll API 文档</div>
+      <div class="source-desc">P2 候选伙伴评估对象之一；中立 BaaS 选项，不与 Chowbus 形成竞争</div>
       <div><span class="source-tag tag-comp">技术参考</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">Symmetry / Vertex Payroll Tax API</div>
+      <div class="source-desc">第三方合规规则数据库，覆盖 50 州税率自动更新；按 Location 加载州法规包的候选数据源</div>
+      <div><span class="source-tag tag-comp">技术参考</span></div>
+    </div>
+    <div class="source-item">
+      <div class="source-name">外部 AI 交叉验证（GPT/Gemini 等）</div>
+      <div class="source-desc">v2 修订的核心反馈来源：MVP 范围降级、责任边界明确、Phase 2 partner-first 路径建议</div>
+      <div><span class="source-tag tag-user">外部交叉验证</span></div>
     </div>
   </div>
 
 </div>
 
+</div>
+</details>
 
 <!-- CLOSING -->
 <div style="margin-top: 48px; padding: 36px 40px; background: linear-gradient(160deg, #0a1628, #080d1a); border: 1px solid #1e293b; border-radius: 16px; text-align: center;">
@@ -1203,8 +2719,10 @@ section {
   <div style="font-size: 13px; color: #334155; margin-bottom: 6px; letter-spacing: 0.05em;">Thank you.</div>
   <div style="font-size: 15px; font-weight: 700; color: #64748b; letter-spacing: 0.08em;">Designed by &nbsp;Sisi Hu</div>
 </div>
+
 </div>
 </section>
+
 
 <script>
 // Scroll progress bar
@@ -1229,6 +2747,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
 
 sections.forEach(s => observer.observe(s));
+
 </script>
 
 </body>
