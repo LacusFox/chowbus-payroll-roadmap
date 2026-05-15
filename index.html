@@ -1585,16 +1585,22 @@ section {
         <div class="feat"><span class="b b2">2.0</span>多门店并行处理 + 总部视图 🏗️</div>
       </div>
       <div class="mcard">
+        <div class="mcard-title">🧮 薪资自动计算</div>
+        <div class="feat"><span class="b bm">MVP</span>时薪 × 工时 + 加班费 + 小费汇总，系统出草案 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>店长 / 会计可手动微调单条 · 复核签字 🏗️</div>
+        <div class="feat"><span class="b b2">2.0</span>最终扣税由专业薪资伙伴算（Gusto Embedded / Check）🤝</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📤 一键导出 · 对接下游</div>
+        <div class="feat"><span class="b bm">MVP</span>ADP RUN / QuickBooks / Gusto 三种格式 CSV 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>员工档案存 ADP File Number / Gusto Email / QB ID 🏗️</div>
+        <div class="feat"><span class="b bm">MVP</span>每种导出附 PDF 上传指引（会计 0 学习成本）🏗️</div>
+      </div>
+      <div class="mcard">
         <div class="mcard-title">📄 工资单 & 存档（4 渠道）</div>
         <div class="feat"><span class="b bm">MVP</span>Chowbus Go / 短信 / 邮件 / 微信（敏感数据不走小票）🏗️</div>
         <div class="feat"><span class="b bm">MVP</span>员工电子签收 + 时间戳存档 🏗️</div>
         <div class="feat"><span class="b b2">2.0</span>中英双语工资单 + PDF 自助下载 🏗️</div>
-      </div>
-      <div class="mcard">
-        <div class="mcard-title">🔐 权限 & 角色</div>
-        <div class="feat"><span class="b bm">MVP</span>老板 / 经理 / 会计 / 员工 4 角色权限 🏗️</div>
-        <div class="feat"><span class="b bm">MVP</span>完整操作审计日志（防纠纷）🏗️</div>
-        <div class="feat"><span class="b b2">2.0</span>第三方会计多客户账号 🏗️</div>
       </div>
     </div>
   </div>
@@ -2144,10 +2150,13 @@ section {
       </div>
 
       <div class="feat-group">
-        <div class="feat-group-title">📤 给会计师的资料包导出</div>
-        <div class="feat-item"><div class="dot"></div>付款清单 CSV + PDF（含估算扣款明细）</div>
-        <div class="feat-item"><div class="dot"></div>ADP / Gusto / QuickBooks 兼容格式导出</div>
-        <div class="feat-item"><div class="dot"></div>完整 audit log + 时间戳存档（防纠纷）</div>
+        <div class="feat-group-title">📤 一键导出 · 对接 3 大薪资系统</div>
+        <div class="feat-item"><div class="dot"></div>ADP RUN Pay Data Import 模板（CSV，含 Pay Code）</div>
+        <div class="feat-item"><div class="dot"></div>QuickBooks Time / QBO Payroll 兼容格式</div>
+        <div class="feat-item"><div class="dot"></div>Gusto Time Tracking 兼容格式</div>
+        <div class="feat-item"><div class="dot"></div>员工档案存 ADP File Number / Gusto Email / QB ID（A07）</div>
+        <div class="feat-item"><div class="dot"></div>每种导出附 PDF 上传指引（给会计直接用）</div>
+        <div class="feat-item"><div class="dot"></div>付款清单 + 完整审计日志（防纠纷）</div>
       </div>
 
       <div class="phase-outcome">
@@ -2432,19 +2441,23 @@ section {
     <div class="desc">入职完成 → 自动生成 POS 工号、Chowbus Go 账号、权限，员工 Day-1 上岗</div>
   </div>
   <div class="req-item">
-    <div class="req-head"><span class="idx">A07</span><span class="name">离职 离职流程</span><span class="pri pri-v2">2.0</span></div>
+    <div class="req-head"><span class="idx">A07</span><span class="name">外部薪资系统员工 ID 映射</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">员工档案里加 3 个可选字段：ADP File Number / Gusto Email / QuickBooks Employee ID。导出工时 / 工资 CSV 时自动用对应 ID，会计 / 老板上传到下游系统 0 修改</div>
+  </div>
+  <div class="req-item">
+    <div class="req-head"><span class="idx">A08</span><span class="name">离职 Off-boarding 流程</span><span class="pri pri-v2">2.0</span></div>
     <div class="desc">停薪 → 清退权限 → 末次薪资 → 离职证明，全链路记录留痕</div>
   </div>
   <div class="req-item">
-    <div class="req-head"><span class="idx">A08</span><span class="name">E-Verify 雇佣资格核验</span><span class="pri pri-v2">2.0</span></div>
+    <div class="req-head"><span class="idx">A09</span><span class="name">E-Verify 雇佣资格核验</span><span class="pri pri-v2">2.0</span></div>
     <div class="desc">对接联邦 E-Verify API，员工 I-9 信息提交后自动核验合法工作权</div>
   </div>
   <div class="req-item">
-    <div class="req-head"><span class="idx">A09</span><span class="name">新员工政府备案 自动提交</span><span class="pri pri-v2">2.0</span></div>
+    <div class="req-head"><span class="idx">A10</span><span class="name">新员工政府备案 自动提交</span><span class="pri pri-v2">2.0</span></div>
     <div class="desc">新员工州级强制报告（NY/CA/TX/IL/MA 5 高优州）自动生成并提交</div>
   </div>
   <div class="req-item">
-    <div class="req-head"><span class="idx">A10</span><span class="name">50 州 新员工政府备案</span><span class="pri pri-v3">3.0</span></div>
+    <div class="req-head"><span class="idx">A11</span><span class="name">50 州 新员工政府备案</span><span class="pri pri-v3">3.0</span></div>
     <div class="desc">覆盖全部 50 州的新员工报告自动提交，由 嵌入式薪资合作方（Gusto Embedded / Check 这类专业薪资公司）执行</div>
   </div>
 </div>
@@ -2596,8 +2609,8 @@ section {
     <div class="desc">付款清单 + 估算扣款明细 + audit log，给 CPA 直接用</div>
   </div>
   <div class="req-item">
-    <div class="req-head"><span class="idx">E02</span><span class="name">ADP / Gusto / QuickBooks 兼容导出</span><span class="pri pri-mvp">MVP</span></div>
-    <div class="desc">输出 4 种格式 payroll journal，方便客户切换或保留现有 CPA 工具</div>
+    <div class="req-head"><span class="idx">E02</span><span class="name">ADP / QuickBooks / Gusto 兼容导出（一键 CSV）</span><span class="pri pri-mvp">MVP</span></div>
+    <div class="desc">针对 ADP RUN Pay Data Import / QuickBooks Time / Gusto Time Tracking 三种主流格式，自动生成对应 CSV + 上传指引 PDF。会计 / 老板下载后直接喂给薪资系统，无需手工 reformat。配合 A07 员工 ID 映射，整套 0 修改</div>
   </div>
   <div class="req-item">
     <div class="req-head"><span class="idx">E03</span><span class="name">线下发薪追踪</span><span class="pri pri-mvp">MVP</span></div>
